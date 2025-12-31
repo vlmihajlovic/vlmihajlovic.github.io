@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="sr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="BG prevoz - linije i redovi voznje javnog prevoza u Beogradu.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>BG prevoz - detalji</title>
+  <style>
+    :root {
+      --bg: #050a19;
+      --card: rgba(255,255,255,0.06);
+      --stroke: rgba(255,255,255,0.12);
+      --muted: #a5adbd;
+      --text: #eef2f6;
+      --orange: #ff7a00;
+      --orange-2: #f25f00;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at 15% 20%, rgba(255, 122, 0, 0.14), transparent 32%),
+                  radial-gradient(circle at 85% -5%, rgba(255, 255, 255, 0.08), transparent 34%),
+                  var(--bg);
+      color: var(--text);
+      font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 38px 20px 90px;
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--stroke);
+    }
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      position: relative;
+    }
+    .back::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 2px;
+      background: rgba(255,255,255,0.35);
+      transform: scaleX(0.6);
+      transform-origin: left;
+      transition: transform 0.15s ease;
+    }
+    .back:hover::after { transform: scaleX(1); }
+    .hero {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 22px;
+      padding: 22px 0 12px;
+      align-items: center;
+    }
+    .icon-wrap {
+      width: 110px;
+      height: 110px;
+      border-radius: 26px;
+      overflow: hidden;
+      border: 1px solid var(--stroke);
+      background: #0f172a;
+      box-shadow: 0 18px 42px rgba(0,0,0,0.35);
+    }
+    .icon-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(32px, 5vw, 46px);
+      line-height: 1.1;
+    }
+    .lede { margin: 0 0 12px; color: var(--muted); }
+    .badges { display: flex; gap: 10px; flex-wrap: wrap; margin: 6px 0 8px; }
+    .pill {
+      background: rgba(255,122,0,0.14);
+      color: #ffd6b1;
+      border: 1px solid rgba(255,122,0,0.35);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: 0.25px;
+      font-size: 13px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--orange), var(--orange-2));
+      color: #050a19;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      margin-top: 12px;
+      box-shadow: 0 14px 28px rgba(255,122,0,0.4);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .btn:hover { transform: translateY(-1px) scale(1.01); box-shadow: 0 16px 32px rgba(255,122,0,0.5); }
+    .cta-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 0;
+    }
+    .cta-row .btn { margin-top: 0; }
+    .section {
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      border-radius: 18px;
+      padding: 18px;
+      margin-top: 18px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+      backdrop-filter: blur(10px);
+    }
+    .section h2 { margin: 0 0 10px; }
+    .screen-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .screen-grid img {
+      width: 100%;
+      display: block;
+      border-radius: 14px;
+      border: 1px solid var(--stroke);
+      background: #0f172a;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .stat {
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.03);
+      color: #dfe4ee;
+      font-weight: 700;
+    }
+    ul {
+      padding-left: 18px;
+      margin: 8px 0 0;
+      color: var(--muted);
+    }
+    .link-row { margin-top: 12px; }
+    .ghost {
+      border: 1px solid var(--stroke);
+      padding: 11px 14px;
+      border-radius: 12px;
+      font-weight: 700;
+      color: var(--text);
+      background: rgba(255,255,255,0.02);
+      transition: border-color 0.15s ease;
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .ghost:hover { border-color: rgba(255,122,0,0.5); }
+    @media (max-width: 640px) {
+      .hero { grid-template-columns: 1fr; gap: 12px; }
+      .icon-wrap { width: 90px; height: 90px; }
+      .cta-row { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="back" href="../index.html"><- Nazad na sve aplikacije</a>
+      <div class="pill">Android</div>
+    </div>
+
+    <section class="hero">
+      <div class="icon-wrap">
+        <img src="https://play-lh.googleusercontent.com/_UswpJqVC8_1dWdTMeE3-krmDQi7wFl_KRQ8M8VY7iBJDlwtDI5e2GqE8MbgWGLwyg" alt="BG prevoz ikonica">
+      </div>
+      <div>
+        <h1>BG prevoz</h1>
+        <p class="lede">Lista linija i redova voznje javnog prevoza za grad Beograd.</p>
+        <div class="badges">
+          <span class="pill">Ocena 4.5/5</span>
+          <span class="pill">Android</span>
+        </div>
+      </div>
+      <div class="cta-row">
+        <a class="btn" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=dev.mihajlovic.bgprevoz&hl=sr&gl=RS">Preuzmi na Play Store</a>
+      </div>
+    </section>
+
+    <div class="section">
+      <h2>Screenshots</h2>
+      <div class="screen-grid">
+        <img src="https://play-lh.googleusercontent.com/fP9zrdPeAfefRpvKB0WFy70w0ekGfMDU2B-MGBbF_44cR-nrw6t5IoTkYn8Kt8yktK5s=w1052-h592" alt="BG prevoz screenshot 1">
+        <img src="https://play-lh.googleusercontent.com/R2-hTLrk-BL_8m_OeVgxUV3yvJMWdA3I3FOSV_dM0_XYNI7OKHsSzW3tCr7-DucJ1Zs=w1052-h592" alt="BG prevoz screenshot 2">
+        <img src="https://play-lh.googleusercontent.com/U7yx9p8hKL8MAwtC3FyvOJTIv8bPKhWrmMpgUg7IwcbhramTKNzrmAw7CyPwaLS9R58=w1052-h592" alt="BG prevoz screenshot 3">
+        <img src="https://play-lh.googleusercontent.com/6ODg6EOaOcK9xHU4-m5c71sYJGknr97rguLE5iHgIQv5JvDRDSh9KGSSGQv-6sHNgw=w1052-h592" alt="BG prevoz screenshot 4">
+        <img src="https://play-lh.googleusercontent.com/QHgveZ2kf78m9EAfjRE763MYlaTDRpc1zzjioL7c8HU1S5ngteYTWN4r3Ex0Spx751YJ=w1052-h592" alt="BG prevoz screenshot 5">
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Opis aplikacije</h2>
+      <p style="margin:0 0 10px; color: var(--muted);">Aplikacija prikazuje spisak linija i red voznje javnog gradskog prevoza za grad Beograd. Dostupni su podaci za sve linije gradskog i prigradskog prevoza. Za svaku liniju su dostupni red voznje i spisak stanica sa procenjenim vremenom dolaska. Podaci se prikazuju na mapi. Moguce je snimiti najcesce koriscene linije. Podrzani su sledeci tipovi linija:</p>
+      <ul style="margin:0 0 10px; color: var(--muted);">
+        <li>autobuske linije</li>
+        <li>tramvajske linije</li>
+        <li>trolejbuske linije</li>
+        <li>elektro-bus</li>
+        <li>minibus linije</li>
+        <li>BG voz</li>
+        <li>SOKO voz</li>
+        <li>nocne linije</li>
+      </ul>
+      <p style="margin:0 0 10px; color: var(--muted);">Od svih podataka koji se prikazuju, jedino se spisak linija cuva lokalno u aplikaciji. Taj spisak je, u podesavanjima aplikacije, moguce azurirati u bilo kom trenutku.</p>
+      <p style="margin:0 0 8px; color: var(--muted); font-weight:700;">KARAKTERISTIKE:</p>
+      <ul style="margin:0 0 10px; color: var(--muted);">
+        <li>spisak linija - sve gradske i prigradske linije koje su trenutno aktivne u opstini Beograd</li>
+        <li>omiljene linije - na pocetnom ekranu moguce je snimiti omiljene ili najcesce koriscene linije radi kasnijeg lakseg pristupa</li>
+        <li>spisak stanica sa kodovima - za svaku liniju se prikazuje spisak stanica sa kodovima, odvojeno za oba smera</li>
+        <li>omiljene stanice - u detaljima linije moguce je odabrati omiljene ili najcesce koriscene stanice. Za svaku odabranu stanicu prikazuju se tri naredna procenjena vremena dolaska vozila na datu stanicu. Vreme dolaska se procenjuje na osnovu vremena polaska sa pocetne i vremena potrebnog da dodje do date stanice</li>
+        <li>izmene na linijama - spisak aktuelnih izmena na svim linijama, sa linkom do detalja izmene</li>
+      </ul>
+      <p style="margin:0 0 10px; color: var(--muted);">Aplikacija podrzava tamnu i svetlu temu. Na onim telefonima ciji operativni sistem podrzava teme, aplikacija se automatski prilagodjava temi telefona. Na ostalim uredjajima, u delu za podesavanje aplikacije, moguce je rucno izabrati zeljenu temu.</p>
+      <p style="margin:0; color: var(--muted); font-weight:700;">NAPOMENA: Podaci nisu dostupni ukoliko mobilni uredjaj nije prikljucen na internet mrezu.</p>
+    </div>
+
+  </div>
+</body>
+</html>

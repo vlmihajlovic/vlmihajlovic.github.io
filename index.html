@@ -1,3 +1,324 @@
-<html>
-    <h1>Vladimir</h1>
+<!doctype html>
+<html lang="sr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Pregled Android aplikacija Vladimira Mihajlovica.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Portfolio aplikacija</title>
+  <style>
+    :root {
+      --bg: #050a19;
+      --card: rgba(255,255,255,0.06);
+      --stroke: rgba(255,255,255,0.12);
+      --muted: #a5adbd;
+      --text: #eef2f6;
+      --orange: #ff7a00;
+      --orange-2: #f25f00;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at 20% 20%, rgba(255, 122, 0, 0.12), transparent 28%),
+                  radial-gradient(circle at 90% 0%, rgba(255, 255, 255, 0.07), transparent 30%),
+                  var(--bg);
+      color: var(--text);
+      font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 38px 20px 90px;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--stroke);
+    }
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-bullet {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--orange), var(--orange-2));
+      box-shadow: 0 0 16px rgba(255,122,0,0.6);
+    }
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .pill {
+      background: rgba(255,122,0,0.14);
+      color: #ffd6b1;
+      border: 1px solid rgba(255,122,0,0.35);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: 0.25px;
+      font-size: 13px;
+    }
+    .intro {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 18px;
+      align-items: center;
+      margin: 26px 0 12px;
+    }
+    .page-title {
+      margin: 0 0 12px;
+      font-size: clamp(30px, 4vw, 42px);
+      line-height: 1.1;
+    }
+    .page-subtitle {
+      margin: 0;
+      color: var(--muted);
+      max-width: 720px;
+      font-size: 16px;
+    }
+    .visual-card {
+      position: relative;
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: 0 20px 48px rgba(0,0,0,0.35);
+      overflow: hidden;
+      min-height: 200px;
+      backdrop-filter: blur(10px);
+    }
+    .visual-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 80% 10%, rgba(255,122,0,0.25), transparent 45%);
+      pointer-events: none;
+    }
+    .visual-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,122,0,0.16);
+      color: #ffd6b1;
+      border: 1px solid rgba(255,122,0,0.4);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.2px;
+    }
+    .visual-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(80px, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .visual-tile {
+      padding: 12px 10px;
+      border-radius: 14px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.04);
+      color: #dfe4ee;
+      font-weight: 700;
+      text-align: center;
+      font-size: 13px;
+    }
+    .visual-tile.accent {
+      background: rgba(255,122,0,0.16);
+      border-color: rgba(255,122,0,0.4);
+      color: #ffd6b1;
+    }
+    .visual-tile.icon {
+      padding: 0;
+      overflow: hidden;
+      background: #0f172a;
+      display: grid;
+      place-items: center;
+    }
+    .visual-tile.icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .btn {
+      background: linear-gradient(135deg, var(--orange), var(--orange-2));
+      color: #050a19;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      box-shadow: 0 12px 24px rgba(255,122,0,0.35);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .btn:hover { transform: translateY(-1px) scale(1.01); box-shadow: 0 16px 28px rgba(255,122,0,0.45); }
+    .ghost {
+      border: 1px solid var(--stroke);
+      padding: 12px 14px;
+      border-radius: 12px;
+      font-weight: 700;
+      color: var(--text);
+      background: rgba(255,255,255,0.02);
+      transition: border-color 0.15s ease;
+    }
+    .ghost:hover { border-color: rgba(255,122,0,0.5); }
+    .app-list {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 18px;
+    }
+    .app-card {
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      border-radius: 16px;
+      padding: 18px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.28);
+    }
+    .app-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(145deg, rgba(255,122,0,0.12), transparent 45%);
+      pointer-events: none;
+    }
+    .app-card .thumb {
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--stroke);
+      background: #0f172a;
+    }
+    .app-card .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .app-card h3 {
+      margin: 0;
+      line-height: 1;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+    }
+    .app-card p { margin: 2px 0 8px; color: var(--muted); }
+    .title-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .tag {
+      font-size: 13px;
+      padding: 5px 10px;
+      line-height: 1;
+      border-radius: 10px;
+      border: 1px solid var(--stroke);
+      color: #dfe4ee;
+      background: rgba(255,255,255,0.04);
+      display: inline-flex;
+      align-items: center;
+    }
+    .card-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .card-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+    .btn.compact { padding: 10px 12px; border-radius: 10px; }
+    footer {
+      margin-top: 46px;
+      color: var(--muted);
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      border-top: 1px solid var(--stroke);
+      padding-top: 14px;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 640px) {
+      .app-card { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="logo"><span class="logo-bullet"></span> Vladimir Mihajlovic</div>
+      <div class="nav-links">
+        <span class="pill">Android</span>
+        <span class="pill">Play Store</span>
+      </div>
+    </div>
+
+    <div class="intro">
+      <div class="intro-copy">
+        <h1 class="page-title">Mobilne aplikacije</h1>
+        <p class="page-subtitle">Pregled svih dostupnih aplikacija na store-ovima, sa kratkim opisom, ocenom i linkovima ka detaljima i preuzimanju.</p>
+      </div>
+      <div class="visual-card">
+        <div class="visual-badge">App Store & Play</div>
+        <div class="visual-grid">
+          <div class="visual-tile accent">iOS</div>
+          <div class="visual-tile icon">
+            <img src="https://play-lh.googleusercontent.com/_UswpJqVC8_1dWdTMeE3-krmDQi7wFl_KRQ8M8VY7iBJDlwtDI5e2GqE8MbgWGLwyg" alt="Ikonica aplikacije">
+          </div>
+          <div class="visual-tile accent">Android</div>
+          <div class="visual-tile">Widgeti</div>
+          <div class="visual-tile accent">Mape</div>
+          <div class="visual-tile">Notifikacije</div>
+        </div>
+      </div>
+    </div>
+
+    <section class="app-list" id="apps">
+      <article class="app-card">
+        <div class="thumb">
+          <img src="https://play-lh.googleusercontent.com/_UswpJqVC8_1dWdTMeE3-krmDQi7wFl_KRQ8M8VY7iBJDlwtDI5e2GqE8MbgWGLwyg" alt="BG prevoz ikonica">
+        </div>
+        <div>
+          <div class="card-top">
+            <div class="title-row">
+              <h3>BG prevoz</h3>
+              <span class="tag">Ocena 4.5/5</span>
+              <span class="tag">Android</span>
+            </div>
+            <a class="btn compact" href="apps/bg-prevoz.html">Detalji</a>
+          </div>
+          <p>Lista linija i redova voznje javnog prevoza za grad Beograd.</p>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      <div>Kontakt: <a class="ghost" href="mailto:vladimirmihajlovic91@gmail.com">vladimirmihajlovic91@gmail.com</a></div>
+      <div>Priprema za dvojezicnu (SR/EN) verziju uskoro.</div>
+    </footer>
+  </div>
+</body>
 </html>
