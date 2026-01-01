@@ -46,30 +46,88 @@
     .back {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       font-weight: 700;
       position: relative;
+      padding: 10px 14px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      border: 1px solid var(--stroke);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.24);
+      letter-spacing: 0.2px;
+      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
     }
-    .back::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -2px;
-      width: 100%;
-      height: 2px;
-      background: rgba(255,255,255,0.35);
-      transform: scaleX(0.6);
-      transform-origin: left;
-      transition: transform 0.15s ease;
+    .back:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255,122,0,0.5);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.3);
     }
-    .back:hover::after { transform: scaleX(1); }
+    .back .arrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(255,122,0,0.28), rgba(255,122,0,0.08));
+      border: 1px solid rgba(255,122,0,0.45);
+      color: #ffd6b1;
+      font-size: 14px;
+      line-height: 1;
+      box-shadow: 0 8px 18px rgba(255,122,0,0.25);
+    }
+    .info-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 12px;
+      margin-top: 10px;
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .info-pill {
+      padding: 6px 10px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--stroke);
+      display: inline-flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .info-pill strong { color: var(--text); font-size: 14px; }
     .hero {
+      position: relative;
+      background: linear-gradient(120deg, rgba(255,122,0,0.09), rgba(255,255,255,0.03));
+      border: 1px solid var(--stroke);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 28px 70px rgba(0,0,0,0.35);
       display: grid;
       grid-template-columns: auto 1fr auto;
       gap: 22px;
-      padding: 22px 0 12px;
-      align-items: center;
+      margin-top: 18px;
+      align-items: start;
+      overflow: hidden;
     }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -30% 55% 50% -10%;
+      background: radial-gradient(circle, rgba(255,122,0,0.25), transparent 45%);
+      filter: blur(10px);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 40% -20% -40% 55%;
+      background: radial-gradient(circle, rgba(255,255,255,0.13), transparent 45%);
+      filter: blur(10px);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+    .hero > * { position: relative; z-index: 1; }
     .icon-wrap {
       width: 110px;
       height: 110px;
@@ -85,6 +143,14 @@
       font-size: clamp(32px, 5vw, 46px);
       line-height: 1.1;
     }
+    .eyebrow {
+      margin: 0 0 6px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: rgba(255,255,255,0.7);
+      font-weight: 700;
+    }
     .lede { margin: 0 0 12px; color: var(--muted); }
     .badges { display: flex; gap: 10px; flex-wrap: wrap; margin: 6px 0 8px; }
     .pill {
@@ -98,26 +164,87 @@
       font-size: 13px;
     }
     .btn {
+      position: relative;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: linear-gradient(135deg, var(--orange), var(--orange-2));
+      gap: 10px;
+      background: linear-gradient(135deg, #ff9a3c, #f25f00);
       color: #050a19;
-      padding: 12px 16px;
-      border-radius: 12px;
+      padding: 12px 18px;
+      border-radius: 14px;
       font-weight: 700;
       margin-top: 12px;
-      box-shadow: 0 14px 28px rgba(255,122,0,0.4);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      letter-spacing: 0.2px;
+      box-shadow: 0 16px 40px rgba(255,122,0,0.45), 0 0 0 1px rgba(255,255,255,0.08) inset;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      overflow: hidden;
     }
-    .btn:hover { transform: translateY(-1px) scale(1.01); box-shadow: 0 16px 32px rgba(255,122,0,0.5); }
-    .cta-row {
-      display: flex;
-      justify-content: center;
+    .btn::before {
+      content: "";
+      position: absolute;
+      inset: -60% -40% auto;
+      height: 200%;
+      background: linear-gradient(120deg, rgba(255,255,255,0.25), rgba(255,255,255,0));
+      transform: translateX(-30%) rotate(8deg);
+      transition: transform 0.4s ease;
+    }
+    .btn span {
+      position: relative;
+      z-index: 1;
+    }
+    .btn:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 20px 48px rgba(255,122,0,0.6), 0 0 0 1px rgba(255,255,255,0.12) inset;
+    }
+    .btn:hover::before { transform: translateX(10%) rotate(8deg); }
+    .store-badge {
+      display: inline-flex;
       align-items: center;
-      margin-top: 0;
+      justify-content: center;
+      margin-top: 2px;
+      width: 190px;
+      height: 56px;
     }
-    .cta-row .btn { margin-top: 0; }
+    .store-badge img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+      object-fit: contain;
+      transition: transform 0.15s ease;
+    }
+    .store-badge.app-store img { max-width: 90%; }
+    .store-badge:hover img {
+      transform: translateY(-1px) scale(1.01);
+    }
+    .cta-col {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      padding: 0;
+      align-self: center;
+    }
+    .store-stack {
+      display: grid;
+      gap: 4px;
+      align-content: start;
+      justify-items: start;
+    }
+    .qr-hero {
+      width: 120px;
+      height: 120px;
+      display: grid;
+      place-items: center;
+      background: #0f172a;
+      border-radius: 12px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.22);
+      padding: 8px;
+    }
+    .qr-hero img { width: 100%; height: 100%; display: block; }
     .section {
       background: var(--card);
       border: 1px solid var(--stroke);
@@ -161,6 +288,45 @@
       margin: 8px 0 0;
       color: var(--muted);
     }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .feature-card {
+      padding: 12px 12px 10px;
+      border-radius: 14px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.03);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.22);
+    }
+    .feature-card h3 {
+      margin: 0 0 6px;
+      font-size: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .feature-card h3 .feature-icon {
+      font-size: 16px;
+      color: #ffd6b1;
+    }
+    .feature-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+    .body-text {
+      margin: 0 0 10px;
+      color: var(--muted);
+    }
+    .body-text.strong { font-weight: 700; }
+    .body-text.tight { margin-bottom: 0; }
+    .body-list {
+      margin: 0 0 10px;
+      color: var(--muted);
+      padding-left: 18px;
+    }
     .link-row { margin-top: 12px; }
     .ghost {
       border: 1px solid var(--stroke);
@@ -175,18 +341,55 @@
       align-items: center;
     }
     .ghost:hover { border-color: rgba(255,122,0,0.5); }
+    .sticky-cta { display: none; }
+    .sticky-cta .copy { display: grid; gap: 2px; }
+    .sticky-cta .copy strong {
+      color: var(--text);
+      font-size: 15px;
+      letter-spacing: 0.2px;
+    }
+    .sticky-cta .copy span {
+      color: rgba(255,255,255,0.7);
+      font-size: 13px;
+    }
     @media (max-width: 640px) {
-      .hero { grid-template-columns: 1fr; gap: 12px; }
+      .hero { grid-template-columns: 1fr; gap: 14px; padding: 18px; }
+      .cta-col { justify-content: flex-start; }
       .icon-wrap { width: 90px; height: 90px; }
-      .cta-row { justify-content: flex-start; }
+      .sticky-cta {
+        display: flex;
+        position: fixed;
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        padding: 10px 12px;
+        background: rgba(5,10,25,0.92);
+        border: 1px solid var(--stroke);
+        border-radius: 14px;
+        box-shadow: 0 18px 38px rgba(0,0,0,0.55);
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        backdrop-filter: blur(8px);
+      }
+      .sticky-cta .badge-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .sticky-cta .store-badge {
+        margin-top: 0;
+        width: 170px;
+        height: 50px;
+      }
+      .sticky-cta .store-badge.app-store img { max-width: 88%; }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
     <div class="topbar">
-      <a class="back" href="../index.html"><- Nazad na sve aplikacije</a>
-      <div class="pill">Android</div>
+      <a class="back" href="../index.html"><span class="arrow">←</span><span>Nazad na pocetnu</span></a>
     </div>
 
     <section class="hero">
@@ -194,17 +397,50 @@
         <img src="https://play-lh.googleusercontent.com/_UswpJqVC8_1dWdTMeE3-krmDQi7wFl_KRQ8M8VY7iBJDlwtDI5e2GqE8MbgWGLwyg" alt="BG prevoz ikonica">
       </div>
       <div>
+        <p class="eyebrow">Gradski prevoz / Android</p>
         <h1>BG prevoz</h1>
         <p class="lede">Lista linija i redova voznje javnog prevoza za grad Beograd.</p>
-        <div class="badges">
-          <span class="pill">Ocena 4.5/5</span>
-          <span class="pill">Android</span>
+      </div>
+      <div class="cta-col">
+        <div class="qr-hero">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https%3A%2F%2Fvlmihajlovic.github.io%2Fapps%2Fstore-redirect.html%3Fandroid%3Dhttps%253A%252F%252Fplay.google.com%252Fstore%252Fapps%253Fid%253Ddev.mihajlovic.bgprevoz%2526hl%253Dsr%2526gl%253DRS%26ios%3Dhttps%253A%252F%252Fapps.apple.com%252Fus%252Fapp%252Fbg-prevoz%252Fid1535332724" alt="QR kod BG prevoz">
+        </div>
+        <div class="store-stack">
+          <a class="store-badge" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=dev.mihajlovic.bgprevoz&hl=sr&gl=RS">
+            <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
+          </a>
+          <a class="store-badge app-store" target="_blank" rel="noopener" href="https://apps.apple.com/us/app/bg-prevoz/id1535332724">
+            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&releaseDate=1602460800" alt="Download on the App Store">
+          </a>
         </div>
       </div>
-      <div class="cta-row">
-        <a class="btn" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=dev.mihajlovic.bgprevoz&hl=sr&gl=RS">Preuzmi na Play Store</a>
-      </div>
     </section>
+
+    <div class="info-row">
+      <span class="info-pill"><strong>Platforme:</strong> Android · iOS</span>
+      <span class="info-pill"><strong>Ocena:</strong> 4.5/5</span>
+      <span class="info-pill"><strong>Veličina:</strong> ~12 MB</span>
+      <span class="info-pill"><strong>Verzija:</strong> 1.3.0</span>
+      <span class="info-pill"><strong>Ažurirano:</strong> jun 2024</span>
+    </div>
+
+    <div class="section">
+      <h2>Sta dobijate u aplikaciji</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3><span class="feature-icon">🗺️</span>Linije i stanice na mapi</h3>
+          <p>Redovi voznje i spisak stanica za gradske i prigradske linije uz prikaz na mapi.</p>
+        </div>
+        <div class="feature-card">
+          <h3><span class="feature-icon">⭐</span>Omiljene precice</h3>
+          <p>Snimi omiljene linije ili stanice radi brzeg pristupa i procenjenih vremena dolaska.</p>
+        </div>
+        <div class="feature-card">
+          <h3><span class="feature-icon">⬇️</span>Offline lista linija</h3>
+          <p>Spisak linija se cuva lokalno i moze da se azurira kada ti odgovara.</p>
+        </div>
+      </div>
+    </div>
 
     <div class="section">
       <h2>Screenshots</h2>
@@ -219,8 +455,8 @@
 
     <div class="section">
       <h2>Opis aplikacije</h2>
-      <p style="margin:0 0 10px; color: var(--muted);">Aplikacija prikazuje spisak linija i red voznje javnog gradskog prevoza za grad Beograd. Dostupni su podaci za sve linije gradskog i prigradskog prevoza. Za svaku liniju su dostupni red voznje i spisak stanica sa procenjenim vremenom dolaska. Podaci se prikazuju na mapi. Moguce je snimiti najcesce koriscene linije. Podrzani su sledeci tipovi linija:</p>
-      <ul style="margin:0 0 10px; color: var(--muted);">
+      <p class="body-text">Aplikacija prikazuje spisak linija i red voznje javnog gradskog prevoza za grad Beograd. Dostupni su podaci za sve linije gradskog i prigradskog prevoza. Za svaku liniju su dostupni red voznje i spisak stanica sa procenjenim vremenom dolaska. Podaci se prikazuju na mapi. Moguce je snimiti najcesce koriscene linije. Podrzani su sledeci tipovi linija:</p>
+      <ul class="body-list">
         <li>autobuske linije</li>
         <li>tramvajske linije</li>
         <li>trolejbuske linije</li>
@@ -230,19 +466,33 @@
         <li>SOKO voz</li>
         <li>nocne linije</li>
       </ul>
-      <p style="margin:0 0 10px; color: var(--muted);">Od svih podataka koji se prikazuju, jedino se spisak linija cuva lokalno u aplikaciji. Taj spisak je, u podesavanjima aplikacije, moguce azurirati u bilo kom trenutku.</p>
-      <p style="margin:0 0 8px; color: var(--muted); font-weight:700;">KARAKTERISTIKE:</p>
-      <ul style="margin:0 0 10px; color: var(--muted);">
+      <p class="body-text">Od svih podataka koji se prikazuju, jedino se spisak linija cuva lokalno u aplikaciji. Taj spisak je, u podesavanjima aplikacije, moguce azurirati u bilo kom trenutku.</p>
+      <p class="body-text strong">KARAKTERISTIKE:</p>
+      <ul class="body-list">
         <li>spisak linija - sve gradske i prigradske linije koje su trenutno aktivne u opstini Beograd</li>
         <li>omiljene linije - na pocetnom ekranu moguce je snimiti omiljene ili najcesce koriscene linije radi kasnijeg lakseg pristupa</li>
         <li>spisak stanica sa kodovima - za svaku liniju se prikazuje spisak stanica sa kodovima, odvojeno za oba smera</li>
         <li>omiljene stanice - u detaljima linije moguce je odabrati omiljene ili najcesce koriscene stanice. Za svaku odabranu stanicu prikazuju se tri naredna procenjena vremena dolaska vozila na datu stanicu. Vreme dolaska se procenjuje na osnovu vremena polaska sa pocetne i vremena potrebnog da dodje do date stanice</li>
         <li>izmene na linijama - spisak aktuelnih izmena na svim linijama, sa linkom do detalja izmene</li>
       </ul>
-      <p style="margin:0 0 10px; color: var(--muted);">Aplikacija podrzava tamnu i svetlu temu. Na onim telefonima ciji operativni sistem podrzava teme, aplikacija se automatski prilagodjava temi telefona. Na ostalim uredjajima, u delu za podesavanje aplikacije, moguce je rucno izabrati zeljenu temu.</p>
-      <p style="margin:0; color: var(--muted); font-weight:700;">NAPOMENA: Podaci nisu dostupni ukoliko mobilni uredjaj nije prikljucen na internet mrezu.</p>
+      <p class="body-text">Aplikacija podrzava tamnu i svetlu temu. Na onim telefonima ciji operativni sistem podrzava teme, aplikacija se automatski prilagodjava temi telefona. Na ostalim uredjajima, u delu za podesavanje aplikacije, moguce je rucno izabrati zeljenu temu.</p>
+      <p class="body-text strong tight">NAPOMENA: Podaci nisu dostupni ukoliko mobilni uredjaj nije prikljucen na internet mrezu.</p>
     </div>
 
+  </div>
+  <div class="sticky-cta">
+    <div class="copy">
+      <strong>BG prevoz</strong>
+      <span>Redovi voznje i stanice</span>
+    </div>
+    <div class="badge-row">
+      <a class="store-badge" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=dev.mihajlovic.bgprevoz&hl=sr&gl=RS">
+        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
+      </a>
+      <a class="store-badge" target="_blank" rel="noopener" href="https://apps.apple.com/us/app/bg-prevoz/id1535332724">
+        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&releaseDate=1602460800" alt="Download on the App Store">
+      </a>
+    </div>
   </div>
 </body>
 </html>
