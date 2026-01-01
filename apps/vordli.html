@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="sr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Pogodi reč - dnevna igra pogađanja reči na srpskom.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Pogodi reč - detalji</title>
+  <style>
+    :root { --bg:#050a19; --card:rgba(255,255,255,0.06); --stroke:rgba(255,255,255,0.12); --muted:#a5adbd; --text:#eef2f6; --orange:#ff7a00; --orange-2:#f25f00; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:radial-gradient(circle at 15% 20%, rgba(255,122,0,0.14), transparent 32%), radial-gradient(circle at 85% -5%, rgba(255,255,255,0.08), transparent 34%), var(--bg); color:var(--text); font-family:"Space Grotesk",system-ui,-apple-system,sans-serif; min-height:100vh; line-height:1.6; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 38px 20px 90px; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--stroke); }
+    .back { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; position: relative; padding: 10px 14px; border-radius: 14px; background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); border: 1px solid var(--stroke); box-shadow: 0 12px 28px rgba(0,0,0,0.24); letter-spacing: 0.2px; transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease; }
+    .back:hover { transform: translateY(-1px); border-color: rgba(255,122,0,0.5); box-shadow: 0 16px 36px rgba(0,0,0,0.3); }
+    .back .arrow { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 999px; background: linear-gradient(135deg, rgba(255,122,0,0.28), rgba(255,122,0,0.08)); border: 1px solid rgba(255,122,0,0.45); color: #ffd6b1; font-size: 14px; line-height: 1; box-shadow: 0 8px 18px rgba(255,122,0,0.25); }
+    .hero { position: relative; background: linear-gradient(120deg, rgba(255,122,0,0.09), rgba(255,255,255,0.03)); border: 1px solid var(--stroke); border-radius: 20px; padding: 24px; box-shadow: 0 28px 70px rgba(0,0,0,0.35); display: grid; grid-template-columns: auto 1fr auto; gap: 22px; margin-top: 18px; align-items: start; overflow: hidden; }
+    .hero::before { content: ""; position: absolute; inset: -30% 55% 50% -10%; background: radial-gradient(circle, rgba(255,122,0,0.25), transparent 45%); filter: blur(10px); opacity: 0.8; pointer-events: none; }
+    .hero::after { content: ""; position: absolute; inset: 40% -20% -40% 55%; background: radial-gradient(circle, rgba(255,255,255,0.13), transparent 45%); filter: blur(10px); opacity: 0.7; pointer-events: none; }
+    .hero > * { position: relative; z-index: 1; }
+    .icon-wrap { width: 110px; height: 110px; border-radius: 26px; overflow: hidden; border: 1px solid var(--stroke); background: #0f172a; box-shadow: 0 18px 42px rgba(0,0,0,0.35); }
+    .icon-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    h1 { margin: 0 0 10px; font-size: clamp(32px, 5vw, 46px); line-height: 1.1; }
+    .eyebrow { margin: 0 0 6px; letter-spacing: 0.4px; text-transform: uppercase; font-size: 12px; color: rgba(255,255,255,0.7); font-weight: 700; }
+    .lede { margin: 0 0 12px; color: var(--muted); }
+    .badges { display: flex; gap: 10px; flex-wrap: wrap; margin: 6px 0 8px; }
+    .pill { background: rgba(255,122,0,0.14); color: #ffd6b1; border: 1px solid rgba(255,122,0,0.35); padding: 6px 12px; border-radius: 999px; font-weight: 700; letter-spacing: 0.25px; font-size: 13px; }
+    .cta-col { display: flex; gap: 12px; justify-content: flex-end; align-items: flex-start; flex-wrap: wrap; padding: 0; align-self: center; }
+    .store-stack { display: grid; gap: 4px; align-content: start; justify-items: start; }
+    .store-badge { display: inline-flex; align-items: center; justify-content: center; margin-top: 2px; width: 190px; height: 56px; }
+    .store-badge img { max-width: 100%; max-height: 100%; width: auto; height: auto; display: block; border-radius: 10px; object-fit: contain; transition: transform 0.15s ease; }
+    .store-badge:hover img { transform: translateY(-1px) scale(1.01); }
+    .qr-hero { width: 120px; height: 120px; display: grid; place-items: center; background: #0f172a; border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.22); padding: 8px; }
+    .qr-hero img { width: 100%; height: 100%; display: block; }
+    .section { background: var(--card); border: 1px solid var(--stroke); border-radius: 18px; padding: 18px; margin-top: 18px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); backdrop-filter: blur(10px); }
+    .section h2 { margin: 0 0 10px; }
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 10px; }
+    .feature-card { padding: 12px 12px 10px; border-radius: 14px; border: 1px solid var(--stroke); background: rgba(255,255,255,0.03); box-shadow: 0 12px 30px rgba(0,0,0,0.22); }
+    .feature-card h3 { margin: 0 0 6px; font-size: 16px; display: inline-flex; align-items: center; gap: 8px; }
+    .feature-card h3 .feature-icon { font-size: 16px; color: #ffd6b1; }
+    .feature-card p { margin: 0; color: var(--muted); }
+    .screen-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 10px; }
+    .screen-grid img { width: 100%; display: block; border-radius: 14px; border: 1px solid var(--stroke); background: #0f172a; box-shadow: 0 10px 28px rgba(0,0,0,0.25); }
+    .body-text { margin: 0 0 10px; color: var(--muted); }
+    .body-text.strong { font-weight: 700; }
+    .body-text.tight { margin-bottom: 0; }
+    .body-list { margin: 0 0 10px; color: var(--muted); padding-left: 18px; }
+    .sticky-cta { display: none; }
+    .sticky-cta .copy { display: grid; gap: 2px; }
+    .sticky-cta .copy strong { color: var(--text); font-size: 15px; letter-spacing: 0.2px; }
+    .sticky-cta .copy span { color: rgba(255,255,255,0.7); font-size: 13px; }
+    .sticky-cta .badge-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .sticky-cta .store-badge { margin-top: 0; width: 170px; height: 50px; }
+    @media (max-width: 640px) { .hero { grid-template-columns: 1fr; gap: 14px; padding: 18px; } .cta-col { justify-content: flex-start; } .store-badge { width: 170px; height: 50px; } .sticky-cta { display:flex; position:fixed; left:12px; right:12px; bottom:12px; padding:10px 12px; background:rgba(5,10,25,0.92); border:1px solid var(--stroke); border-radius:14px; box-shadow:0 18px 38px rgba(0,0,0,0.55); align-items:center; justify-content:space-between; gap:12px; backdrop-filter:blur(8px); } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="back" href="../index.html"><span class="arrow">←</span><span>Nazad na pocetnu</span></a>
+    </div>
+
+    <section class="hero">
+      <div class="icon-wrap"><img src="https://play-lh.googleusercontent.com/njouVgrNW4NaoUNyzdAmcdLSBQQfIALqz5QxU8Nfh_8x8ZzXQ6aHCaaLwVuqZye0FGB0" alt="Pogodi reč ikonica"></div>
+      <div>
+        <p class="eyebrow">Igra reči / Android</p>
+        <h1>Pogodi reč</h1>
+        <p class="lede">играња речи</p>
+        <div class="badges">
+          <span class="pill">Ocena 3.5/5</span>
+          <span class="pill">Android</span>
+        </div>
+      </div>
+      <div class="cta-col">
+        <div class="qr-hero"><img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https%3A//vlmihajlovic.github.io/apps/store-redirect.html%3Fandroid%3Dhttps%253A//play.google.com/store/apps/details%253Fid%253Ddev.mihajlovic.vordli%2526hl%253Dsr%2526gl%253DRS%26ios%3D" alt="QR kod Pogodi reč"></div>
+        <div class="store-stack">
+          <a class="store-badge" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=dev.mihajlovic.vordli&hl=sr&gl=RS"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a>
+        </div>
+      </div>
+    </section>
+
+    <div class="section">
+      <h2>Sta dobijate u aplikaciji</h2>
+      <div class="feature-grid">
+        <div class="feature-card"><h3><span class="feature-icon">🎯</span>Dnevni izazov</h3><p>Jedna nova reč dnevno za sve igrače.</p></div>
+        <div class="feature-card"><h3><span class="feature-icon">⌛</span>Ograničeni pokušaji</h3><p>Pogodi reč u nekoliko pokušaja i prati napredak.</p></div>
+        <div class="feature-card"><h3><span class="feature-icon">📤</span>Podeli rezultat</h3><p>Pohvali se serijom pogodaka sa prijateljima.</p></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Screenshots</h2>
+      <div class="screen-grid">
+        <img src="https://play-lh.googleusercontent.com/n4rhrwwleWDpIeHwse1t0Fccub8oSu-nyL9cb9jdSlRoe4uEsBf5aQswhPUb1G4n1iLz=w1052-h592" alt="Pogodi reč screenshot 1">
+        <img src="https://play-lh.googleusercontent.com/IJ4iW2Pl2qRDYMX_bnF-xahrfFK8HEWEKwwmkz2aL-ouN1ac5eCqXdMBc_V0jVIR_8I=w1052-h592" alt="Pogodi reč screenshot 2">
+        <img src="https://play-lh.googleusercontent.com/IwINQxgEWEEz_fxAr0NEggYYyxXoY5ea9MK2dsT2goQr3kosbX8XFI4AYQWdXpA9QUE=w1052-h592" alt="Pogodi reč screenshot 3">
+        <img src="https://play-lh.googleusercontent.com/ip3WZeJJzt6O-7y0Hl_A98JEr2qRdvPI_xyWdVU_6K6GBz8vfyuQLs9PbKx7_yXvf5w=w1052-h592" alt="Pogodi reč screenshot 4">
+        <img src="https://play-lh.googleusercontent.com/LUpv8aS3IxXezOqS_0GIYu7EmF2Ylsmbw8G3yref7aontplcNN5kcI3S6-BVMA9vfA=w1052-h592" alt="Pogodi reč screenshot 5">
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Opis aplikacije</h2>
+      <p class="body-text">Игра погађања речи. Циљ игре је погодити задату реч од 5 слова. То је потребно урадити у што мање покушаја. У току дана могуће је погодити неограничен број речи.</p>
+      <p class="body-text strong">ПРАВИЛА ИГРЕ:</p>
+      <ul class="body-list">
+        <li>Погађа се реч од 5 слова</li>
+        <li>Реч би требало погодити из што мање покушаја</li>
+        <li>Уносе се само постојеће српске речи</li>
+        <li>После сваког покушаја слова се означавају зеленом, наранџастом, црвеном или сивом бојом.</li>
+        <li>Зелена - слово постоји и на правом је месту</li>
+        <li>Наранџаста - слово постоји и није на правом месту</li>
+        <li>Црвена - унета реч није дозвољена</li>
+        <li>Сива - задата реч не садржи слово</li>
+      </ul>
+      <p class="body-text">Апликација подржава тамну и светлу тему. На оним телефонима чији оперативни систем подржава теме, апликација се аутоматски прилагођава теми телефона. У делу за подешавање апликације, могуће је ручно изабрати жељену тему.</p>
+      <p class="body-text tight">НАПОМЕНА: Подаци нису доступни уколико мобилни уређај није прикључен на интернет мрежу.</p>
+    </div>
+
+  </div>
+  <div class="sticky-cta">
+    <div class="copy">
+      <strong>Pogodi reč</strong>
+      <span>Dnevna reč i pogadanje</span>
+    </div>
+    <div class="badge-row">
+      <a class="store-badge" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=dev.mihajlovic.vordli&hl=sr&gl=RS">
+        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
+      </a>
+    </div>
+  </div>
+</body>
+</html>

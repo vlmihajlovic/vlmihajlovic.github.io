@@ -45,3 +45,11 @@
 - Ne dirati postojece `.DS_Store` i `app-ads.txt`.
 - Pri dodavanju novih aplikacija: imenovati fajl `apps/<slug>.html`, koristiti isti stil (kopija BG prevoz stranice uz sadrzaj app-a).
 - Responsive target: mobilni (320px+), tablet, desktop 1200px.
+
+## Podaci potrebni za detaljne stranice (po aplikaciji)
+
+- Play Store paket i link (npr. `dev.mihajlovic.bgprevoz`), naziv aplikacije i ikonica URL.
+- Ocena (ratingValue sa store-a) i kratak opis iz „About this app“ (SR verzija).
+- Minimum 5 screenshotova (landscape 1052x592 gde postoji; fallback portrait), Play Store URL, iOS App Store URL (ako postoji).
+- Ako postoji iOS verzija: navedite App Store link i da li se razlikuje naziv/opis/ocena.
+- Prateci QR link ide na univerzalni redirect: `apps/store-redirect.html?android=<PlayURL>&ios=<AppStoreURL>`.
