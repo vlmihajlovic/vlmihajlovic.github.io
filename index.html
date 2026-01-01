@@ -79,7 +79,7 @@
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 18px;
       align-items: center;
-      margin: 26px 0 12px;
+      margin: 64px 0 72px;
     }
     .page-title {
       margin: 0 0 12px;
@@ -92,71 +92,23 @@
       max-width: 720px;
       font-size: 16px;
     }
-    .visual-card {
-      position: relative;
-      background: var(--card);
-      border: 1px solid var(--stroke);
-      border-radius: 18px;
-      padding: 16px;
-      box-shadow: 0 20px 48px rgba(0,0,0,0.35);
-      overflow: hidden;
-      min-height: 200px;
-      backdrop-filter: blur(10px);
-    }
-    .visual-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 80% 10%, rgba(255,122,0,0.25), transparent 45%);
-      pointer-events: none;
-    }
-    .visual-badge {
-      display: inline-flex;
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 14px;
       align-items: center;
-      gap: 6px;
-      background: rgba(255,122,0,0.16);
-      color: #ffd6b1;
-      border: 1px solid rgba(255,122,0,0.4);
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 12px;
-      letter-spacing: 0.2px;
     }
-    .visual-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(80px, 1fr));
-      gap: 10px;
-      margin-top: 12px;
-    }
-    .visual-tile {
-      padding: 12px 10px;
-      border-radius: 14px;
-      border: 1px solid var(--stroke);
-      background: rgba(255,255,255,0.04);
-      color: #dfe4ee;
-      font-weight: 700;
-      text-align: center;
-      font-size: 13px;
-    }
-    .visual-tile.accent {
-      background: rgba(255,122,0,0.16);
-      border-color: rgba(255,122,0,0.4);
-      color: #ffd6b1;
-    }
-    .visual-tile.icon {
-      padding: 0;
-      overflow: hidden;
-      background: #0f172a;
-      display: grid;
-      place-items: center;
-    }
-    .visual-tile.icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+    .visual-card { background: none; border: none; padding: 0; box-shadow: none; min-height: auto; }
+    .hero-cta-box { display: grid; gap: 10px; align-content: start; }
+    .visual-note { margin: 0; color: var(--muted); font-size: 13px; }
+    .store-stack { display: grid; gap: 6px; align-content: start; justify-items: start; }
+    .store-badge { display: inline-flex; align-items: center; justify-content: center; margin-top: 2px; width: 230px; height: 68px; }
+    .store-badge img { max-width: 100%; max-height: 100%; width: auto; height: auto; display: block; border-radius: 10px; object-fit: contain; transition: transform 0.15s ease; }
+    .store-badge:hover img { transform: translateY(-1px) scale(1.01); }
+    .store-badge.app-store img { max-width: 88%; }
+    .qr-hero { width: 170px; height: 170px; display: grid; place-items: center; padding: 0; }
+    .qr-hero img { width: 100%; height: 100%; display: block; }
     .btn {
       background: linear-gradient(135deg, var(--orange), var(--orange-2));
       color: #050a19;
@@ -180,8 +132,11 @@
     .app-list {
       margin-top: 34px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(2, minmax(280px, 1fr));
       gap: 18px;
+    }
+    @media (max-width: 760px) {
+      .app-list { grid-template-columns: 1fr; }
     }
     .app-card {
       background: var(--card);
@@ -195,6 +150,7 @@
       overflow: hidden;
       box-shadow: 0 16px 40px rgba(0,0,0,0.28);
     }
+    .app-desc { grid-column: 1 / -1; margin: 8px 0 0; color: var(--muted); }
     .app-card::before {
       content: "";
       position: absolute;
@@ -221,8 +177,13 @@
     .app-card p { margin: 2px 0 8px; color: var(--muted); }
     .title-row {
       display: flex;
-      align-items: center;
-      gap: 10px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    .tag-row {
+      display: flex;
+      gap: 8px;
       flex-wrap: wrap;
     }
     .tag {
@@ -272,7 +233,7 @@
       <div class="logo"><span class="logo-bullet"></span> Vladimir Mihajlovic</div>
       <div class="nav-links">
         <span class="pill">Android</span>
-        <span class="pill">Play Store</span>
+        <span class="pill">iPhone</span>
       </div>
     </div>
 
@@ -280,18 +241,26 @@
       <div class="intro-copy">
         <h1 class="page-title">Mobilne aplikacije</h1>
         <p class="page-subtitle">Pregled svih dostupnih aplikacija na store-ovima, sa kratkim opisom, ocenom i linkovima ka detaljima i preuzimanju.</p>
+        <div class="cta-row">
+          <a class="btn" href="#apps">Pogledaj sve aplikacije</a>
+          <a class="ghost" href="mailto:dev.mihajlovic@gmail.com">Kontakt</a>
+        </div>
       </div>
       <div class="visual-card">
-        <div class="visual-badge">App Store & Play</div>
-        <div class="visual-grid">
-          <div class="visual-tile accent">iOS</div>
-          <div class="visual-tile icon">
-            <img src="https://play-lh.googleusercontent.com/_UswpJqVC8_1dWdTMeE3-krmDQi7wFl_KRQ8M8VY7iBJDlwtDI5e2GqE8MbgWGLwyg" alt="Ikonica aplikacije">
+        <div class="hero-cta-box" style="justify-items: end;">
+          <div style="display:grid; grid-template-columns:auto 1fr; align-items:center; gap:12px; justify-items:end;">
+            <div class="qr-hero">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https%3A//vlmihajlovic.github.io/index.html%23apps" alt="QR za listu aplikacija">
+            </div>
+            <div class="store-stack" style="justify-items:end;">
+              <a class="store-badge" href="https://play.google.com/store/apps/dev?id=Vladimir+Mihajlovic" target="_blank" rel="noopener">
+                <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
+              </a>
+              <a class="store-badge app-store" href="https://apps.apple.com/us/developer/vladimir-mihajlovic/id1533255105" target="_blank" rel="noopener">
+                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
+              </a>
+            </div>
           </div>
-          <div class="visual-tile accent">Android</div>
-          <div class="visual-tile">Widgeti</div>
-          <div class="visual-tile accent">Mape</div>
-          <div class="visual-tile">Notifikacije</div>
         </div>
       </div>
     </div>
@@ -302,12 +271,13 @@
         <div>
           <div class="card-top">
             <div class="title-row">
-              <h3>Vodostaj u Srbiji</h3><span class="tag">Ocena 4.2/5</span><span class="tag">Android</span>
+              <h3>Vodostaj u Srbiji</h3>
+              <div class="tag-row"><span class="tag">Ocena 4.2/5</span><span class="tag">Android · iOS</span></div>
             </div>
             <a class="btn compact" href="apps/vodostaj.html">Detalji</a>
           </div>
-          <p>Prognoza vodostaja za reke i hidrološka situacija za male i srednje vodotokove.</p>
         </div>
+        <p class="app-desc">Prognoza vodostaja za reke i hidrološka situacija za male i srednje vodotokove.</p>
       </article>
 
       <article class="app-card">
@@ -315,12 +285,13 @@
         <div>
           <div class="card-top">
             <div class="title-row">
-              <h3>Pogodi reč</h3><span class="tag">Ocena 3.5/5</span><span class="tag">Android</span>
+              <h3>Pogodi reč</h3>
+              <div class="tag-row"><span class="tag">Ocena 3.5/5</span><span class="tag">Android · iOS</span></div>
             </div>
             <a class="btn compact" href="apps/vordli.html">Detalji</a>
           </div>
-          <p>Igra pogađanja reči (wordle na srpskom).</p>
         </div>
+        <p class="app-desc">Igra pogađanja reči (wordle na srpskom).</p>
       </article>
 
       <article class="app-card">
@@ -328,12 +299,13 @@
         <div>
           <div class="card-top">
             <div class="title-row">
-              <h3>TV program</h3><span class="tag">Ocena 4.4/5</span><span class="tag">Android</span>
+              <h3>TV program</h3>
+              <div class="tag-row"><span class="tag">Ocena 4.4/5</span><span class="tag">Android · iOS</span></div>
             </div>
             <a class="btn compact" href="apps/tv-program.html">Detalji</a>
           </div>
-          <p>TV program domaćih i inostranih kanala, podsetnici i omiljeni.</p>
         </div>
+        <p class="app-desc">TV program domaćih i inostranih kanala, podsetnici i omiljeni.</p>
       </article>
 
       <article class="app-card">
@@ -341,12 +313,13 @@
         <div>
           <div class="card-top">
             <div class="title-row">
-              <h3>Vreme u Srbiji</h3><span class="tag">Ocena 4.2/5</span><span class="tag">Android</span>
+              <h3>Vreme u Srbiji</h3>
+              <div class="tag-row"><span class="tag">Ocena 4.2/5</span><span class="tag">Android · iOS</span></div>
             </div>
             <a class="btn compact" href="apps/vreme.html">Detalji</a>
           </div>
-          <p>RHMZ podaci o vremenu, prognoze i mape padavina.</p>
         </div>
+        <p class="app-desc">RHMZ podaci o vremenu, prognoze i mape padavina.</p>
       </article>
 
       <article class="app-card">
@@ -354,12 +327,13 @@
         <div>
           <div class="card-top">
             <div class="title-row">
-              <h3>Kursna lista</h3><span class="tag">Ocena 4.5/5</span><span class="tag">Android</span>
+              <h3>Kursna lista</h3>
+              <div class="tag-row"><span class="tag">Ocena 4.5/5</span><span class="tag">Android · iOS</span></div>
             </div>
             <a class="btn compact" href="apps/kursna-lista.html">Detalji</a>
           </div>
-          <p>Kurs dinara za naredni dan i zvanična lista NBS za tekući dan.</p>
         </div>
+        <p class="app-desc">Kurs dinara za naredni dan i zvanična lista NBS za tekući dan.</p>
       </article>
 
       <article class="app-card">
@@ -367,12 +341,13 @@
         <div>
           <div class="card-top">
             <div class="title-row">
-              <h3>Edge Runner</h3><span class="tag">Nova</span><span class="tag">Android</span>
+              <h3>Edge Runner</h3>
+              <div class="tag-row"><span class="tag">Nova</span><span class="tag">Android</span></div>
             </div>
             <a class="btn compact" href="apps/edgerunner.html">Detalji</a>
           </div>
-          <p>Refleks endless igra: izbegavaj prepreke, skupljaj bonuse.</p>
         </div>
+        <p class="app-desc">Refleks endless igra: izbegavaj prepreke, skupljaj bonuse.</p>
       </article>
 
       <article class="app-card">
@@ -380,12 +355,13 @@
         <div>
           <div class="card-top">
             <div class="title-row">
-              <h3>BG prevoz</h3><span class="tag">Ocena 4.5/5</span><span class="tag">Android · iOS</span>
+              <h3>BG prevoz</h3>
+              <div class="tag-row"><span class="tag">Ocena 4.5/5</span><span class="tag">Android · iOS</span></div>
             </div>
             <a class="btn compact" href="apps/bg-prevoz.html">Detalji</a>
           </div>
-          <p>Lista linija i redova vožnje javnog prevoza za Beograd.</p>
         </div>
+        <p class="app-desc">Lista linija i redova vožnje javnog prevoza za Beograd.</p>
       </article>
 
       <article class="app-card">
@@ -393,12 +369,13 @@
         <div>
           <div class="card-top">
             <div class="title-row">
-              <h3>Check and Go</h3><span class="tag">Nova</span><span class="tag">Android</span>
+              <h3>Check and Go</h3>
+              <div class="tag-row"><span class="tag">Nova</span><span class="tag">Android · iOS</span></div>
             </div>
             <a class="btn compact" href="apps/check-and-go.html">Detalji</a>
           </div>
-          <p>Brza checklista za proveru stvari pre izlaska iz kuće.</p>
         </div>
+        <p class="app-desc">Brza checklista za proveru stvari pre izlaska iz kuće.</p>
       </article>
 
       <article class="app-card">
@@ -406,12 +383,13 @@
         <div>
           <div class="card-top">
             <div class="title-row">
-              <h3>Na danasnji dan</h3><span class="tag">Ocena 4.7/5</span><span class="tag">Android</span>
+              <h3>Na danasnji dan</h3>
+              <div class="tag-row"><span class="tag">Ocena 4.7/5</span><span class="tag">Android · iOS</span></div>
             </div>
             <a class="btn compact" href="apps/na-danasnji-dan.html">Detalji</a>
           </div>
-          <p>Istorijski dogadjaji za danasnji datum.</p>
         </div>
+        <p class="app-desc">Istorijski dogadjaji za danasnji datum.</p>
       </article>
 
       <article class="app-card">
@@ -419,12 +397,13 @@
         <div>
           <div class="card-top">
             <div class="title-row">
-              <h3>Horoskop</h3><span class="tag">Ocena 4.5/5</span><span class="tag">Android</span>
+              <h3>Horoskop</h3>
+              <div class="tag-row"><span class="tag">Ocena 4.5/5</span><span class="tag">Android · iOS</span></div>
             </div>
             <a class="btn compact" href="apps/horoskop.html">Detalji</a>
           </div>
-          <p>Dnevni i nedeljni horoskop na srpskom.</p>
         </div>
+        <p class="app-desc">Dnevni i nedeljni horoskop na srpskom.</p>
       </article>
 
       <article class="app-card">
@@ -432,12 +411,13 @@
         <div>
           <div class="card-top">
             <div class="title-row">
-              <h3>Trkac (Pacer)</h3><span class="tag">Ocena 5.0/5</span><span class="tag">Android</span>
+              <h3>Trkac (Pacer)</h3>
+              <div class="tag-row"><span class="tag">Ocena 5.0/5</span><span class="tag">Android · iOS</span></div>
             </div>
             <a class="btn compact" href="apps/pacer.html">Detalji</a>
           </div>
-          <p>Tempo, duzina i vreme kalkulator za trkace.</p>
         </div>
+        <p class="app-desc">Tempo, duzina i vreme kalkulator za trkace.</p>
       </article>
 
       <article class="app-card">
@@ -445,12 +425,13 @@
         <div>
           <div class="card-top">
             <div class="title-row">
-              <h3>Pacer PRO</h3><span class="tag">Nova</span><span class="tag">Android</span>
+              <h3>Pacer PRO</h3>
+              <div class="tag-row"><span class="tag">Nova</span><span class="tag">Android · iOS</span></div>
             </div>
             <a class="btn compact" href="apps/pacer-pro.html">Detalji</a>
           </div>
-          <p>Napredni pace kalkulator, zone i intervali.</p>
         </div>
+        <p class="app-desc">Napredni pace kalkulator, zone i intervali.</p>
       </article>
 
       <article class="app-card">
@@ -458,12 +439,13 @@
         <div>
           <div class="card-top">
             <div class="title-row">
-              <h3>Status paketa</h3><span class="tag">Ocena 5.0/5</span><span class="tag">Android</span>
+              <h3>Status paketa</h3>
+              <div class="tag-row"><span class="tag">Ocena 5.0/5</span><span class="tag">Android · iOS</span></div>
             </div>
             <a class="btn compact" href="apps/status-paketa.html">Detalji</a>
           </div>
-          <p>Provera posiljki i kurirskih sluzbi na jednom mestu.</p>
         </div>
+        <p class="app-desc">Provera posiljki i kurirskih sluzbi na jednom mestu.</p>
       </article>
 
       <article class="app-card">
@@ -471,17 +453,18 @@
         <div>
           <div class="card-top">
             <div class="title-row">
-              <h3>BG parking</h3><span class="tag">Ocena 4.7/5</span><span class="tag">Android</span>
+              <h3>BG parking</h3>
+              <div class="tag-row"><span class="tag">Ocena 4.7/5</span><span class="tag">Android · iOS</span></div>
             </div>
             <a class="btn compact" href="apps/bg-parking.html">Detalji</a>
           </div>
-          <p>SMS placanje parkiranja i mapa zona u Beogradu.</p>
         </div>
+        <p class="app-desc">SMS placanje parkiranja i mapa zona u Beogradu.</p>
       </article>
     </section>
 
     <footer>
-      <div>Kontakt: <a class="ghost" href="mailto:vladimirmihajlovic91@gmail.com">vladimirmihajlovic91@gmail.com</a></div>
+      <div><a class="ghost" href="mailto:dev.mihajlovic@gmail.com">Kontakt</a></div>
       <div>Priprema za dvojezicnu (SR/EN) verziju uskoro.</div>
     </footer>
   </div>
