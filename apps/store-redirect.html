@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="sr">
 <head>
+  <script>(function(){const t=localStorage.getItem("theme"); if(t) document.documentElement.setAttribute("data-theme", t);})();</script>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Store redirect</title>
@@ -11,6 +13,17 @@
       --stroke: rgba(255,255,255,0.12);
       --muted: #a5adbd;
       --text: #eef2f6;
+      --orange: #ff7a00;
+      --orange-2: #f25f00;
+    }
+    :root[data-theme="light"] {
+      --bg: #f6f8fb;
+      --card: rgba(0,0,0,0.03);
+      --stroke: rgba(0,0,0,0.08);
+      --muted: #52606d;
+      --text: #0f172a;
+      --orange: #ff7a00;
+      --orange-2: #f25f00;
     }
     * { box-sizing: border-box; }
     body {
@@ -22,6 +35,7 @@
       color: var(--text);
       font-family: system-ui, -apple-system, sans-serif;
       padding: 16px;
+      transition: background 0.25s ease, color 0.25s ease;
     }
     .card {
       background: var(--card);
@@ -56,10 +70,32 @@
       border-radius: 10px;
       object-fit: contain;
     }
+    .theme-toggle {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+      :root[data-theme="light"] .card { box-shadow: none; }
+      img { background: none; box-shadow: none; }
+      :root[data-theme="light"] .pill,
+    :root[data-theme="light"] .tag {
+      background: rgba(0,0,0,0.08);
+      border: 1px solid rgba(0,0,0,0.14);
+      color: #0f172a;
+    }
+      :root[data-theme="light"] .eyebrow { color: #52606d; }
   </style>
 </head>
 <body>
   <div class="card" id="fallback">
+    <button id="themeToggle" class="theme-toggle" type="button">🌙 Tema</button>
     <h1>Otvaramo pravu prodavnicu…</h1>
     <p>Ako se ne desi automatski, izaberi store:</p>
     <div class="badges">
@@ -86,6 +122,17 @@
       if (target) {
         window.location.href = target;
       }
+      const toggle = document.getElementById("themeToggle");
+      const saved = localStorage.getItem("theme") || "dark";
+      document.documentElement.setAttribute("data-theme", saved);
+      const setLabel = () => { toggle.textContent = document.documentElement.getAttribute("data-theme")==="light" ? "🌙 Tamna" : "☀️ Svetla"; };
+      setLabel();
+      toggle.addEventListener("click", () => {
+        const next = document.documentElement.getAttribute("data-theme")==="light" ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", next);
+        localStorage.setItem("theme", next);
+        setLabel();
+      });
     })();
   </script>
 </body>

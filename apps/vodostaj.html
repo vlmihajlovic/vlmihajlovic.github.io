@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="sr">
 <head>
+  <script>(function(){const t=localStorage.getItem("theme"); if(t) document.documentElement.setAttribute("data-theme", t);})();</script>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Vodostaj u Srbiji - prognoze vodostaja i hidrološka situacija.">
@@ -18,6 +20,15 @@
       --orange: #ff7a00;
       --orange-2: #f25f00;
     }
+    :root[data-theme="light"] {
+      --bg: #f6f8fb;
+      --card: rgba(0,0,0,0.03);
+      --stroke: rgba(0,0,0,0.08);
+      --muted: #52606d;
+      --text: #0f172a;
+      --orange: #ff7a00;
+      --orange-2: #f25f00;
+    }
     * { box-sizing: border-box; }
     body {
       margin: 0;
@@ -28,10 +39,11 @@
       font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
       min-height: 100vh;
       line-height: 1.6;
+      transition: background 0.25s ease, color 0.25s ease;
     }
     a { color: inherit; text-decoration: none; }
     .wrap {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 38px 20px 90px;
     }
@@ -43,39 +55,20 @@
       padding-bottom: 12px;
       border-bottom: 1px solid var(--stroke);
     }
-    .back {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      position: relative;
-      padding: 10px 14px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+        .back { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; position: relative; padding: 8px 0; border: none; background: none; box-shadow: none; letter-spacing: 0.2px; color: var(--text); }
+        .theme-toggle {
       border: 1px solid var(--stroke);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.24);
-      letter-spacing: 0.2px;
-      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
     }
-    .back:hover {
-      transform: translateY(-1px);
-      border-color: rgba(255,122,0,0.5);
-      box-shadow: 0 16px 36px rgba(0,0,0,0.3);
-    }
-    .back .arrow {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 26px;
-      height: 26px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, rgba(255,122,0,0.28), rgba(255,122,0,0.08));
-      border: 1px solid rgba(255,122,0,0.45);
-      color: #ffd6b1;
-      font-size: 14px;
-      line-height: 1;
-      box-shadow: 0 8px 18px rgba(255,122,0,0.25);
-    }
+    .theme-toggle:hover { border-color: rgba(255,122,0,0.5); }
+        .back:hover { transform: translateY(-1px); }
+        .back .arrow { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 999px; background: none; border: none; color: var(--orange); font-size: 14px; line-height: 1; box-shadow: none; }
     .hero {
       position: relative;
       background: linear-gradient(120deg, rgba(255,122,0,0.09), rgba(255,255,255,0.03));
@@ -115,8 +108,8 @@
       border-radius: 26px;
       overflow: hidden;
       border: 1px solid var(--stroke);
-      background: #0f172a;
-      box-shadow: 0 18px 42px rgba(0,0,0,0.35);
+      background: none;
+      box-shadow: none;
     }
     .icon-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
     h1 {
@@ -187,9 +180,9 @@
       height: 120px;
       display: grid;
       place-items: center;
-      background: #0f172a;
+      background: none;
       border-radius: 12px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.22);
+      box-shadow: none;
       padding: 8px;
     }
     .qr-hero img { width: 100%; height: 100%; display: block; }
@@ -214,7 +207,7 @@
       border-radius: 14px;
       border: 1px solid var(--stroke);
       background: rgba(255,255,255,0.03);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.22);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.18);
     }
     .feature-card h3 {
       margin: 0 0 6px;
@@ -272,20 +265,31 @@
         backdrop-filter: blur(8px);
       }
     }
+      :root[data-theme="light"] .hero,
+    :root[data-theme="light"] .section { box-shadow: none; }
+      img { background: none; box-shadow: none; }
+      :root[data-theme="light"] .pill,
+    :root[data-theme="light"] .tag {
+      background: rgba(0,0,0,0.08);
+      border: 1px solid rgba(0,0,0,0.14);
+      color: #0f172a;
+    }
+      :root[data-theme="light"] .eyebrow { color: #52606d; }
   </style>
 </head>
 <body>
   <div class="wrap">
     <div class="topbar">
       <a class="back" href="../index.html"><span class="arrow">←</span><span>Nazad na pocetnu</span></a>
-    </div>
+    <button id="themeToggle" class="theme-toggle" type="button">🌙 Tema</button>
+      </div>
 
     <section class="hero">
       <div class="icon-wrap">
         <img src="https://play-lh.googleusercontent.com/e6pHYtaMVYoSKRhje9UVtfx13nHTiTT4vwGj-dECrFJ_Dx5TBpiIgu-Z-n9mdEG1dg" alt="Vodostaj u Srbiji ikonica">
       </div>
       <div>
-        <p class="eyebrow">Vodostaji / Android</p>
+        <p class="eyebrow">Vodostaji</p>
         <h1>Vodostaj u Srbiji</h1>
         <p class="lede">Prognoza vodostaja za reke i hidrološka situacija za male i srednje vodotokove.</p>
         <div class="badges">
@@ -329,13 +333,16 @@
 
     <div class="section">
       <h2>Screenshots</h2>
-      <div class="screen-grid">
-        <img src="https://play-lh.googleusercontent.com/tHROIwQSNwJF3aSf2wkZJ0biO0vFEqac-O7_VIZAnXuc0girzErM_m2VaTGeiQ2KKQ=w1052-h592" alt="Vodostaj u Srbiji screenshot 1">
-        <img src="https://play-lh.googleusercontent.com/ZY1wzE1-HVOgRn3OBkv3rXXSNkGRMOVwdjxIbh5L16AqvX3LjUqJ1mS0Z8vtumNLUwyo=w1052-h592" alt="Vodostaj u Srbiji screenshot 2">
-        <img src="https://play-lh.googleusercontent.com/Awz_7lCq2KbODp6XUcmHlG9IWE_n_jvOx8ZMvJj-kcDVxTC4zSwm47bHt8YlL6a9CMp4=w1052-h592" alt="Vodostaj u Srbiji screenshot 3">
-        <img src="https://play-lh.googleusercontent.com/epfM6Z36lYAQ7gmNpyx5g2MpWKOJF_19Wo2JcZEioXzLkcEZ-P1BeO3EXpMUrJ6CGaIi=w1052-h592" alt="Vodostaj u Srbiji screenshot 4">
-        <img src="https://play-lh.googleusercontent.com/_2c3IsTVSSK0m-EEHk8xR4IwrVceDIc4Xv6uwV8XsoZnp-KgwuuZNNbepRv9YwjLeg=w1052-h592" alt="Vodostaj u Srbiji screenshot 5">
-      </div>
+                                                                                                                                                                                                                                                                                                                                                                                                <div class="screen-grid">
+                                                                                                                                                                                                  <img src="https://play-lh.googleusercontent.com/tHROIwQSNwJF3aSf2wkZJ0biO0vFEqac-O7_VIZAnXuc0girzErM_m2VaTGeiQ2KKQ=w1052-h592" alt="Vodostaj u Srbiji screenshot 1">
+                                                                                                                                                                                                  <img src="https://play-lh.googleusercontent.com/ZY1wzE1-HVOgRn3OBkv3rXXSNkGRMOVwdjxIbh5L16AqvX3LjUqJ1mS0Z8vtumNLUwyo=w1052-h592" alt="Vodostaj u Srbiji screenshot 2">
+                                                                                                                                                                                                  <img src="https://play-lh.googleusercontent.com/Awz_7lCq2KbODp6XUcmHlG9IWE_n_jvOx8ZMvJj-kcDVxTC4zSwm47bHt8YlL6a9CMp4=w1052-h592" alt="Vodostaj u Srbiji screenshot 3">
+                                                                                                                                                                                                  <img src="https://play-lh.googleusercontent.com/epfM6Z36lYAQ7gmNpyx5g2MpWKOJF_19Wo2JcZEioXzLkcEZ-P1BeO3EXpMUrJ6CGaIi=w1052-h592" alt="Vodostaj u Srbiji screenshot 4">
+                                                                                                                                                                                                  <img src="https://play-lh.googleusercontent.com/_2c3IsTVSSK0m-EEHk8xR4IwrVceDIc4Xv6uwV8XsoZnp-KgwuuZNNbepRv9YwjLeg=w1052-h592" alt="Vodostaj u Srbiji screenshot 5">
+                                                                                                                                                                                                  <img src="https://play-lh.googleusercontent.com/_dt55f9Z7yHI1PLdZb4ZohxGFcYaqjSwKXVcO01Gi0sU2Z7qRmq8AHxZDLeeasPOda8=w1052-h592" alt="Vodostaj u Srbiji screenshot 6">
+                                                                                                                                                                                                  <img src="https://play-lh.googleusercontent.com/6QsBgZR2fOhrfiiM6Xdr4Xv3B_p0Jju15R3vvW62L4io4CdbxbD2B10yTiWs-MjwILc=w1052-h592" alt="Vodostaj u Srbiji screenshot 7">
+                                                                                                                                                                                                  <img src="https://play-lh.googleusercontent.com/Cm9RwOkXRoW2JaMpPsmGZ9RWLpyhoDEKIkdOcb6LZjpUUvAK40fp0cI4XmT2QK01y_Y=w1052-h592" alt="Vodostaj u Srbiji screenshot 8">
+                                                                                                                                                                                                </div>
     </div>
 
     <div class="section">
@@ -377,5 +384,22 @@
       </a>
     </div>
   </div>
+    <script>
+    (function() {
+      const root = document.documentElement;
+      const toggle = document.getElementById('themeToggle');
+      const saved = localStorage.getItem('theme') || 'dark';
+      root.setAttribute('data-theme', saved);
+      const setLabel = () => { toggle.textContent = root.getAttribute('data-theme') === 'light' ? '🌙 Tamna' : '☀️ Svetla'; };
+      setLabel();
+      toggle.addEventListener('click', () => {
+        const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        setLabel();
+      });
+    })();
+  </script>
+
 </body>
 </html>
