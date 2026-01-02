@@ -65,6 +65,17 @@
     .store-badge img { max-width: 100%; max-height: 100%; width: auto; height: auto; display: block; border-radius: 10px; object-fit: contain; transition: transform 0.15s ease; }
     .store-badge.app-store img { max-width: 88%; }
     .store-badge:hover img { transform: translateY(-1px) scale(1.01); }
+    .lang-toggle {
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+    .lang-toggle:hover { border-color: rgba(255,122,0,0.5); }
     .qr-hero { width: 120px; height: 120px; display: grid; place-items: center; background: none; border-radius: 12px; box-shadow: none; padding: 8px; }
     .qr-hero img { width: 100%; height: 100%; display: block; }
     @media (max-width: 640px) { .qr-hero { display: none; } }
@@ -104,18 +115,21 @@
 <body>
   <div class="wrap">
     <div class="topbar">
-      <a class="back" href="../index.html"><span class="arrow">←</span><span>Nazad na početnu</span></a>
-    <button id="themeToggle" class="theme-toggle" type="button">🌙 Tema</button>
+      <a class="back" href="../index.html"><span class="arrow">←</span><span data-i18n="back">Nazad na početnu</span></a>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <button id="langToggle" class="lang-toggle" type="button">EN</button>
+        <button id="themeToggle" class="theme-toggle" type="button">🌙 Tema</button>
+      </div>
       </div>
 
     <section class="hero">
       <div class="icon-wrap"><img src="https://play-lh.googleusercontent.com/njouVgrNW4NaoUNyzdAmcdLSBQQfIALqz5QxU8Nfh_8x8ZzXQ6aHCaaLwVuqZye0FGB0" alt="Pogodi reč ikonica"></div>
       <div>
-        <p class="eyebrow">Igra reči</p>
-        <h1>Pogodi reč</h1>
-        <p class="lede">Igra pogađanja reči od pet slova, svakog dana nova reč.</p>
+        <p class="eyebrow" data-i18n="eyebrow">Igra reči</p>
+        <h1 data-i18n="title">Pogodi reč</h1>
+        <p class="lede" data-i18n="lede">Igra pogađanja reči od pet slova, svakog dana nova reč.</p>
         <div class="badges">
-          <span class="pill">Ocena 3.5/5</span>
+          <span class="pill" data-i18n="rating">Ocena 3.5/5</span>
           <span class="pill">Android</span>
           <span class="pill">iOS</span>
         </div>
@@ -130,16 +144,16 @@
     </section>
 
     <div class="section">
-      <h2>Šta dobijate u aplikaciji</h2>
+      <h2 data-i18n="features-title">Šta dobijate u aplikaciji</h2>
       <div class="feature-grid">
-        <div class="feature-card"><h3><span class="feature-icon">🎯</span>Dnevni izazov</h3><p>Jedna nova reč dnevno za sve igrače.</p></div>
-        <div class="feature-card"><h3><span class="feature-icon">⌛</span>Ograničeni pokušaji</h3><p>Pogodi reč u nekoliko pokušaja i prati napredak.</p></div>
-        <div class="feature-card"><h3><span class="feature-icon">📤</span>Podeli rezultat</h3><p>Pohvali se serijom pogodaka sa prijateljima.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat1-title"><span class="feature-icon">🎯</span>Dnevni izazov</h3><p><span data-i18n="feat1-body">Jedna nova reč dnevno za sve igrače.</span></p></div>
+        <div class="feature-card"><h3 data-i18n="feat2-title"><span class="feature-icon">⌛</span>Ograničeni pokušaji</h3><p><span data-i18n="feat2-body">Pogodi reč u nekoliko pokušaja i prati napredak.</span></p></div>
+        <div class="feature-card"><h3 data-i18n="feat3-title"><span class="feature-icon">📤</span>Podeli rezultat</h3><p><span data-i18n="feat3-body">Pohvali se serijom pogodaka sa prijateljima.</span></p></div>
       </div>
     </div>
 
     <div class="section">
-      <h2>Screenshots</h2>
+      <h2 data-i18n="screens-title">Screenshots</h2>
                                                                                                                                                                                                                                                                                                                                                                                                 <div class="screen-grid">
                                                                                                                                                                                                   <img src="https://play-lh.googleusercontent.com/n4rhrwwleWDpIeHwse1t0Fccub8oSu-nyL9cb9jdSlRoe4uEsBf5aQswhPUb1G4n1iLz=w1052-h592" alt="Pogodi reč screenshot 1">
                                                                                                                                                                                                   <img src="https://play-lh.googleusercontent.com/IJ4iW2Pl2qRDYMX_bnF-xahrfFK8HEWEKwwmkz2aL-ouN1ac5eCqXdMBc_V0jVIR_8I=w1052-h592" alt="Pogodi reč screenshot 2">
@@ -153,28 +167,28 @@
     </div>
 
     <div class="section">
-      <h2>Opis aplikacije</h2>
-      <p class="body-text">Igra pogađanja reči. Cilj igre je pogoditi zadatu reč od 5 slova. To je potrebno uraditi u što manje pokušaja. U toku dana moguće je pogoditi neograničen broj reči.</p>
-      <p class="body-text strong">PRAVILA IGRE:</p>
+      <h2 data-i18n="desc-title">Opis aplikacije</h2>
+      <p class="body-text" data-i18n="desc-p1">Igra pogađanja reči. Cilj igre je pogoditi zadatu reč od 5 slova. To je potrebno uraditi u što manje pokušaja. U toku dana moguće je pogoditi neograničen broj reči.</p>
+      <p class="body-text strong" data-i18n="rules-title">PRAVILA IGRE:</p>
       <ul class="body-list">
-        <li>Pogađa se reč od 5 slova</li>
-        <li>Reč bi trebalo pogoditi iz što manje pokušaja</li>
-        <li>Unose se samo postojeće srpske reči</li>
-        <li>Posle svakog pokušaja slova se označavaju zelenom, narandžastom, crvenom ili sivom bojom.</li>
-        <li>Zelena - slovo postoji i na pravom je mestu</li>
-        <li>Narandžasta - slovo postoji i nije na pravom mestu</li>
-        <li>Crvena - uneta reč nije dozvoljena</li>
-        <li>Siva - zadata reč ne sadrži slovo</li>
+        <li data-i18n="rule1">Pogađa se reč od 5 slova</li>
+        <li data-i18n="rule2">Reč bi trebalo pogoditi iz što manje pokušaja</li>
+        <li data-i18n="rule3">Unose se samo postojeće srpske reči</li>
+        <li data-i18n="rule4">Posle svakog pokušaja slova se označavaju zelenom, narandžastom, crvenom ili sivom bojom.</li>
+        <li data-i18n="rule5">Zelena - slovo postoji i na pravom je mestu</li>
+        <li data-i18n="rule6">Narandžasta - slovo postoji i nije na pravom mestu</li>
+        <li data-i18n="rule7">Crvena - uneta reč nije dozvoljena</li>
+        <li data-i18n="rule8">Siva - zadata reč ne sadrži slovo</li>
       </ul>
-      <p class="body-text">Aplikacija podržava tamnu i svetlu temu. Na onim telefonima čiji operativni sistem podržava teme, aplikacija se automatski prilagođava temi telefona. U delu za podešavanje aplikacije moguće je ručno izabrati željenu temu.</p>
-      <p class="body-text tight">NAPOMENA: Podaci nisu dostupni ukoliko mobilni uređaj nije priključen na internet mrežu.</p>
+      <p class="body-text" data-i18n="desc-p2">Aplikacija podržava tamnu i svetlu temu. Na onim telefonima čiji operativni sistem podržava teme, aplikacija se automatski prilagođava temi telefona. U delu za podešavanje aplikacije moguće je ručno izabrati željenu temu.</p>
+      <p class="body-text tight" data-i18n="note">NAPOMENA: Podaci nisu dostupni ukoliko mobilni uređaj nije priključen na internet mrežu.</p>
     </div>
 
   </div>
-      <div class="sticky-cta">
+  <div class="sticky-cta">
     <div class="copy">
       <strong>Pogodi reč</strong>
-      <span>Dnevna reč i pogađanje</span>
+      <span data-i18n="sticky-sub">Dnevna reč i pogađanje</span>
     </div>
     <div class="badge-row">
       <a class="store-badge" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=dev.mihajlovic.vordli&hl=sr&gl=RS">
@@ -198,6 +212,72 @@
         root.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
         setLabel();
+      });
+    })();
+
+    (function() {
+      const toggle = document.getElementById('langToggle');
+      const saved = localStorage.getItem('lang') || 'sr';
+      const elements = document.querySelectorAll('[data-i18n]');
+      const srTexts = {};
+      const icons = {};
+      elements.forEach(el => {
+        const icon = el.querySelector('.feature-icon');
+        let text = el.textContent;
+        if (icon) {
+          const iconText = icon.textContent || '';
+          text = text.replace(iconText, '').trim();
+          icons[el.dataset.i18n] = icon.outerHTML;
+        }
+        srTexts[el.dataset.i18n] = text;
+      });
+      const en = {
+        back: 'Back to home',
+        eyebrow: 'Word game',
+        title: 'Pogodi reč',
+        lede: 'Word guessing game with five letters; a new word every day.',
+        'features-title': 'What you get',
+        rating: 'Rating 3.5/5',
+        'feat1-title': 'Daily challenge',
+        'feat1-body': 'One new word per day for all players.',
+        'feat2-title': 'Limited attempts',
+        'feat2-body': 'Guess the word in a few tries and track your streak.',
+        'feat3-title': 'Share results',
+        'feat3-body': 'Brag about your streak with friends.',
+        'screens-title': 'Screenshots',
+        'desc-title': 'App description',
+        'desc-p1': 'Guess the five-letter word in as few tries as possible. A fresh word awaits you every day.',
+        'rules-title': 'GAME RULES:',
+        rule1: 'Guess a 5-letter word',
+        rule2: 'Try to solve it in as few attempts as possible',
+        rule3: 'Only valid Serbian words are accepted',
+        rule4: 'After each attempt letters are marked green, orange, red or gray.',
+        rule5: 'Green - letter exists and is in the right place',
+        rule6: 'Orange - letter exists but is not in the right place',
+        rule7: 'Red - entered word is not allowed',
+        rule8: 'Gray - target word does not contain the letter',
+        'desc-p2': 'The app supports dark and light themes and follows the phone theme if supported. You can also set it manually.',
+        note: 'NOTE: Data is not available if the device is offline.',
+        'sticky-sub': 'Daily word & guessing'
+      };
+      function apply(lang) {
+        document.documentElement.setAttribute('data-lang', lang);
+        localStorage.setItem('lang', lang);
+        elements.forEach(el => {
+          const key = el.dataset.i18n;
+          const text = lang === 'en' && en[key] ? en[key] : srTexts[key] || el.textContent;
+          if (icons[key]) {
+            el.innerHTML = icons[key] + ' ' + text;
+          } else {
+            el.textContent = text;
+          }
+        });
+        toggle.textContent = lang === 'sr' ? 'EN' : 'SR';
+      }
+      apply(saved);
+      toggle.addEventListener('click', () => {
+        const next = (document.documentElement.getAttribute('data-lang') || 'sr') === 'sr' ? 'en' : 'sr';
+        apply(next);
       });
     })();
   </script>

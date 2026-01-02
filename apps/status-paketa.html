@@ -35,7 +35,7 @@
     .wrap { max-width: 1200px; margin: 0 auto; padding: 38px 20px 90px; }
     .topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--stroke); }
         .back { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; position: relative; padding: 8px 0; border: none; background: none; box-shadow: none; letter-spacing: 0.2px; color: var(--text); }
-        .theme-toggle {
+    .theme-toggle {
       border: 1px solid var(--stroke);
       background: rgba(255,255,255,0.05);
       color: var(--text);
@@ -46,6 +46,17 @@
       transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
     }
     .theme-toggle:hover { border-color: rgba(255,122,0,0.5); }
+    .lang-toggle {
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+    .lang-toggle:hover { border-color: rgba(255,122,0,0.5); }
         .back:hover { transform: translateY(-1px); }
         .back .arrow { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 999px; background: none; border: none; color: var(--orange); font-size: 14px; line-height: 1; box-shadow: none; }
     .hero { position: relative; background: linear-gradient(120deg, rgba(255,122,0,0.09), rgba(255,255,255,0.03)); border: 1px solid var(--stroke); border-radius: 20px; padding: 24px; box-shadow: 0 28px 70px rgba(0,0,0,0.35); display: grid; grid-template-columns: auto 1fr auto; gap: 22px; margin-top: 18px; align-items: start; overflow: hidden; }
@@ -104,18 +115,21 @@
 <body>
   <div class="wrap">
     <div class="topbar">
-      <a class="back" href="../index.html"><span class="arrow">←</span><span>Nazad na početnu</span></a>
-    <button id="themeToggle" class="theme-toggle" type="button">🌙 Tema</button>
+      <a class="back" href="../index.html"><span class="arrow">←</span><span data-i18n="back">Nazad na početnu</span></a>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <button id="langToggle" class="lang-toggle" type="button">EN</button>
+        <button id="themeToggle" class="theme-toggle" type="button">🌙 Tema</button>
       </div>
+    </div>
 
     <section class="hero">
       <div class="icon-wrap"><img src="https://play-lh.googleusercontent.com/KFsUkGyhEso9-Y2QYx1kRlfPdQJLMI6w5aGV3avHrUXFD30umV1MCXRKlNduBr625A" alt="Status paketa ikonica"></div>
       <div>
-        <p class="eyebrow">Paketi</p>
-        <h1>Status paketa</h1>
-        <p class="lede">Brza provera posiljki kod popularnih kurirskih sluzbi.</p>
+        <p class="eyebrow" data-i18n="eyebrow">Paketi</p>
+        <h1 data-i18n="title">Status paketa</h1>
+        <p class="lede" data-i18n="lede">Brza provera pošiljki kod popularnih kurirskih službi.</p>
         <div class="badges">
-          <span class="pill">Ocena 5.0/5</span>
+          <span class="pill" data-i18n="rating">Ocena 5.0/5</span>
           <span class="pill">Android</span>
           <span class="pill">iOS</span>
         </div>
@@ -130,16 +144,16 @@
     </section>
 
     <div class="section">
-      <h2>Šta dobijate u aplikaciji</h2>
+      <h2 data-i18n="features-title">Šta dobijate u aplikaciji</h2>
       <div class="feature-grid">
-        <div class="feature-card"><h3><span class="feature-icon">🔍</span>Prepoznavanje kurira</h3><p>Unesi broj posiljke, aplikacija pokusava da pronađe kurira.</p></div>
-        <div class="feature-card"><h3><span class="feature-icon">📦</span>Sačuvane posiljke</h3><p>Sačuvaj broj i naziv da sledeći put proveris u par dodira.</p></div>
-        <div class="feature-card"><h3><span class="feature-icon">🚚</span>Popularne sluzbe</h3><p>Post Express, Bex, City Express, D Express, Royal i druge.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat1-title"><span class="feature-icon">🔍</span>Prepoznavanje kurira</h3><p data-i18n="feat1-body">Unesi broj pošiljke, aplikacija pokušava da pronađe kurira.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat2-title"><span class="feature-icon">📦</span>Sačuvane pošiljke</h3><p data-i18n="feat2-body">Sačuvaj broj i naziv da sledeći put proveriš u par dodira.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat3-title"><span class="feature-icon">🚚</span>Popularne službe</h3><p data-i18n="feat3-body">Post Express, Bex, City Express, D Express, Royal i druge.</p></div>
       </div>
     </div>
 
     <div class="section">
-      <h2>Screenshots</h2>
+      <h2 data-i18n="screens-title">Screenshots</h2>
                                                                                                                                                                                                 <div class="screen-grid">
                                                                                                   <img src="https://play-lh.googleusercontent.com/J9teHo51dtKAcnqv39nsdKPM445_Nkunv2Ax5673u4B8a-m3oo-OYdXIBp2oXbVMHOxN=w1052-h592" alt="Status paketa screenshot 1">
                                                                                                   <img src="https://play-lh.googleusercontent.com/QyrXoDItgLr9zLAYjbNhOreU2ylILvodkLGJ_92ST_rRjuEKMSPu6-c38C2VqWwfjLGu=w1052-h592" alt="Status paketa screenshot 2">
@@ -153,22 +167,22 @@
     </div>
 
     <div class="section">
-      <h2>Opis aplikacije</h2>
-      <p class="body-text">Brzo i jednostavno saznaj status poručenog paketa. Unesi broj pošiljke i odaberi kurirsku službu ili prepusti aplikaciji da je prepozna.</p>
-      <p class="body-text strong">KARAKTERISTIKE:</p>
+      <h2 data-i18n="desc-title">Opis aplikacije</h2>
+      <p class="body-text" data-i18n="desc-p1">Brzo i jednostavno saznaj status poručenog paketa. Unesi broj pošiljke i odaberi kurirsku službu ili prepusti aplikaciji da je prepozna.</p>
+      <p class="body-text strong" data-i18n="desc-heading">KARAKTERISTIKE:</p>
       <ul class="body-list">
         <li>prepoznavanje kurira na osnovu broja pošiljke</li>
         <li>čuvanje broja paketa uz naziv za kasnije provere</li>
         <li>podrška za Post Express, Bex Express, Royal, City Express, D Express i druge</li>
       </ul>
-      <p class="body-text tight">Sve informacije se osvežavaju online, podaci nisu dostupni bez internet veze.</p>
+      <p class="body-text tight" data-i18n="note">Sve informacije se osvežavaju online, podaci nisu dostupni bez internet veze.</p>
     </div>
 
   </div>
   <div class="sticky-cta">
     <div class="copy">
       <strong>Status paketa</strong>
-      <span>Praćenje pošiljki</span>
+      <span data-i18n="sticky-sub">Praćenje pošiljki</span>
     </div>
     <div class="badge-row">
       <a class="store-badge" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.statusposiljke&hl=sr&gl=RS">
@@ -192,6 +206,63 @@
         root.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
         setLabel();
+      });
+    })();
+
+    (function() {
+      const toggle = document.getElementById('langToggle');
+      const saved = localStorage.getItem('lang') || 'sr';
+      const elements = document.querySelectorAll('[data-i18n]');
+      const srTexts = {};
+      const icons = {};
+      elements.forEach(el => {
+        const icon = el.querySelector('.feature-icon');
+        let text = el.textContent;
+        if (icon) {
+          const iconText = icon.textContent || '';
+          text = text.replace(iconText, '').trim();
+          icons[el.dataset.i18n] = icon.outerHTML;
+        }
+        srTexts[el.dataset.i18n] = text;
+      });
+      const en = {
+        back: 'Back to home',
+        eyebrow: 'Packages',
+        title: 'Status paketa',
+        lede: 'Quick package tracking with popular couriers.',
+        'features-title': 'What you get',
+        rating: 'Rating 5.0/5',
+        'feat1-title': 'Carrier detection',
+        'feat1-body': 'Enter the tracking number and the app tries to detect the courier.',
+        'feat2-title': 'Saved shipments',
+        'feat2-body': 'Save the number and a label to check again in a few taps.',
+        'feat3-title': 'Popular couriers',
+        'feat3-body': 'Post Express, Bex, City Express, D Express, Royal and more.',
+        'screens-title': 'Screenshots',
+        'desc-title': 'App description',
+        'desc-p1': 'Quickly check the status of your package. Enter the tracking number, pick a courier or let the app detect it for you.',
+        'desc-heading': 'FEATURES:',
+        note: 'All info refreshes online; data is unavailable without internet.',
+        'sticky-sub': 'Track your packages'
+      };
+      function apply(lang) {
+        document.documentElement.setAttribute('data-lang', lang);
+        localStorage.setItem('lang', lang);
+        elements.forEach(el => {
+          const key = el.dataset.i18n;
+          const text = lang === 'en' && en[key] ? en[key] : srTexts[key] || el.textContent;
+          if (icons[key]) {
+            el.innerHTML = icons[key] + ' ' + text;
+          } else {
+            el.textContent = text;
+          }
+        });
+        toggle.textContent = lang === 'sr' ? 'EN' : 'SR';
+      }
+      apply(saved);
+      toggle.addEventListener('click', () => {
+        const next = (document.documentElement.getAttribute('data-lang') || 'sr') === 'sr' ? 'en' : 'sr';
+        apply(next);
       });
     })();
   </script>

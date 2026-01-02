@@ -56,7 +56,7 @@
       border-bottom: 1px solid var(--stroke);
     }
         .back { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; position: relative; padding: 8px 0; border: none; background: none; box-shadow: none; letter-spacing: 0.2px; color: var(--text); }
-        .theme-toggle {
+    .theme-toggle {
       border: 1px solid var(--stroke);
       background: rgba(255,255,255,0.05);
       color: var(--text);
@@ -67,6 +67,17 @@
       transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
     }
     .theme-toggle:hover { border-color: rgba(255,122,0,0.5); }
+    .lang-toggle {
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+    .lang-toggle:hover { border-color: rgba(255,122,0,0.5); }
         .back:hover { transform: translateY(-1px); }
         .back .arrow { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 999px; background: none; border: none; color: var(--orange); font-size: 14px; line-height: 1; box-shadow: none; }
     .hero {
@@ -299,21 +310,25 @@
 <body>
   <div class="wrap">
     <div class="topbar">
-      <a class="back" href="../index.html"><span class="arrow">←</span><span>Nazad na početnu</span></a>
-    <button id="themeToggle" class="theme-toggle" type="button">🌙 Tema</button>
+      <a class="back" href="../index.html"><span class="arrow">←</span><span data-i18n="back">Nazad na početnu</span></a>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <button id="langToggle" class="lang-toggle" type="button">EN</button>
+        <button id="themeToggle" class="theme-toggle" type="button">🌙 Tema</button>
       </div>
+    </div>
 
     <section class="hero">
       <div class="icon-wrap">
         <img src="https://play-lh.googleusercontent.com/_UswpJqVC8_1dWdTMeE3-krmDQi7wFl_KRQ8M8VY7iBJDlwtDI5e2GqE8MbgWGLwyg" alt="BG prevoz ikonica">
       </div>
       <div>
-        <p class="eyebrow">Gradski prevoz</p>
-        <h1>BG prevoz</h1>
-        <p class="lede">Lista linija i redova vožnje javnog prevoza za grad Beograd.</p>
+        <p class="eyebrow" data-i18n="eyebrow">Gradski prevoz</p>
+        <h1 data-i18n="title">BG prevoz</h1>
+        <p class="lede" data-i18n="lede">Lista linija i redova vožnje javnog prevoza za grad Beograd.</p>
         <div class="badges">
-          <span class="pill">Ocena 4.5/5</span>
+          <span class="pill" data-i18n="rating">Ocena 4.5/5</span>
           <span class="pill">Android</span>
+          <span class="pill">iOS</span>
         </div>
       </div>
       <div class="cta-col">
@@ -332,25 +347,25 @@
     </section>
 
     <div class="section">
-      <h2>Šta dobijate u aplikaciji</h2>
+      <h2 data-i18n="features-title">Šta dobijate u aplikaciji</h2>
       <div class="feature-grid">
         <div class="feature-card">
-          <h3><span class="feature-icon">🗺️</span>Linije i stanice na mapi</h3>
-          <p>Redovi vožnje i spisak stanica za gradske i prigradske linije uz prikaz na mapi.</p>
+          <h3 data-i18n="feat1-title"><span class="feature-icon">🗺️</span>Linije i stanice na mapi</h3>
+          <p data-i18n="feat1-body">Redovi vožnje i spisak stanica za gradske i prigradske linije uz prikaz na mapi.</p>
         </div>
         <div class="feature-card">
-          <h3><span class="feature-icon">⭐</span>Omiljene precice</h3>
-          <p>Snimi omiljene linije ili stanice radi brzeg pristupa i procenjenih vremena dolaska.</p>
+          <h3 data-i18n="feat2-title"><span class="feature-icon">⭐</span>Omiljene prečice</h3>
+          <p data-i18n="feat2-body">Snimi omiljene linije ili stanice radi bržeg pristupa i procenjenih vremena dolaska.</p>
         </div>
         <div class="feature-card">
-          <h3><span class="feature-icon">⬇️</span>Offline lista linija</h3>
-          <p>Spisak linija se čuva lokalno i moze da se ažurira kada ti odgovara.</p>
+          <h3 data-i18n="feat3-title"><span class="feature-icon">⬇️</span>Offline lista linija</h3>
+          <p data-i18n="feat3-body">Spisak linija se čuva lokalno i može da se ažurira kada ti odgovara.</p>
         </div>
       </div>
     </div>
 
     <div class="section">
-      <h2>Screenshots</h2>
+      <h2 data-i18n="screens-title">Screenshots</h2>
                                                                                                                                                                                                                                                                                                                                                                                                 <div class="screen-grid">
                                                                                                                                                                                                   <img src="https://play-lh.googleusercontent.com/fP9zrdPeAfefRpvKB0WFy70w0ekGfMDU2B-MGBbF_44cR-nrw6t5IoTkYn8Kt8yktK5s=w1052-h592" alt="BG prevoz screenshot 1">
                                                                                                                                                                                                   <img src="https://play-lh.googleusercontent.com/R2-hTLrk-BL_8m_OeVgxUV3yvJMWdA3I3FOSV_dM0_XYNI7OKHsSzW3tCr7-DucJ1Zs=w1052-h592" alt="BG prevoz screenshot 2">
@@ -364,8 +379,8 @@
     </div>
 
     <div class="section">
-      <h2>Opis aplikacije</h2>
-      <p class="body-text">Aplikacija prikazuje spisak linija i red vožnje javnog gradskog prevoza za grad Beograd. Dostupni su podaci za sve linije gradskog i prigradskog prevoza. Za svaku liniju su dostupni red vožnje i spisak stanica sa procenjenim vremenom dolaska. Podaci se prikazuju na mapi. Moguce je snimiti najcesce korišćene linije. Podržani su sledeći tipovi linija:</p>
+      <h2 data-i18n="desc-title">Opis aplikacije</h2>
+      <p class="body-text" data-i18n="desc-p1">Aplikacija prikazuje spisak linija i red vožnje javnog gradskog prevoza za grad Beograd. Dostupni su podaci za sve linije gradskog i prigradskog prevoza. Za svaku liniju su dostupni red vožnje i spisak stanica sa procenjenim vremenom dolaska. Podaci se prikazuju na mapi. Moguće je snimiti najčešće korišćene linije. Podržani su sledeći tipovi linija:</p>
       <ul class="body-list">
         <li>autobuske linije</li>
         <li>tramvajske linije</li>
@@ -374,26 +389,26 @@
         <li>minibus linije</li>
         <li>BG voz</li>
         <li>SOKO voz</li>
-        <li>nocne linije</li>
+        <li>noćne linije</li>
       </ul>
-      <p class="body-text">Od svih podataka koji se prikazuju, jedino se spisak linija čuva lokalno u aplikaciji. Taj spisak je, u podešavanjima aplikacije, moguće ažurirati u bilo kom trenutku.</p>
-      <p class="body-text strong">KARAKTERISTIKE:</p>
+      <p class="body-text" data-i18n="desc-p2">Od svih podataka koji se prikazuju, jedino se spisak linija čuva lokalno u aplikaciji. Taj spisak je, u podešavanjima aplikacije, moguće ažurirati u bilo kom trenutku.</p>
+      <p class="body-text strong" data-i18n="desc-heading">KARAKTERISTIKE:</p>
       <ul class="body-list">
         <li>spisak linija - sve gradske i prigradske linije koje su trenutno aktivne u opštini Beograd</li>
-        <li>omiljene linije - na pocetnom ekranu moguće je snimiti omiljene ili najcesce korišćene linije radi kasnijeg lakseg pristupa</li>
+        <li>omiljene linije - na početnom ekranu moguće je snimiti omiljene ili najčešće korišćene linije radi kasnijeg lakšeg pristupa</li>
         <li>spisak stanica sa kodovima - za svaku liniju se prikazuje spisak stanica sa kodovima, odvojeno za oba smera</li>
-        <li>omiljene stanice - u detaljima linije moguće je odabrati omiljene ili najcesce korišćene stanice. Za svaku odabranu stanicu prikazuju se tri naredna procenjena vremena dolaska vozila na datu stanicu. Vreme dolaska se procenjuje na osnovu vremena polaska sa pocetne i vremena potrebnog da dodje do date stanice</li>
+        <li>omiljene stanice - u detaljima linije moguće je odabrati omiljene ili najčešće korišćene stanice. Za svaku odabranu stanicu prikazuju se tri naredna procenjena vremena dolaska vozila na datu stanicu. Vreme dolaska se procenjuje na osnovu vremena polaska sa početne i vremena potrebnog da dođe do date stanice</li>
         <li>izmene na linijama - spisak aktuelnih izmena na svim linijama, sa linkom do detalja izmene</li>
       </ul>
-      <p class="body-text">Aplikacija podržava tamnu i svetlu temu. Na onim telefonima čiji operativni sistem podržava teme, aplikacija se automatski prilagođava temi telefona. Na ostalim uređajima, u delu za podešavanje aplikacije, moguće je ručno izabrati željenu temu.</p>
-      <p class="body-text strong tight">NAPOMENA: Podaci nisu dostupni ukoliko mobilni uređaj nije priključen na internet mrežu.</p>
+      <p class="body-text" data-i18n="desc-p3">Aplikacija podržava tamnu i svetlu temu. Na onim telefonima čiji operativni sistem podržava teme, aplikacija se automatski prilagođava temi telefona. Na ostalim uređajima, u delu za podešavanje aplikacije, moguće je ručno izabrati željenu temu.</p>
+      <p class="body-text strong tight" data-i18n="note">NAPOMENA: Podaci nisu dostupni ukoliko mobilni uređaj nije priključen na internet mrežu.</p>
     </div>
 
   </div>
   <div class="sticky-cta">
     <div class="copy">
       <strong>BG prevoz</strong>
-      <span>Redovi vožnje i stanice</span>
+      <span data-i18n="sticky-sub">Redovi vožnje i stanice</span>
     </div>
     <div class="badge-row">
       <a class="store-badge" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=dev.mihajlovic.bgprevoz&hl=sr&gl=RS">
@@ -417,6 +432,65 @@
         root.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
         setLabel();
+      });
+    })();
+
+    (function() {
+      const toggle = document.getElementById('langToggle');
+      const saved = localStorage.getItem('lang') || 'sr';
+      const elements = document.querySelectorAll('[data-i18n]');
+      const srTexts = {};
+      const icons = {};
+      elements.forEach(el => {
+        const icon = el.querySelector('.feature-icon');
+        let text = el.textContent;
+        if (icon) {
+          const iconText = icon.textContent || '';
+          text = text.replace(iconText, '').trim();
+          icons[el.dataset.i18n] = icon.outerHTML;
+        }
+        srTexts[el.dataset.i18n] = text;
+      });
+      const en = {
+        back: 'Back to home',
+        eyebrow: 'Public transport',
+        title: 'BG prevoz',
+        lede: 'Lines and timetables for Belgrade public transport.',
+        'features-title': 'What you get',
+        rating: 'Rating 4.5/5',
+        'feat1-title': 'Lines and stops on the map',
+        'feat1-body': 'Timetables and stop lists for city and suburban lines with map view.',
+        'feat2-title': 'Favorite shortcuts',
+        'feat2-body': 'Save favorite lines or stops for quick access and ETA.',
+        'feat3-title': 'Offline line list',
+        'feat3-body': 'The line list is stored locally and can be refreshed whenever it suits you.',
+        'screens-title': 'Screenshots',
+        'desc-title': 'App description',
+        'desc-p1': 'Shows public transport lines and timetables for Belgrade with stops and estimated arrivals on the map. Save your most used lines. Supported types:',
+        'desc-p2': 'Only the line list is stored locally. You can refresh it any time in settings.',
+        'desc-heading': 'FEATURES:',
+        'desc-p3': 'The app supports dark and light themes and follows the phone theme when available. You can also choose the theme manually.',
+        note: 'NOTE: Data is unavailable if the device is offline.',
+        'sticky-sub': 'Timetables and stops'
+      };
+      function apply(lang) {
+        document.documentElement.setAttribute('data-lang', lang);
+        localStorage.setItem('lang', lang);
+        elements.forEach(el => {
+          const key = el.dataset.i18n;
+          const text = lang === 'en' && en[key] ? en[key] : srTexts[key] || el.textContent;
+          if (icons[key]) {
+            el.innerHTML = icons[key] + ' ' + text;
+          } else {
+            el.textContent = text;
+          }
+        });
+        toggle.textContent = lang === 'sr' ? 'EN' : 'SR';
+      }
+      apply(saved);
+      toggle.addEventListener('click', () => {
+        const next = (document.documentElement.getAttribute('data-lang') || 'sr') === 'sr' ? 'en' : 'sr';
+        apply(next);
       });
     })();
   </script>

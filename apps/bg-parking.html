@@ -46,6 +46,17 @@
       transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
     }
     .theme-toggle:hover { border-color: rgba(255,122,0,0.5); }
+    .lang-toggle {
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+    .lang-toggle:hover { border-color: rgba(255,122,0,0.5); }
         .back:hover { transform: translateY(-1px); }
         .back .arrow { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 999px; background: none; border: none; color: var(--orange); font-size: 14px; line-height: 1; box-shadow: none; }
     .hero { position: relative; background: linear-gradient(120deg, rgba(255,122,0,0.09), rgba(255,255,255,0.03)); border: 1px solid var(--stroke); border-radius: 20px; padding: 24px; box-shadow: 0 28px 70px rgba(0,0,0,0.35); display: grid; grid-template-columns: auto 1fr auto; gap: 22px; margin-top: 18px; align-items: start; overflow: hidden; }
@@ -104,18 +115,21 @@
 <body>
   <div class="wrap">
     <div class="topbar">
-      <a class="back" href="../index.html"><span class="arrow">←</span><span>Nazad na početnu</span></a>
-    <button id="themeToggle" class="theme-toggle" type="button">🌙 Tema</button>
+      <a class="back" href="../index.html"><span class="arrow">←</span><span data-i18n="back">Nazad na početnu</span></a>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <button id="langToggle" class="lang-toggle" type="button">EN</button>
+        <button id="themeToggle" class="theme-toggle" type="button">🌙 Tema</button>
       </div>
+    </div>
 
     <section class="hero">
       <div class="icon-wrap"><img src="https://play-lh.googleusercontent.com/N3ga1u-UM-cfBYZJnFZqBTjj7-5Q5uNlkSFrwQKtLOqw82JKrcPQP7D-x2umN7rHkg" alt="BG parking ikonica"></div>
       <div>
-        <p class="eyebrow">Parking</p>
-        <h1>BG parking</h1>
-        <p class="lede">SMS plaćanje parkiranja i mapa zona u Beogradu.</p>
+        <p class="eyebrow" data-i18n="eyebrow">Parking</p>
+        <h1 data-i18n="title">BG parking</h1>
+        <p class="lede" data-i18n="lede">SMS plaćanje parkiranja i mapa zona u Beogradu.</p>
         <div class="badges">
-          <span class="pill">Ocena 4.7/5</span>
+          <span class="pill" data-i18n="rating">Ocena 4.7/5</span>
           <span class="pill">Android</span>
           <span class="pill">iOS</span>
         </div>
@@ -130,16 +144,16 @@
     </section>
 
     <div class="section">
-      <h2>Šta dobijate u aplikaciji</h2>
+      <h2 data-i18n="features-title">Šta dobijate u aplikaciji</h2>
       <div class="feature-grid">
-        <div class="feature-card"><h3><span class="feature-icon">🗺️</span>Mapa zona</h3><p>Pregled zona, upozorenja blizine i odredjivanje zone.</p></div>
-        <div class="feature-card"><h3><span class="feature-icon">💬</span>SMS plaćanje</h3><p>Brzo plaćanje za sve zone, Vidin kapiju i Sava promenadu.</p></div>
-        <div class="feature-card"><h3><span class="feature-icon">🅿️</span>Slobodna mesta</h3><p>Stanje garaža i parkiralista, cenovnici i lokacije.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat1-title"><span class="feature-icon">🗺️</span>Mapa zona</h3><p data-i18n="feat1-body">Pregled zona, upozorenja blizine i određivanje zone.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat2-title"><span class="feature-icon">💬</span>SMS plaćanje</h3><p data-i18n="feat2-body">Brzo plaćanje za sve zone, Vidin kapiju i Sava promenadu.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat3-title"><span class="feature-icon">🅿️</span>Slobodna mesta</h3><p data-i18n="feat3-body">Stanje garaža i parkirališta, cenovnici i lokacije.</p></div>
       </div>
     </div>
 
     <div class="section">
-      <h2>Screenshots</h2>
+      <h2 data-i18n="screens-title">Screenshots</h2>
                                                                                                                                                                                                                                                                                                                                                                                                 <div class="screen-grid">
                                                                                                                                                                                                   <img src="https://play-lh.googleusercontent.com/aCPNwYIn_jommhHwZikiK55KT4sRuUsSl_kQQkkEDAyV7pUT6YJ3kpgblJMzxAW0fA=w1052-h592" alt="BG parking screenshot 1">
                                                                                                                                                                                                   <img src="https://play-lh.googleusercontent.com/vNkiI34yOqJQj42SSVTAOhQfp2izXuo1AYsLeV8UTR5DVJUpoYwCCCR2XLGO-iMIaCo=w1052-h592" alt="BG parking screenshot 2">
@@ -153,25 +167,25 @@
     </div>
 
     <div class="section">
-      <h2>Opis aplikacije</h2>
-      <p class="body-text">Jednostavna aplikacija za SMS plaćanje parkiranja u Beogradu uz mapu zona, cenovnike i upozorenja.</p>
-      <p class="body-text strong">KARAKTERISTIKE:</p>
+      <h2 data-i18n="desc-title">Opis aplikacije</h2>
+      <p class="body-text" data-i18n="desc-p1">Jednostavna aplikacija za SMS plaćanje parkiranja u Beogradu uz mapu zona, cenovnike i upozorenja.</p>
+      <p class="body-text strong" data-i18n="desc-heading">KARAKTERISTIKE:</p>
       <ul class="body-list">
-        <li>prikaz mape sa zonama, automatsko odredjivanje zone i upozorenja blizine</li>
-        <li>spisak brojeva za sve zone, Vidin kapiju i Sava promenadu sa cenovnicima i ogranicenjima</li>
-        <li>provera radnog vremena, upozorenja za pogresan broj i za isteceno radno vreme</li>
-        <li>slobodna mesta u garažama i parkiralistima, rute i omiljene lokacije</li>
-        <li>pregled ulica po zonama, provera dnevne karte i gde je pauk odneo auto</li>
+        <li data-i18n="desc-li1">prikaz mape sa zonama, automatsko određivanje zone i upozorenja blizine</li>
+        <li data-i18n="desc-li2">spisak brojeva za sve zone, Vidin kapiju i Sava promenadu sa cenovnicima i ograničenjima</li>
+        <li data-i18n="desc-li3">provera radnog vremena, upozorenja za pogrešan broj i za isteklo radno vreme</li>
+        <li data-i18n="desc-li4">slobodna mesta u garažama i parkiralištima, rute i omiljene lokacije</li>
+        <li data-i18n="desc-li5">pregled ulica po zonama, provera dnevne karte i gde je pauk odneo auto</li>
       </ul>
-      <p class="body-text">Aplikacija podržava tamnu i svetlu temu. Na telefonima koji podržavaju teme, aplikacija se automatski prilagođava temi telefona. Na ostalim uređajima moguće je ručno izabrati željenu temu.</p>
-      <p class="body-text tight">NAPOMENA: Aplikacija koristi lokaciju samo za odredjivanje zone i ne salje je dalje. SMS se ne salje automatski.</p>
+      <p class="body-text" data-i18n="desc-p2">Aplikacija podržava tamnu i svetlu temu. Na telefonima koji podržavaju teme, aplikacija se automatski prilagođava temi telefona. Na ostalim uređajima moguće je ručno izabrati željenu temu.</p>
+      <p class="body-text tight" data-i18n="note">NAPOMENA: Aplikacija koristi lokaciju samo za određivanje zone i ne šalje je dalje. SMS se ne šalje automatski.</p>
     </div>
 
   </div>
   <div class="sticky-cta">
     <div class="copy">
       <strong>BG parking</strong>
-      <span>SMS zone i mapa</span>
+      <span data-i18n="sticky-sub">SMS zone i mapa</span>
     </div>
     <div class="badge-row">
       <a class="store-badge" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.parkingservis&hl=sr&gl=RS">
@@ -195,6 +209,64 @@
         root.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
         setLabel();
+      });
+    })();
+
+    (function() {
+      const toggle = document.getElementById('langToggle');
+      const saved = localStorage.getItem('lang') || 'sr';
+      const elements = document.querySelectorAll('[data-i18n]');
+      const srTexts = {};
+      const icons = {};
+      elements.forEach(el => {
+        srTexts[el.dataset.i18n] = el.textContent;
+        const icon = el.querySelector('.feature-icon');
+        if (icon) icons[el.dataset.i18n] = icon.outerHTML;
+      });
+      const en = {
+        back: 'Back to home',
+        eyebrow: 'Parking',
+        title: 'BG parking',
+        lede: 'SMS parking payment and zone map in Belgrade.',
+        'features-title': 'What you get',
+        rating: 'Rating 4.7/5',
+        'feat1-title': 'Zone map',
+        'feat1-body': 'Zones at a glance, proximity alerts, and zone detection.',
+        'feat2-title': 'SMS payment',
+        'feat2-body': 'Fast pay for all zones, Vidin Kapija and Sava Promenada.',
+        'feat3-title': 'Free spots',
+        'feat3-body': 'Garage and parking availability, price lists and locations.',
+        'screens-title': 'Screenshots',
+        'desc-title': 'App description',
+        'desc-p1': 'Simple SMS parking app for Belgrade with zone map, prices, and alerts.',
+        'desc-heading': 'FEATURES:',
+        'desc-li1': 'zone map, automatic zone detection, proximity alerts',
+        'desc-li2': 'numbers for all zones, Vidin Kapija and Sava Promenada with prices and limits',
+        'desc-li3': 'working hours checks, wrong-number and expired-time alerts',
+        'desc-li4': 'garage and parking availability, routes and favorites',
+        'desc-li5': 'street list by zone, daily ticket check, and where the tow truck took the car',
+        'desc-p2': 'Supports dark and light themes; follows phone theme when available or set manually.',
+        note: 'NOTE: Location is used only to detect the zone and is not sent anywhere. SMS is not sent automatically.',
+        'sticky-sub': 'SMS zones and map'
+      };
+      function apply(lang) {
+        document.documentElement.setAttribute('data-lang', lang);
+        localStorage.setItem('lang', lang);
+        elements.forEach(el => {
+          const key = el.dataset.i18n;
+          const text = lang === 'en' && en[key] ? en[key] : srTexts[key] || el.textContent;
+          if (icons[key]) {
+            el.innerHTML = icons[key] + ' ' + text;
+          } else {
+            el.textContent = text;
+          }
+        });
+        toggle.textContent = lang === 'sr' ? 'EN' : 'SR';
+      }
+      apply(saved);
+      toggle.addEventListener('click', () => {
+        const next = (document.documentElement.getAttribute('data-lang') || 'sr') === 'sr' ? 'en' : 'sr';
+        apply(next);
       });
     })();
   </script>

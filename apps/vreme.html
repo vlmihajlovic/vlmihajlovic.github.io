@@ -35,7 +35,7 @@
     .wrap { max-width: 1200px; margin: 0 auto; padding: 38px 20px 90px; }
     .topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--stroke); }
         .back { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; position: relative; padding: 8px 0; border: none; background: none; box-shadow: none; letter-spacing: 0.2px; color: var(--text); }
-        .theme-toggle {
+    .theme-toggle {
       border: 1px solid var(--stroke);
       background: rgba(255,255,255,0.05);
       color: var(--text);
@@ -46,6 +46,17 @@
       transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
     }
     .theme-toggle:hover { border-color: rgba(255,122,0,0.5); }
+    .lang-toggle {
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+    .lang-toggle:hover { border-color: rgba(255,122,0,0.5); }
         .back:hover { transform: translateY(-1px); }
         .back .arrow { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 999px; background: none; border: none; color: var(--orange); font-size: 14px; line-height: 1; box-shadow: none; }
     .hero { position: relative; background: linear-gradient(120deg, rgba(255,122,0,0.09), rgba(255,255,255,0.03)); border: 1px solid var(--stroke); border-radius: 20px; padding: 24px; box-shadow: 0 28px 70px rgba(0,0,0,0.35); display: grid; grid-template-columns: auto 1fr auto; gap: 22px; margin-top: 18px; align-items: start; overflow: hidden; }
@@ -104,18 +115,21 @@
 <body>
   <div class="wrap">
     <div class="topbar">
-      <a class="back" href="../index.html"><span class="arrow">←</span><span>Nazad na početnu</span></a>
-    <button id="themeToggle" class="theme-toggle" type="button">🌙 Tema</button>
+      <a class="back" href="../index.html"><span class="arrow">←</span><span data-i18n="back">Nazad na početnu</span></a>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <button id="langToggle" class="lang-toggle" type="button">EN</button>
+        <button id="themeToggle" class="theme-toggle" type="button">🌙 Tema</button>
       </div>
+    </div>
 
     <section class="hero">
       <div class="icon-wrap"><img src="https://play-lh.googleusercontent.com/SnWiTtz5dBNPTZaS0RM9E-05koIegkkXClBkldVTitoK7ohyQ-oyGiM3gyGZ7mAP5Fw" alt="Vreme u Srbiji ikonica"></div>
       <div>
-        <p class="eyebrow">Prognoza vremena</p>
-        <h1>Vreme u Srbiji</h1>
-        <p class="lede">RHMZ podaci o vremenu</p>
+        <p class="eyebrow" data-i18n="eyebrow">Prognoza vremena</p>
+        <h1 data-i18n="title">Vreme u Srbiji</h1>
+        <p class="lede" data-i18n="lede">RHMZ podaci o vremenu</p>
         <div class="badges">
-          <span class="pill">Ocena 4.2/5</span>
+          <span class="pill" data-i18n="rating">Ocena 4.2/5</span>
           <span class="pill">Android</span><span class="pill">iOS</span>
         </div>
       </div>
@@ -129,16 +143,16 @@
     </section>
 
     <div class="section">
-      <h2>Šta dobijate u aplikaciji</h2>
+      <h2 data-i18n="features-title">Šta dobijate u aplikaciji</h2>
       <div class="feature-grid">
-        <div class="feature-card"><h3><span class="feature-icon">🌦️</span>RHMZ prognoze</h3><p>Aktuelne prognoze za lokacije u Srbiji.</p></div>
-        <div class="feature-card"><h3><span class="feature-icon">🛰️</span>Mape padavina</h3><p>Vizuelni pregled naoblake i padavina.</p></div>
-        <div class="feature-card"><h3><span class="feature-icon">🔔</span>Brz pristup</h3><p>Pregled vremena bez otvaranja više izvora.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat1-title"><span class="feature-icon">🌦️</span>RHMZ prognoze</h3><p data-i18n="feat1-body">Aktuelne prognoze za lokacije u Srbiji.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat2-title"><span class="feature-icon">🛰️</span>Mape padavina</h3><p data-i18n="feat2-body">Vizuelni pregled naoblake i padavina.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat3-title"><span class="feature-icon">🔔</span>Brz pristup</h3><p data-i18n="feat3-body">Pregled vremena bez otvaranja više izvora.</p></div>
       </div>
     </div>
 
     <div class="section">
-      <h2>Screenshots</h2>
+      <h2 data-i18n="screens-title">Screenshots</h2>
                                                                                                                                                                                                                                                                                                                                                                                                 <div class="screen-grid">
                                                                                                                                                                                                   <img src="https://play-lh.googleusercontent.com/mbhgjU2JSJ5UQm184E4iH442TkrCbDdOdGy48rTD1W6S_4kISeG-NEEBtp_-JlVD6ak=w1052-h592" alt="Vreme u Srbiji screenshot 1">
                                                                                                                                                                                                   <img src="https://play-lh.googleusercontent.com/cGiA6MtuLQz3pIFSVFFUmz2MrTvOOQOOTW-_3PXFqYwdl63v7so5eKkp5tzZpm_4DZQ=w1052-h592" alt="Vreme u Srbiji screenshot 2">
@@ -152,23 +166,23 @@
     </div>
 
     <div class="section">
-      <h2>Opis aplikacije</h2>
-      <p class="body-text">Aktuelni podaci koji se prikupljaju svakodnevno u Republickom hidrometeoroloskom zavodu Srbije (RHMZ). Za odredjene lokacije dostupna je prognoza vremena za 3 ili 5 narednih dana.</p>
-      <p class="body-text strong">KARAKTERISTIKE:</p>
+      <h2 data-i18n="desc-title">Opis aplikacije</h2>
+      <p class="body-text" data-i18n="desc-p1">Aktuelni podaci koji se prikupljaju svakodnevno u Republičkom hidrometeorološkom zavodu Srbije (RHMZ). Za određene lokacije dostupna je prognoza vremena za 3 ili 5 narednih dana.</p>
+      <p class="body-text strong" data-i18n="desc-heading">KARAKTERISTIKE:</p>
       <ul class="body-list">
-        <li>za 28 lokacija se prikazuju podaci izmereni u prethodnih 10 do 60 minuta (temperatura, pritisak, vetar, subjektivni osecaj, opis pojave, kolicina padavina, visina snega)</li>
+        <li>za 28 lokacija se prikazuju podaci izmereni u prethodnih 10 do 60 minuta (temperatura, pritisak, vetar, subjektivni osećaj, opis pojave, količina padavina, visina snega)</li>
         <li>prognoza vremena za 11 lokacija; za 6 lokacija podaci za narednih 5 dana, za ostale do 3 dana</li>
-        <li>meteoroloska, hidroloska, agrometeoroloska upozorenja i agrometeoroloske informacije</li>
+        <li>meteorološka, hidrološka, agrometeorološka upozorenja i agrometeorološke informacije</li>
       </ul>
-      <p class="body-text">Aplikacija podržava tamnu i svetlu temu. Na onim telefonima čiji operativni sistem podržava teme, aplikacija se automatski prilagođava temi telefona. U delu za podešavanje aplikacije, moguće je ručno izabrati željenu temu.</p>
-      <p class="body-text tight">NAPOMENA: Podaci nisu dostupni ukoliko mobilni uređaj nije priključen na internet mrežu.</p>
+      <p class="body-text" data-i18n="desc-p2">Aplikacija podržava tamnu i svetlu temu. Na onim telefonima čiji operativni sistem podržava teme, aplikacija se automatski prilagođava temi telefona. U delu za podešavanje aplikacije, moguće je ručno izabrati željenu temu.</p>
+      <p class="body-text tight" data-i18n="note">NAPOMENA: Podaci nisu dostupni ukoliko mobilni uređaj nije priključen na internet mrežu.</p>
     </div>
 
   </div>
   <div class="sticky-cta">
     <div class="copy">
       <strong>Vreme u Srbiji</strong>
-      <span>RHMZ prognoze</span>
+      <span data-i18n="sticky-sub">RHMZ prognoze</span>
     </div>
     <div class="badge-row">
       <a class="store-badge" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=dev.mihajlovic.rhmz&hl=sr&gl=RS">
@@ -192,6 +206,64 @@
         root.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
         setLabel();
+      });
+    })();
+
+    (function() {
+      const toggle = document.getElementById('langToggle');
+      const saved = localStorage.getItem('lang') || 'sr';
+      const elements = document.querySelectorAll('[data-i18n]');
+      const srTexts = {};
+      const icons = {};
+      elements.forEach(el => {
+        const icon = el.querySelector('.feature-icon');
+        let text = el.textContent;
+        if (icon) {
+          const iconText = icon.textContent || '';
+          text = text.replace(iconText, '').trim();
+          icons[el.dataset.i18n] = icon.outerHTML;
+        }
+        srTexts[el.dataset.i18n] = text;
+      });
+      const en = {
+        back: 'Back to home',
+        eyebrow: 'Weather forecast',
+        title: 'Vreme u Srbiji',
+        lede: 'RHMZ weather data',
+        'features-title': 'What you get',
+        rating: 'Rating 4.2/5',
+        'feat1-title': 'RHMZ forecasts',
+        'feat1-body': 'Current forecasts for locations in Serbia.',
+        'feat2-title': 'Precipitation maps',
+        'feat2-body': 'Visual view of clouds and precipitation.',
+        'feat3-title': 'Quick access',
+        'feat3-body': 'Weather overview without checking multiple sources.',
+        'screens-title': 'Screenshots',
+        'desc-title': 'App description',
+        'desc-p1': 'Daily data from the Serbian Hydrometeorological Service (RHMZ). Forecasts are available for select locations for the next 3 or 5 days.',
+        'desc-heading': 'FEATURES:',
+        'desc-p2': 'Supports dark and light themes and follows the phone setting; you can also choose the theme manually.',
+        note: 'NOTE: Data is unavailable if the device is offline.',
+        'sticky-sub': 'RHMZ forecasts'
+      };
+      function apply(lang) {
+        document.documentElement.setAttribute('data-lang', lang);
+        localStorage.setItem('lang', lang);
+        elements.forEach(el => {
+          const key = el.dataset.i18n;
+          const text = lang === 'en' && en[key] ? en[key] : srTexts[key] || el.textContent;
+          if (icons[key]) {
+            el.innerHTML = icons[key] + ' ' + text;
+          } else {
+            el.textContent = text;
+          }
+        });
+        toggle.textContent = lang === 'sr' ? 'EN' : 'SR';
+      }
+      apply(saved);
+      toggle.addEventListener('click', () => {
+        const next = (document.documentElement.getAttribute('data-lang') || 'sr') === 'sr' ? 'en' : 'sr';
+        apply(next);
       });
     })();
   </script>

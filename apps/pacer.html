@@ -35,7 +35,7 @@
     .wrap { max-width: 1200px; margin: 0 auto; padding: 38px 20px 90px; }
     .topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--stroke); }
         .back { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; position: relative; padding: 8px 0; border: none; background: none; box-shadow: none; letter-spacing: 0.2px; color: var(--text); }
-        .theme-toggle {
+    .theme-toggle {
       border: 1px solid var(--stroke);
       background: rgba(255,255,255,0.05);
       color: var(--text);
@@ -46,6 +46,17 @@
       transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
     }
     .theme-toggle:hover { border-color: rgba(255,122,0,0.5); }
+    .lang-toggle {
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+    .lang-toggle:hover { border-color: rgba(255,122,0,0.5); }
         .back:hover { transform: translateY(-1px); }
         .back .arrow { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 999px; background: none; border: none; color: var(--orange); font-size: 14px; line-height: 1; box-shadow: none; }
     .hero { position: relative; background: linear-gradient(120deg, rgba(255,122,0,0.09), rgba(255,255,255,0.03)); border: 1px solid var(--stroke); border-radius: 20px; padding: 24px; box-shadow: 0 28px 70px rgba(0,0,0,0.35); display: grid; grid-template-columns: auto 1fr auto; gap: 22px; margin-top: 18px; align-items: start; overflow: hidden; }
@@ -104,18 +115,21 @@
 <body>
   <div class="wrap">
     <div class="topbar">
-      <a class="back" href="../index.html"><span class="arrow">←</span><span>Nazad na početnu</span></a>
-    <button id="themeToggle" class="theme-toggle" type="button">🌙 Tema</button>
+      <a class="back" href="../index.html"><span class="arrow">←</span><span data-i18n="back">Nazad na početnu</span></a>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <button id="langToggle" class="lang-toggle" type="button">EN</button>
+        <button id="themeToggle" class="theme-toggle" type="button">🌙 Tema</button>
       </div>
+    </div>
 
     <section class="hero">
       <div class="icon-wrap"><img src="https://play-lh.googleusercontent.com/j2xnLIJ-t-shnpykt6cx1n4mBolEr8w6kvULlp5nnZrvBBDCS5bTYNf3oqC3sch-WA" alt="Trkač ikonica"></div>
       <div>
-        <p class="eyebrow">Sport</p>
-        <h1>Trkač</h1>
-        <p class="lede">Kalkulator tempa, dužine i vremena za treninge i trke.</p>
+        <p class="eyebrow" data-i18n="eyebrow">Sport</p>
+        <h1 data-i18n="title">Trkač</h1>
+        <p class="lede" data-i18n="lede">Kalkulator tempa, dužine i vremena za treninge i trke.</p>
         <div class="badges">
-          <span class="pill">Ocena 5.0/5</span>
+          <span class="pill" data-i18n="rating">Ocena 5.0/5</span>
           <span class="pill">Android</span>
           <span class="pill">iOS</span>
         </div>
@@ -130,16 +144,16 @@
     </section>
 
     <div class="section">
-      <h2>Šta dobijate u aplikaciji</h2>
+      <h2 data-i18n="features-title">Šta dobijate u aplikaciji</h2>
       <div class="feature-grid">
-        <div class="feature-card"><h3><span class="feature-icon">⏱️</span>Pace kalkulator</h3><p>Izracunaj dužinu, vreme ili tempo na osnovu druge dve vrednosti.</p></div>
-        <div class="feature-card"><h3><span class="feature-icon">🎯</span>Intervali i ponavljanja</h3><p>Za fartlek ili intervale izracunaj broj ponavljanja.</p></div>
-        <div class="feature-card"><h3><span class="feature-icon">📈</span>Prolazna vremena</h3><p>Pregled prolaznih vremena po kilometru za uneti tempo.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat1-title"><span class="feature-icon">⏱️</span>Pace kalkulator</h3><p data-i18n="feat1-body">Izračunaj dužinu, vreme ili tempo na osnovu druge dve vrednosti.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat2-title"><span class="feature-icon">🎯</span>Intervali i ponavljanja</h3><p data-i18n="feat2-body">Za fartlek ili intervale izračunaj broj ponavljanja.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat3-title"><span class="feature-icon">📈</span>Prolazna vremena</h3><p data-i18n="feat3-body">Pregled prolaznih vremena po kilometru za uneti tempo.</p></div>
       </div>
     </div>
 
     <div class="section">
-      <h2>Screenshots</h2>
+      <h2 data-i18n="screens-title">Screenshots</h2>
                                                                                                                                                                                                                                                                                                                                                                                                 <div class="screen-grid">
                                                                                                                                                                                                   <img src="https://play-lh.googleusercontent.com/4PNKb6sO9oqEir6PiHmdVM5LrhcUBGzmYbzaydrqmwqIhTLK4quSqKuhOVYFyIHEozw=w1052-h592" alt="Trkač screenshot 1">
                                                                                                                                                                                                   <img src="https://play-lh.googleusercontent.com/A_2Ft317D-HI-rRjsployJ9csSgG7Wr0p5nsfGlgkdxViOX5WBBhI65BARMCRDzQ3wk=w1052-h592" alt="Trkač screenshot 2">
@@ -153,24 +167,24 @@
     </div>
 
     <div class="section">
-      <h2>Opis aplikacije</h2>
-      <p class="body-text">Aplikacija Trkač je alat za izracunavanje tempa, dužine i vremena za trkače na treningu i trkama.</p>
-      <p class="body-text strong">KARAKTERISTIKE:</p>
+      <h2 data-i18n="desc-title">Opis aplikacije</h2>
+      <p class="body-text" data-i18n="desc-p1">Aplikacija Trkač je alat za izračunavanje tempa, dužine i vremena za trkače na treningu i trkama.</p>
+      <p class="body-text strong" data-i18n="desc-heading">KARAKTERISTIKE:</p>
       <ul class="body-list">
-        <li>izracunaj dužinu, vreme ili pace na osnovu druge dve informacije</li>
-        <li>za fartlek ili intervale izracunaj broj ponavljanja</li>
-        <li>procena vremena za druge distance na osnovu postojecih rezultata</li>
-        <li>prolazna vremena po kilometru za zadati tempo</li>
+        <li data-i18n="desc-li1">izračunaj dužinu, vreme ili pace na osnovu druge dve informacije</li>
+        <li data-i18n="desc-li2">za fartlek ili intervale izračunaj broj ponavljanja</li>
+        <li data-i18n="desc-li3">procena vremena za druge distance na osnovu postojećih rezultata</li>
+        <li data-i18n="desc-li4">prolazna vremena po kilometru za zadati tempo</li>
       </ul>
-      <p class="body-text">Aplikacija podržava tamnu i svetlu temu. Na telefonima koji podržavaju teme, aplikacija se automatski prilagođava temi telefona. Na ostalim uređajima moguće je ručno izabrati željenu temu.</p>
-      <p class="body-text tight">NAPOMENA: Podaci nisu dostupni ukoliko uređaj nije priključen na internet.</p>
+      <p class="body-text" data-i18n="desc-p2">Aplikacija podržava tamnu i svetlu temu. Na telefonima koji podržavaju teme, aplikacija se automatski prilagođava temi telefona. Na ostalim uređajima moguće je ručno izabrati željenu temu.</p>
+      <p class="body-text tight" data-i18n="note">NAPOMENA: Podaci nisu dostupni ukoliko uređaj nije priključen na internet.</p>
     </div>
 
   </div>
   <div class="sticky-cta">
     <div class="copy">
       <strong>Trkač</strong>
-      <span>Tempo i kalkulator</span>
+      <span data-i18n="sticky-sub">Tempo i kalkulator</span>
     </div>
     <div class="badge-row">
       <a class="store-badge" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=dev.mihajlovic.pacer&hl=sr&gl=RS">
@@ -194,6 +208,63 @@
         root.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
         setLabel();
+      });
+    })();
+
+    (function() {
+      const toggle = document.getElementById('langToggle');
+      const saved = localStorage.getItem('lang') || 'sr';
+      const elements = document.querySelectorAll('[data-i18n]');
+      const srTexts = {};
+      const icons = {};
+      elements.forEach(el => {
+        srTexts[el.dataset.i18n] = el.textContent;
+        const icon = el.querySelector('.feature-icon');
+        if (icon) icons[el.dataset.i18n] = icon.outerHTML;
+      });
+      const en = {
+        back: 'Back to home',
+        eyebrow: 'Sports',
+        title: 'Trkač',
+        lede: 'Pace, distance, and time calculator for training and races.',
+        'features-title': 'What you get',
+        rating: 'Rating 5.0/5',
+        'feat1-title': 'Pace calculator',
+        'feat1-body': 'Compute distance, time, or pace from the other two values.',
+        'feat2-title': 'Intervals and repeats',
+        'feat2-body': 'Calculate repetitions for fartlek or interval workouts.',
+        'feat3-title': 'Splits',
+        'feat3-body': 'See per-kilometer splits for a given pace.',
+        'screens-title': 'Screenshots',
+        'desc-title': 'App description',
+        'desc-p1': 'Trkač helps runners calculate pace, distance, and time for training and race planning.',
+        'desc-heading': 'FEATURES:',
+        'desc-li1': 'calculate distance, time, or pace from the other two inputs',
+        'desc-li2': 'compute interval repeats for fartlek or workouts',
+        'desc-li3': 'predict times for other distances based on results',
+        'desc-li4': 'view per-kilometer split times for a chosen pace',
+        'desc-p2': 'Supports dark and light themes; follows the phone theme or set it manually.',
+        note: 'NOTE: Data isn’t available if the device is offline.',
+        'sticky-sub': 'Pace tools & calculator'
+      };
+      function apply(lang) {
+        document.documentElement.setAttribute('data-lang', lang);
+        localStorage.setItem('lang', lang);
+        elements.forEach(el => {
+          const key = el.dataset.i18n;
+          const text = lang === 'en' && en[key] ? en[key] : srTexts[key] || el.textContent;
+          if (icons[key]) {
+            el.innerHTML = icons[key] + ' ' + text;
+          } else {
+            el.textContent = text;
+          }
+        });
+        toggle.textContent = lang === 'sr' ? 'EN' : 'SR';
+      }
+      apply(saved);
+      toggle.addEventListener('click', () => {
+        const next = (document.documentElement.getAttribute('data-lang') || 'sr') === 'sr' ? 'en' : 'sr';
+        apply(next);
       });
     })();
   </script>

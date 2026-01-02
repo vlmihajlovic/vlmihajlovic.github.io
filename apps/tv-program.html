@@ -46,6 +46,17 @@
       transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
     }
     .theme-toggle:hover { border-color: rgba(255,122,0,0.5); }
+    .lang-toggle {
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+    .lang-toggle:hover { border-color: rgba(255,122,0,0.5); }
         .back:hover { transform: translateY(-1px); }
         .back .arrow { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 999px; background: none; border: none; color: var(--orange); font-size: 14px; line-height: 1; box-shadow: none; }
     .hero { position: relative; background: linear-gradient(120deg, rgba(255,122,0,0.09), rgba(255,255,255,0.03)); border: 1px solid var(--stroke); border-radius: 20px; padding: 24px; box-shadow: 0 28px 70px rgba(0,0,0,0.35); display: grid; grid-template-columns: auto 1fr auto; gap: 22px; margin-top: 18px; align-items: start; overflow: hidden; }
@@ -104,18 +115,21 @@
 <body>
   <div class="wrap">
     <div class="topbar">
-      <a class="back" href="../index.html"><span class="arrow">←</span><span>Nazad na početnu</span></a>
-    <button id="themeToggle" class="theme-toggle" type="button">🌙 Tema</button>
+      <a class="back" href="../index.html"><span class="arrow">←</span><span data-i18n="back">Nazad na početnu</span></a>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <button id="langToggle" class="lang-toggle" type="button">EN</button>
+        <button id="themeToggle" class="theme-toggle" type="button">🌙 Tema</button>
       </div>
+    </div>
 
     <section class="hero">
       <div class="icon-wrap"><img src="https://play-lh.googleusercontent.com/KsIip37s1zQ8HGHWIs4RKMNT_VOvhMZOZc45l-69tnqrP_APfxk9NzwInyqqAgXVFUla" alt="TV program ikonica"></div>
       <div>
-        <p class="eyebrow">TV vodič</p>
-        <h1>TV program</h1>
-        <p class="lede">TV program najpopularnijih domaćih i inostranih kanala, kreiranje podsetnika...</p>
+        <p class="eyebrow" data-i18n="eyebrow">TV vodič</p>
+        <h1 data-i18n="title">TV program</h1>
+        <p class="lede" data-i18n="lede">TV program najpopularnijih domaćih i inostranih kanala, kreiranje podsetnika...</p>
         <div class="badges">
-          <span class="pill">Ocena 4.4/5</span>
+          <span class="pill" data-i18n="rating">Ocena 4.4/5</span>
           <span class="pill">Android</span>
           <span class="pill">iOS</span>
         </div>
@@ -130,16 +144,16 @@
     </section>
 
     <div class="section">
-      <h2>Šta dobijate u aplikaciji</h2>
+      <h2 data-i18n="features-title">Šta dobijate u aplikaciji</h2>
       <div class="feature-grid">
-        <div class="feature-card"><h3><span class="feature-icon">📺</span>Program kanala</h3><p>Pregled domaćih i inostranih TV kanala na jednom mestu.</p></div>
-        <div class="feature-card"><h3><span class="feature-icon">⏰</span>Podsetnici</h3><p>Podesi podsetnik za emisije koje ne želiš da propustiš.</p></div>
-        <div class="feature-card"><h3><span class="feature-icon">⭐</span>Omiljeni</h3><p>Dodaj omiljene kanale ili emisije radi bržeg pristupa.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat1-title"><span class="feature-icon">📺</span>Program kanala</h3><p data-i18n="feat1-body">Pregled domaćih i inostranih TV kanala na jednom mestu.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat2-title"><span class="feature-icon">⏰</span>Podsetnici</h3><p data-i18n="feat2-body">Podesi podsetnik za emisije koje ne želiš da propustiš.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat3-title"><span class="feature-icon">⭐</span>Omiljeni</h3><p data-i18n="feat3-body">Dodaj omiljene kanale ili emisije radi bržeg pristupa.</p></div>
       </div>
     </div>
 
     <div class="section">
-      <h2>Screenshots</h2>
+      <h2 data-i18n="screens-title">Screenshots</h2>
                                                                                                                                                                                                                                                                                                                                                                                                 <div class="screen-grid">
                                                                                                                                                                                                   <img src="https://play-lh.googleusercontent.com/3aOmjTPc7kkKnRW8G-wrW0UW1vizlsZR_3Tdft-jMIAB1kTLEVaRB7wQtf7UP6kTSw=w1052-h592" alt="TV program screenshot 1">
                                                                                                                                                                                                   <img src="https://play-lh.googleusercontent.com/LfaffTsgD2riI_9m3yMr1l7O4b8tiqaKsJ8vKHPp1inqMgHueWz8BVGdv3d_TmbKeNEV=w1052-h592" alt="TV program screenshot 2">
@@ -153,24 +167,24 @@
     </div>
 
     <div class="section">
-      <h2>Opis aplikacije</h2>
-      <p class="body-text">Aplikacija je namenjena korisnicima iz Srbije i regiona. Prikazuje TV program najpopularnijih domacih i inostranih kanala. Dostupno je preko 500 domacih i inostranih kanala. Emisije je moguće, osim po kanalima, pretraziti i po tipu. Postoji devet tipova: filmovi, sport, vesti, crtani filmovi, dečiji program, dokumentarni program, kvizovi, muzicki program, serije. Za željenu emisiju je moguće kreirati podsetnik.</p>
-      <p class="body-text strong">KARAKTERISTIKE:</p>
+      <h2 data-i18n="desc-title">Opis aplikacije</h2>
+      <p class="body-text" data-i18n="desc-p1">Aplikacija je namenjena korisnicima iz Srbije i regiona. Prikazuje TV program najpopularnijih domaćih i inostranih kanala. Dostupno je preko 500 domaćih i inostranih kanala. Emisije je moguće, osim po kanalima, pretražiti i po tipu. Postoji devet tipova: filmovi, sport, vesti, crtani filmovi, dečiji program, dokumentarni program, kvizovi, muzički program, serije. Za željenu emisiju je moguće kreirati podsetnik.</p>
+      <p class="body-text strong" data-i18n="desc-heading">KARAKTERISTIKE:</p>
       <ul class="body-list">
-        <li>Domaci kanali - spisak od preko 40 najgledanijih domacih kanala</li>
+        <li>Domaći kanali - spisak od preko 40 najgledanijih domaćih kanala</li>
         <li>Inostrani kanali - lista od preko 50 najpopularnijih inostranih kanala</li>
-        <li>Pregled - prikaz kanala po tipu. Postoji devet tipova: filmovi, sport, vesti, crtani filmovi, dečiji program, dokumentarni program, kvizovi, muzicki program, serije.</li>
-        <li>Podsetnik - spisak kreiranih podsetnika. Za bilo koju željenu emisiju je moguće kreirati podsetnik koji se ponavlja (dnevno, nedeljno, mesecno) i najavljuje 5/10/15/30/60 minuta ranije.</li>
+        <li>Pregled - prikaz kanala po tipu. Postoji devet tipova: filmovi, sport, vesti, crtani filmovi, dečiji program, dokumentarni program, kvizovi, muzički program, serije.</li>
+        <li>Podsetnik - spisak kreiranih podsetnika. Za bilo koju željenu emisiju je moguće kreirati podsetnik koji se ponavlja (dnevno, nedeljno, mesečno) i najavljuje 5/10/15/30/60 minuta ranije.</li>
       </ul>
-      <p class="body-text">Aplikacija podržava tamnu i svetlu temu. Na onim telefonima čiji operativni sistem podržava teme, aplikacija se automatski prilagođava temi telefona. Na ostalim uređajima, u delu za podešavanje aplikacije, moguće je ručno izabrati željenu temu.</p>
-      <p class="body-text tight">NAPOMENA: Podaci nisu dostupni ukoliko mobilni uređaj nije priključen na internet mrežu.</p>
+      <p class="body-text" data-i18n="desc-p2">Aplikacija podržava tamnu i svetlu temu. Na onim telefonima čiji operativni sistem podržava teme, aplikacija se automatski prilagođava temi telefona. Na ostalim uređajima, u delu za podešavanje aplikacije, moguće je ručno izabrati željenu temu.</p>
+      <p class="body-text tight" data-i18n="note">NAPOMENA: Podaci nisu dostupni ukoliko mobilni uređaj nije priključen na internet mrežu.</p>
     </div>
 
   </div>
   <div class="sticky-cta">
     <div class="copy">
       <strong>TV program</strong>
-      <span>Kanali i podsetnici</span>
+      <span data-i18n="sticky-sub">Kanali i podsetnici</span>
     </div>
     <div class="badge-row">
       <a class="store-badge" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=dev.mihajlovic.tvprogram&hl=sr&gl=RS">
@@ -194,6 +208,64 @@
         root.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
         setLabel();
+      });
+    })();
+
+    (function() {
+      const toggle = document.getElementById('langToggle');
+      const saved = localStorage.getItem('lang') || 'sr';
+      const elements = document.querySelectorAll('[data-i18n]');
+      const srTexts = {};
+      const icons = {};
+      elements.forEach(el => {
+        const icon = el.querySelector('.feature-icon');
+        let text = el.textContent;
+        if (icon) {
+          const iconText = icon.textContent || '';
+          text = text.replace(iconText, '').trim();
+          icons[el.dataset.i18n] = icon.outerHTML;
+        }
+        srTexts[el.dataset.i18n] = text;
+      });
+      const en = {
+        back: 'Back to home',
+        eyebrow: 'TV guide',
+        title: 'TV program',
+        lede: 'TV schedule for popular local and international channels, plus reminders.',
+        'features-title': 'What you get',
+        rating: 'Rating 4.4/5',
+        'feat1-title': 'Channel schedule',
+        'feat1-body': 'View Serbian and international channels in one place.',
+        'feat2-title': 'Reminders',
+        'feat2-body': 'Set reminders for shows you don’t want to miss.',
+        'feat3-title': 'Favorites',
+        'feat3-body': 'Add favorite channels or shows for quick access.',
+        'screens-title': 'Screenshots',
+        'desc-title': 'App description',
+        'desc-p1': 'Designed for users in Serbia and the region. Shows TV schedules for popular local and international channels—over 500 in total. Browse by channel or by type: movies, sports, news, cartoons, kids, documentaries, quizzes, music, series. Create reminders for any show.',
+        'desc-heading': 'FEATURES:',
+        'desc-p2': 'Supports dark and light themes and follows the phone setting; you can also choose the theme manually.',
+        note: 'NOTE: Data is unavailable without an internet connection.',
+        'sticky-sub': 'Channels and reminders'
+      };
+      function apply(lang) {
+        document.documentElement.setAttribute('data-lang', lang);
+        localStorage.setItem('lang', lang);
+        elements.forEach(el => {
+          const key = el.dataset.i18n;
+          const text = lang === 'en' && en[key] ? en[key] : srTexts[key] || el.textContent;
+          if (icons[key]) {
+            el.innerHTML = icons[key] + ' ' + text;
+          } else {
+            el.textContent = text;
+          }
+        });
+        toggle.textContent = lang === 'sr' ? 'EN' : 'SR';
+      }
+      apply(saved);
+      toggle.addEventListener('click', () => {
+        const next = (document.documentElement.getAttribute('data-lang') || 'sr') === 'sr' ? 'en' : 'sr';
+        apply(next);
       });
     })();
   </script>

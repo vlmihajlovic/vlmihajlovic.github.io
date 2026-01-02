@@ -76,6 +76,17 @@
       color: var(--muted);
       font-size: 14px;
     }
+    .lang-toggle {
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+    .lang-toggle:hover { border-color: rgba(255,122,0,0.5); }
     .theme-toggle {
       border: 1px solid var(--stroke);
       background: rgba(255,255,255,0.05);
@@ -267,17 +278,18 @@
     <div class="nav">
       <div class="logo"><span class="logo-bullet"></span> Vladimir Mihajlovic</div>
       <div class="nav-links">
+        <button id="langToggle" class="lang-toggle" type="button">EN</button>
         <button id="themeToggle" class="theme-toggle" type="button">🌙 Tema</button>
       </div>
     </div>
 
     <div class="intro">
       <div class="intro-copy">
-        <h1 class="page-title">Mobilne aplikacije</h1>
-        <p class="page-subtitle">Pregled svih dostupnih aplikacija na store-ovima, sa kratkim opisom, ocenom i linkovima ka detaljima i preuzimanju.</p>
+        <h1 class="page-title" data-i18n="title">Mobilne aplikacije</h1>
+        <p class="page-subtitle" data-i18n="subtitle">Pregled svih dostupnih aplikacija na store-ovima, sa kratkim opisom, ocenom i linkovima ka detaljima i preuzimanju.</p>
         <div class="cta-row">
-          <a class="btn" href="#apps">Pogledaj sve aplikacije</a>
-          <a class="ghost" href="mailto:dev.mihajlovic@gmail.com">Kontakt</a>
+          <a class="btn" href="#apps" data-i18n="cta-all">Pogledaj sve aplikacije</a>
+          <a class="ghost" href="mailto:dev.mihajlovic@gmail.com" data-i18n="cta-contact">Kontakt</a>
         </div>
       </div>
       <div class="visual-card">
@@ -305,13 +317,13 @@
         <div>
           <div class="card-top">
             <div class="title-row">
-              <h3>Vodostaj u Srbiji</h3>
-              <div class="tag-row"><span class="tag">Ocena 4.2/5</span><span class="tag">Android</span><span class="tag">iOS</span></div>
+              <h3 data-i18n="app-vodostaj-name">Vodostaj u Srbiji</h3>
+              <div class="tag-row"><span class="tag" data-i18n="app-vodostaj-rating">Ocena 4.2/5</span><span class="tag">Android</span><span class="tag">iOS</span></div>
             </div>
             <a class="btn compact" href="apps/vodostaj.html">Detalji</a>
           </div>
         </div>
-        <p class="app-desc">Prognoza vodostaja za reke i hidrološka situacija za male i srednje vodotokove.</p>
+        <p class="app-desc" data-i18n="app-vodostaj-desc">Prognoza vodostaja za reke i hidrološka situacija za male i srednje vodotokove.</p>
       </article>
 
       <article class="app-card">
@@ -319,13 +331,13 @@
         <div>
           <div class="card-top">
             <div class="title-row">
-              <h3>Pogodi reč</h3>
-              <div class="tag-row"><span class="tag">Ocena 3.5/5</span><span class="tag">Android</span><span class="tag">iOS</span></div>
+              <h3 data-i18n="app-vordli-name">Pogodi reč</h3>
+              <div class="tag-row"><span class="tag" data-i18n="app-vordli-rating">Ocena 3.5/5</span><span class="tag">Android</span><span class="tag">iOS</span></div>
             </div>
             <a class="btn compact" href="apps/vordli.html">Detalji</a>
           </div>
         </div>
-        <p class="app-desc">Igra pogađanja reči (wordle na srpskom).</p>
+        <p class="app-desc" data-i18n="app-vordli-desc">Igra pogađanja reči (wordle na srpskom).</p>
       </article>
 
       <article class="app-card">
@@ -333,13 +345,13 @@
         <div>
           <div class="card-top">
             <div class="title-row">
-              <h3>TV program</h3>
-              <div class="tag-row"><span class="tag">Ocena 4.4/5</span><span class="tag">Android</span><span class="tag">iOS</span></div>
+              <h3 data-i18n="app-tv-name">TV program</h3>
+              <div class="tag-row"><span class="tag" data-i18n="app-tv-rating">Ocena 4.4/5</span><span class="tag">Android</span><span class="tag">iOS</span></div>
             </div>
             <a class="btn compact" href="apps/tv-program.html">Detalji</a>
           </div>
         </div>
-        <p class="app-desc">TV program domaćih i inostranih kanala, podsetnici i omiljeni.</p>
+        <p class="app-desc" data-i18n="app-tv-desc">TV program domaćih i inostranih kanala, podsetnici i omiljeni.</p>
       </article>
 
       <article class="app-card">
@@ -347,13 +359,13 @@
         <div>
           <div class="card-top">
             <div class="title-row">
-              <h3>Vreme u Srbiji</h3>
-              <div class="tag-row"><span class="tag">Ocena 4.2/5</span><span class="tag">Android</span><span class="tag">iOS</span></div>
+              <h3 data-i18n="app-vreme-name">Vreme u Srbiji</h3>
+              <div class="tag-row"><span class="tag" data-i18n="app-vreme-rating">Ocena 4.2/5</span><span class="tag">Android</span><span class="tag">iOS</span></div>
             </div>
             <a class="btn compact" href="apps/vreme.html">Detalji</a>
           </div>
         </div>
-        <p class="app-desc">RHMZ podaci o vremenu, prognoze i mape padavina.</p>
+        <p class="app-desc" data-i18n="app-vreme-desc">RHMZ podaci o vremenu, prognoze i mape padavina.</p>
       </article>
 
       <article class="app-card">
@@ -361,13 +373,13 @@
         <div>
           <div class="card-top">
             <div class="title-row">
-              <h3>Kursna lista</h3>
-              <div class="tag-row"><span class="tag">Ocena 4.5/5</span><span class="tag">Android</span><span class="tag">iOS</span></div>
+              <h3 data-i18n="app-kurs-name">Kursna lista</h3>
+              <div class="tag-row"><span class="tag" data-i18n="app-kurs-rating">Ocena 4.5/5</span><span class="tag">Android</span><span class="tag">iOS</span></div>
             </div>
             <a class="btn compact" href="apps/kursna-lista.html">Detalji</a>
           </div>
         </div>
-        <p class="app-desc">Kurs dinara za naredni dan i zvanična lista NBS za tekući dan.</p>
+        <p class="app-desc" data-i18n="app-kurs-desc">Kurs dinara za naredni dan i zvanična lista NBS za tekući dan.</p>
       </article>
 
       <article class="app-card">
@@ -375,13 +387,13 @@
         <div>
           <div class="card-top">
             <div class="title-row">
-              <h3>Edge Runner</h3>
-              <div class="tag-row"><span class="tag">Nova</span><span class="tag">Android</span></div>
+              <h3 data-i18n="app-edge-name">Edge Runner</h3>
+              <div class="tag-row"><span class="tag" data-i18n="app-edge-new">Nova</span><span class="tag">Android</span></div>
             </div>
             <a class="btn compact" href="apps/edgerunner.html">Detalji</a>
           </div>
         </div>
-        <p class="app-desc">Refleks endless igra: izbegavaj prepreke, skupljaj bonuse.</p>
+        <p class="app-desc" data-i18n="app-edge-desc">Refleks endless igra: izbegavaj prepreke, skupljaj bonuse.</p>
       </article>
 
       <article class="app-card">
@@ -389,13 +401,13 @@
         <div>
           <div class="card-top">
             <div class="title-row">
-              <h3>BG prevoz</h3>
-              <div class="tag-row"><span class="tag">Ocena 4.5/5</span><span class="tag">Android</span><span class="tag">iOS</span></div>
+              <h3 data-i18n="app-bgprevoz-name">BG prevoz</h3>
+              <div class="tag-row"><span class="tag" data-i18n="app-bgprevoz-rating">Ocena 4.5/5</span><span class="tag">Android</span><span class="tag">iOS</span></div>
             </div>
             <a class="btn compact" href="apps/bg-prevoz.html">Detalji</a>
           </div>
         </div>
-        <p class="app-desc">Lista linija i redova vožnje javnog prevoza za Beograd.</p>
+        <p class="app-desc" data-i18n="app-bgprevoz-desc">Lista linija i redova vožnje javnog prevoza za Beograd.</p>
       </article>
 
       <article class="app-card">
@@ -403,13 +415,13 @@
         <div>
           <div class="card-top">
             <div class="title-row">
-              <h3>Check and Go</h3>
-              <div class="tag-row"><span class="tag">Nova</span><span class="tag">Android</span><span class="tag">iOS</span></div>
+              <h3 data-i18n="app-check-name">Check and Go</h3>
+              <div class="tag-row"><span class="tag" data-i18n="app-check-new">Nova</span><span class="tag">Android</span><span class="tag">iOS</span></div>
             </div>
             <a class="btn compact" href="apps/check-and-go.html">Detalji</a>
           </div>
         </div>
-        <p class="app-desc">Brza checklista za proveru stvari pre izlaska iz kuće.</p>
+        <p class="app-desc" data-i18n="app-check-desc">Brza checklista za proveru stvari pre izlaska iz kuće.</p>
       </article>
 
       <article class="app-card">
@@ -417,13 +429,13 @@
         <div>
           <div class="card-top">
             <div class="title-row">
-              <h3>Na današnji dan</h3>
-              <div class="tag-row"><span class="tag">Ocena 4.7/5</span><span class="tag">Android</span><span class="tag">iOS</span></div>
+              <h3 data-i18n="app-nadan-name">Na današnji dan</h3>
+              <div class="tag-row"><span class="tag" data-i18n="app-nadan-rating">Ocena 4.7/5</span><span class="tag">Android</span><span class="tag">iOS</span></div>
             </div>
             <a class="btn compact" href="apps/na-današnji-dan.html">Detalji</a>
           </div>
         </div>
-        <p class="app-desc">Istorijski događaji za današnji datum.</p>
+        <p class="app-desc" data-i18n="app-nadan-desc">Istorijski događaji za današnji datum.</p>
       </article>
 
       <article class="app-card">
@@ -431,13 +443,13 @@
         <div>
           <div class="card-top">
             <div class="title-row">
-              <h3>Horoskop</h3>
-              <div class="tag-row"><span class="tag">Ocena 4.5/5</span><span class="tag">Android</span></div>
+              <h3 data-i18n="app-horoskop-name">Horoskop</h3>
+              <div class="tag-row"><span class="tag" data-i18n="app-horoskop-rating">Ocena 4.5/5</span><span class="tag">Android</span></div>
             </div>
             <a class="btn compact" href="apps/horoskop.html">Detalji</a>
           </div>
         </div>
-        <p class="app-desc">Dnevni i nedeljni horoskop na srpskom.</p>
+        <p class="app-desc" data-i18n="app-horoskop-desc">Dnevni i nedeljni horoskop na srpskom.</p>
       </article>
 
       <article class="app-card">
@@ -445,13 +457,13 @@
         <div>
           <div class="card-top">
             <div class="title-row">
-              <h3>Trkač</h3>
-              <div class="tag-row"><span class="tag">Ocena 5.0/5</span><span class="tag">Android</span><span class="tag">iOS</span></div>
+              <h3 data-i18n="app-trkac-name">Trkač</h3>
+              <div class="tag-row"><span class="tag" data-i18n="app-trkac-rating">Ocena 5.0/5</span><span class="tag">Android</span><span class="tag">iOS</span></div>
             </div>
             <a class="btn compact" href="apps/pacer.html">Detalji</a>
           </div>
         </div>
-        <p class="app-desc">Tempo, dužina i vreme kalkulator za trkače.</p>
+        <p class="app-desc" data-i18n="app-trkac-desc">Tempo, dužina i vreme kalkulator za trkače.</p>
       </article>
 
       <article class="app-card">
@@ -459,13 +471,13 @@
         <div>
           <div class="card-top">
             <div class="title-row">
-              <h3>Pacer PRO</h3>
-              <div class="tag-row"><span class="tag">Nova</span><span class="tag">Android</span><span class="tag">iOS</span></div>
+              <h3 data-i18n="app-pacerpro-name">Pacer PRO</h3>
+              <div class="tag-row"><span class="tag" data-i18n="app-pacerpro-new">Nova</span><span class="tag">Android</span><span class="tag">iOS</span></div>
             </div>
             <a class="btn compact" href="apps/pacer-pro.html">Detalji</a>
           </div>
         </div>
-        <p class="app-desc">Napredni pace kalkulator, zone i intervali.</p>
+        <p class="app-desc" data-i18n="app-pacerpro-desc">Napredni pace kalkulator, zone i intervali.</p>
       </article>
 
       <article class="app-card">
@@ -473,13 +485,13 @@
         <div>
           <div class="card-top">
             <div class="title-row">
-              <h3>Status paketa</h3>
-              <div class="tag-row"><span class="tag">Ocena 5.0/5</span><span class="tag">Android</span><span class="tag">iOS</span></div>
+              <h3 data-i18n="app-status-name">Status paketa</h3>
+              <div class="tag-row"><span class="tag" data-i18n="app-status-rating">Ocena 5.0/5</span><span class="tag">Android</span><span class="tag">iOS</span></div>
             </div>
             <a class="btn compact" href="apps/status-paketa.html">Detalji</a>
           </div>
         </div>
-        <p class="app-desc">Provera pošiljki i kurirskih službi na jednom mestu.</p>
+        <p class="app-desc" data-i18n="app-status-desc">Provera pošiljki i kurirskih službi na jednom mestu.</p>
       </article>
 
       <article class="app-card">
@@ -487,19 +499,18 @@
         <div>
           <div class="card-top">
             <div class="title-row">
-              <h3>BG parking</h3>
-              <div class="tag-row"><span class="tag">Ocena 4.7/5</span><span class="tag">Android</span><span class="tag">iOS</span></div>
+              <h3 data-i18n="app-parking-name">BG parking</h3>
+              <div class="tag-row"><span class="tag" data-i18n="app-parking-rating">Ocena 4.7/5</span><span class="tag">Android</span><span class="tag">iOS</span></div>
             </div>
             <a class="btn compact" href="apps/bg-parking.html">Detalji</a>
           </div>
         </div>
-        <p class="app-desc">SMS plaćanje parkiranja i mapa zona u Beogradu.</p>
+        <p class="app-desc" data-i18n="app-parking-desc">SMS plaćanje parkiranja i mapa zona u Beogradu.</p>
       </article>
     </section>
 
     <footer>
-      <div><a class="ghost" href="mailto:dev.mihajlovic@gmail.com">Kontakt</a></div>
-      <div>Priprema za dvojezičnu (SR/EN) verziju uskoro.</div>
+      <div><a class="ghost" href="mailto:dev.mihajlovic@gmail.com" data-i18n="cta-contact">Kontakt</a></div>
     </footer>
   </div>
 </body>
@@ -516,6 +527,128 @@
       root.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
       setLabel();
+    });
+  })();
+
+  (function() {
+    const root = document.documentElement;
+    const toggle = document.getElementById('langToggle');
+    const saved = localStorage.getItem('lang') || 'sr';
+    const dict = {
+      sr: {
+        title: 'Mobilne aplikacije',
+        subtitle: 'Pregled svih dostupnih aplikacija na store-ovima, sa kratkim opisom, ocenom i linkovima ka detaljima i preuzimanju.',
+        'cta-all': 'Pogledaj sve aplikacije',
+        'cta-contact': 'Kontakt',
+        'app-vodostaj-name': 'Vodostaj u Srbiji',
+        'app-vodostaj-desc': 'Prognoza vodostaja za reke i hidrološka situacija za male i srednje vodotokove.',
+        'app-vodostaj-rating': 'Ocena 4.2/5',
+        'app-vordli-name': 'Pogodi reč',
+        'app-vordli-desc': 'Igra pogađanja reči (wordle na srpskom).',
+        'app-vordli-rating': 'Ocena 3.5/5',
+        'app-tv-name': 'TV program',
+        'app-tv-desc': 'TV program domaćih i inostranih kanala, podsetnici i omiljeni.',
+        'app-tv-rating': 'Ocena 4.4/5',
+        'app-vreme-name': 'Vreme u Srbiji',
+        'app-vreme-desc': 'RHMZ podaci o vremenu, prognoze i mape padavina.',
+        'app-vreme-rating': 'Ocena 4.2/5',
+        'app-kurs-name': 'Kursna lista',
+        'app-kurs-desc': 'Kurs dinara za naredni dan i zvanična lista NBS za tekući dan.',
+        'app-kurs-rating': 'Ocena 4.5/5',
+        'app-edge-name': 'Edge Runner',
+        'app-edge-desc': 'Refleks endless igra: izbegavaj prepreke, skupljaj bonuse.',
+        'app-edge-new': 'Nova',
+        'app-bgprevoz-name': 'BG prevoz',
+        'app-bgprevoz-desc': 'Lista linija i redova vožnje javnog prevoza za Beograd.',
+        'app-bgprevoz-rating': 'Ocena 4.5/5',
+        'app-check-name': 'Check and Go',
+        'app-check-desc': 'Brza checklista za proveru stvari pre izlaska iz kuće.',
+        'app-check-new': 'Nova',
+        'app-nadan-name': 'Na današnji dan',
+        'app-nadan-desc': 'Istorijski događaji za današnji datum.',
+        'app-nadan-rating': 'Ocena 4.7/5',
+        'app-horoskop-name': 'Horoskop',
+        'app-horoskop-desc': 'Dnevni i nedeljni horoskop na srpskom.',
+        'app-horoskop-rating': 'Ocena 4.5/5',
+        'app-trkac-name': 'Trkač',
+        'app-trkac-desc': 'Tempo, dužina i vreme kalkulator za trkače.',
+        'app-trkac-rating': 'Ocena 5.0/5',
+        'app-pacerpro-name': 'Pacer PRO',
+        'app-pacerpro-desc': 'Napredni pace kalkulator, zone i intervali.',
+        'app-pacerpro-new': 'Nova',
+        'app-status-name': 'Status paketa',
+        'app-status-desc': 'Provera pošiljki i kurirskih službi na jednom mestu.',
+        'app-status-rating': 'Ocena 5.0/5',
+        'app-parking-name': 'BG parking',
+        'app-parking-desc': 'SMS plaćanje parkiranja i mapa zona u Beogradu.',
+        'app-parking-rating': 'Ocena 4.7/5',
+        'footer-note': 'Priprema za dvojezičnu (SR/EN) verziju uskoro.'
+      },
+      en: {
+        title: 'Mobile apps',
+        subtitle: 'Browse all published apps with short descriptions, ratings, and links to details and downloads.',
+        'cta-all': 'View all apps',
+        'cta-contact': 'Contact',
+        'app-vodostaj-name': 'Vodostaj u Srbiji',
+        'app-vodostaj-desc': 'River level forecasts and hydrology for major and local waterways.',
+        'app-vodostaj-rating': 'Rating 4.2/5',
+        'app-vordli-name': 'Pogodi reč',
+        'app-vordli-desc': 'Serbian wordle-style daily word guessing game.',
+        'app-vordli-rating': 'Rating 3.5/5',
+        'app-tv-name': 'TV program',
+        'app-tv-desc': 'TV schedules for local and international channels, reminders and favorites.',
+        'app-tv-rating': 'Rating 4.4/5',
+        'app-vreme-name': 'Vreme u Srbiji',
+        'app-vreme-desc': 'RHMZ weather data, forecasts, and precipitation maps.',
+        'app-vreme-rating': 'Rating 4.2/5',
+        'app-kurs-name': 'Kursna lista',
+        'app-kurs-desc': 'Dinar rates for tomorrow and official NBS list for today.',
+        'app-kurs-rating': 'Rating 4.5/5',
+        'app-edge-name': 'Edge Runner',
+        'app-edge-desc': 'Reflex endless runner: dodge obstacles, grab bonuses.',
+        'app-edge-new': 'New',
+        'app-bgprevoz-name': 'BG prevoz',
+        'app-bgprevoz-desc': 'Belgrade public transport lines and timetables.',
+        'app-bgprevoz-rating': 'Rating 4.5/5',
+        'app-check-name': 'Check and Go',
+        'app-check-desc': 'Quick checklist for things to verify before leaving home.',
+        'app-check-new': 'New',
+        'app-nadan-name': 'Na današnji dan',
+        'app-nadan-desc': 'Historic events for today’s date.',
+        'app-nadan-rating': 'Rating 4.7/5',
+        'app-horoskop-name': 'Horoscope',
+        'app-horoskop-desc': 'Daily and weekly horoscope in Serbian.',
+        'app-horoskop-rating': 'Rating 4.5/5',
+        'app-trkac-name': 'Trkač',
+        'app-trkac-desc': 'Pace, distance, and time calculator for runners.',
+        'app-trkac-rating': 'Rating 5.0/5',
+        'app-pacerpro-name': 'Pacer PRO',
+        'app-pacerpro-desc': 'Advanced pace calculator with zones and intervals.',
+        'app-pacerpro-new': 'New',
+        'app-status-name': 'Status paketa',
+        'app-status-desc': 'Track shipments and couriers in one place.',
+        'app-status-rating': 'Rating 5.0/5',
+        'app-parking-name': 'BG Parking',
+        'app-parking-desc': 'SMS parking payment and zone map for Belgrade.',
+        'app-parking-rating': 'Rating 4.7/5',
+        'footer-note': 'Bilingual (SR/EN) version in progress.'
+      }
+    };
+    function applyLang(lang) {
+      document.documentElement.setAttribute('data-lang', lang);
+      localStorage.setItem('lang', lang);
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[lang] && dict[lang][key]) {
+          el.textContent = dict[lang][key];
+        }
+      });
+      toggle.textContent = lang === 'sr' ? 'EN' : 'SR';
+    }
+    applyLang(saved);
+    toggle.addEventListener('click', () => {
+      const next = (document.documentElement.getAttribute('data-lang') || 'sr') === 'sr' ? 'en' : 'sr';
+      applyLang(next);
     });
   })();
 </script>

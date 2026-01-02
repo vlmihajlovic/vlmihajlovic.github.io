@@ -35,7 +35,7 @@
     .wrap { max-width: 1200px; margin: 0 auto; padding: 38px 20px 90px; }
     .topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--stroke); }
         .back { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; position: relative; padding: 8px 0; border: none; background: none; box-shadow: none; letter-spacing: 0.2px; color: var(--text); }
-        .theme-toggle {
+    .theme-toggle {
       border: 1px solid var(--stroke);
       background: rgba(255,255,255,0.05);
       color: var(--text);
@@ -46,6 +46,17 @@
       transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
     }
     .theme-toggle:hover { border-color: rgba(255,122,0,0.5); }
+    .lang-toggle {
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+    .lang-toggle:hover { border-color: rgba(255,122,0,0.5); }
         .back:hover { transform: translateY(-1px); }
         .back .arrow { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 999px; background: none; border: none; color: var(--orange); font-size: 14px; line-height: 1; box-shadow: none; }
     .hero { position: relative; background: linear-gradient(120deg, rgba(255,122,0,0.09), rgba(255,255,255,0.03)); border: 1px solid var(--stroke); border-radius: 20px; padding: 24px; box-shadow: 0 28px 70px rgba(0,0,0,0.35); display: grid; grid-template-columns: auto 1fr auto; gap: 22px; margin-top: 18px; align-items: start; overflow: hidden; }
@@ -106,18 +117,21 @@
 <body>
   <div class="wrap">
     <div class="topbar">
-      <a class="back" href="../index.html"><span class="arrow">←</span><span>Nazad na početnu</span></a>
-    <button id="themeToggle" class="theme-toggle" type="button">🌙 Tema</button>
+      <a class="back" href="../index.html"><span class="arrow">←</span><span data-i18n="back">Nazad na početnu</span></a>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <button id="langToggle" class="lang-toggle" type="button">EN</button>
+        <button id="themeToggle" class="theme-toggle" type="button">🌙 Tema</button>
       </div>
+    </div>
 
     <section class="hero">
       <div class="icon-wrap"><img src="https://play-lh.googleusercontent.com/8y1mtH8s-rB2iPKzfVH4onkip1xFP65ZKLx5S-CH10Nxnsvv7pR1G0CojYHe1Odb8Q" alt="Na današnji dan ikonica"></div>
       <div>
-        <p class="eyebrow">Istorija</p>
-        <h1>Na današnji dan</h1>
-        <p class="lede">Događaji koji su se dogodili na današnji datum.</p>
+        <p class="eyebrow" data-i18n="eyebrow">Istorija</p>
+        <h1 data-i18n="title">Na današnji dan</h1>
+        <p class="lede" data-i18n="lede">Događaji koji su se dogodili na današnji datum.</p>
         <div class="badges">
-          <span class="pill">Ocena 4.7/5</span>
+          <span class="pill" data-i18n="rating">Ocena 4.7/5</span>
           <span class="pill">Android</span>
           <span class="pill">iOS</span>
         </div>
@@ -132,16 +146,16 @@
     </section>
 
     <div class="section">
-      <h2>Šta dobijate u aplikaciji</h2>
+      <h2 data-i18n="features-title">Šta dobijate u aplikaciji</h2>
       <div class="feature-grid">
-        <div class="feature-card"><h3><span class="feature-icon">📅</span>Dnevni događaji</h3><p>Pogledaj istorijske događaje za današnji datum.</p></div>
-        <div class="feature-card"><h3><span class="feature-icon">🌓</span>Tamna i svetla tema</h3><p>Automatski prati temu telefona ili postavi ručno.</p></div>
-        <div class="feature-card"><h3><span class="feature-icon">📡</span>Uvek ažurno</h3><p>Podaci se osvežavaju online, jednom dnevno.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat1-title"><span class="feature-icon">📅</span>Dnevni događaji</h3><p data-i18n="feat1-body">Pogledaj istorijske događaje za današnji datum.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat2-title"><span class="feature-icon">🌓</span>Tamna i svetla tema</h3><p data-i18n="feat2-body">Automatski prati temu telefona ili postavi ručno.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat3-title"><span class="feature-icon">📡</span>Uvek ažurno</h3><p data-i18n="feat3-body">Podaci se osvežavaju online, jednom dnevno.</p></div>
       </div>
     </div>
 
     <div class="section">
-      <h2>Screenshots</h2>
+      <h2 data-i18n="screens-title">Screenshots</h2>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <div class="screen-grid">
                                                                                                                                                                                                                                                                                                                                                                                                   <img src="https://play-lh.googleusercontent.com/8y1mtH8s-rB2iPKzfVH4onkip1xFP65ZKLx5S-CH10Nxnsvv7pR1G0CojYHe1Odb8Q=w1052-h592" alt="Na današnji dan screenshot 1">
                                                                                                                                                                                                                                                                                                                                                                                                   <img src="https://play-lh.googleusercontent.com/GPS08Jgqy32iB7He6DRw1KHzOZNb8Gl6ITY5Y-vNzkeXWrDuGvxm-zNSRmGs7nuRqdA=w1052-h592" alt="Na današnji dan screenshot 2">
@@ -155,17 +169,17 @@
     </div>
 
     <div class="section">
-      <h2>Opis aplikacije</h2>
-      <p class="body-text">Prikazuju se događaji koji su se dogodili na današnji dan.</p>
-      <p class="body-text">Aplikacija podržava tamnu i svetlu temu. Na onim telefonima čiji operativni sistem podržava teme, aplikacija se automatski prilagođava temi telefona. Na ostalim uređajima, u delu za podešavanje aplikacije, moguće je ručno izabrati željenu temu.</p>
-      <p class="body-text tight">NAPOMENA: Podaci nisu dostupni ukoliko mobilni uređaj nije priključen na internet mrežu.</p>
+      <h2 data-i18n="desc-title">Opis aplikacije</h2>
+      <p class="body-text" data-i18n="desc-p1">Prikazuju se događaji koji su se dogodili na današnji dan.</p>
+      <p class="body-text" data-i18n="desc-p2">Aplikacija podržava tamnu i svetlu temu. Na onim telefonima čiji operativni sistem podržava teme, aplikacija se automatski prilagođava temi telefona. Na ostalim uređajima, u delu za podešavanje aplikacije, moguće je ručno izabrati željenu temu.</p>
+      <p class="body-text tight" data-i18n="note">NAPOMENA: Podaci nisu dostupni ukoliko mobilni uređaj nije priključen na internet mrežu.</p>
     </div>
 
   </div>
   <div class="sticky-cta">
     <div class="copy">
       <strong>Na današnji dan</strong>
-      <span>Istorijski događaji</span>
+      <span data-i18n="sticky-sub">Istorijski događaji</span>
     </div>
     <div class="badge-row">
       <a class="store-badge" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=dev.mihajlovic.nadanasnjidan&hl=sr&gl=RS">
@@ -189,6 +203,63 @@
         root.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
         setLabel();
+      });
+    })();
+
+    (function() {
+      const toggle = document.getElementById('langToggle');
+      const saved = localStorage.getItem('lang') || 'sr';
+      const elements = document.querySelectorAll('[data-i18n]');
+      const srTexts = {};
+      const icons = {};
+      elements.forEach(el => {
+        const icon = el.querySelector('.feature-icon');
+        let text = el.textContent;
+        if (icon) {
+          const iconText = icon.textContent || '';
+          text = text.replace(iconText, '').trim();
+          icons[el.dataset.i18n] = icon.outerHTML;
+        }
+        srTexts[el.dataset.i18n] = text;
+      });
+      const en = {
+        back: 'Back to home',
+        eyebrow: 'History',
+        title: 'Na današnji dan',
+        lede: 'Events that happened on this date.',
+        'features-title': 'What you get',
+        rating: 'Rating 4.7/5',
+        'feat1-title': 'Daily events',
+        'feat1-body': 'See historic events for today’s date.',
+        'feat2-title': 'Dark and light theme',
+        'feat2-body': 'Automatically follows the phone theme or set it manually.',
+        'feat3-title': 'Always updated',
+        'feat3-body': 'Data refreshes online once per day.',
+        'screens-title': 'Screenshots',
+        'desc-title': 'App description',
+        'desc-p1': 'Shows events that took place on this calendar date.',
+        'desc-p2': 'Supports dark and light themes; follows the phone theme when available or choose it manually.',
+        note: 'NOTE: Data is not available without an internet connection.',
+        'sticky-sub': 'Historic events'
+      };
+      function apply(lang) {
+        document.documentElement.setAttribute('data-lang', lang);
+        localStorage.setItem('lang', lang);
+        elements.forEach(el => {
+          const key = el.dataset.i18n;
+          const text = lang === 'en' && en[key] ? en[key] : srTexts[key] || el.textContent;
+          if (icons[key]) {
+            el.innerHTML = icons[key] + ' ' + text;
+          } else {
+            el.textContent = text;
+          }
+        });
+        toggle.textContent = lang === 'sr' ? 'EN' : 'SR';
+      }
+      apply(saved);
+      toggle.addEventListener('click', () => {
+        const next = (document.documentElement.getAttribute('data-lang') || 'sr') === 'sr' ? 'en' : 'sr';
+        apply(next);
       });
     })();
   </script>

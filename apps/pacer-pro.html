@@ -46,6 +46,17 @@
       transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
     }
     .theme-toggle:hover { border-color: rgba(255,122,0,0.5); }
+    .lang-toggle {
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+    .lang-toggle:hover { border-color: rgba(255,122,0,0.5); }
         .back:hover { transform: translateY(-1px); }
         .back .arrow { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 999px; background: none; border: none; color: var(--orange); font-size: 14px; line-height: 1; box-shadow: none; }
     .hero { position: relative; background: linear-gradient(120deg, rgba(255,122,0,0.09), rgba(255,255,255,0.03)); border: 1px solid var(--stroke); border-radius: 20px; padding: 24px; box-shadow: 0 28px 70px rgba(0,0,0,0.35); display: grid; grid-template-columns: auto 1fr auto; gap: 22px; margin-top: 18px; align-items: start; overflow: hidden; }
@@ -104,18 +115,21 @@
 <body>
   <div class="wrap">
     <div class="topbar">
-      <a class="back" href="../index.html"><span class="arrow">←</span><span>Nazad na početnu</span></a>
-    <button id="themeToggle" class="theme-toggle" type="button">🌙 Tema</button>
+      <a class="back" href="../index.html"><span class="arrow">←</span><span data-i18n="back">Nazad na početnu</span></a>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <button id="langToggle" class="lang-toggle" type="button">EN</button>
+        <button id="themeToggle" class="theme-toggle" type="button">🌙 Tema</button>
       </div>
+    </div>
 
     <section class="hero">
       <div class="icon-wrap"><img src="https://play-lh.googleusercontent.com/IcekyLUkPuxeZ35VCskW5k4ztVIsjavGTCYvP3J-O1vxpLhTNDo-SOXdUczQsnRDC5E" alt="Pacer PRO ikonica"></div>
       <div>
-        <p class="eyebrow">Sport</p>
-        <h1>Pacer PRO</h1>
-        <p class="lede">Napredni pace kalkulator, intervali i zone treninga za trkače.</p>
+        <p class="eyebrow" data-i18n="eyebrow">Sport</p>
+        <h1 data-i18n="title">Pacer PRO</h1>
+        <p class="lede" data-i18n="lede">Napredni pace kalkulator, intervali i zone treninga za trkače.</p>
         <div class="badges">
-          <span class="pill">Nova</span>
+          <span class="pill" data-i18n="badge-new">Nova</span>
           <span class="pill">Android</span>
           <span class="pill">iOS</span>
         </div>
@@ -130,16 +144,16 @@
     </section>
 
     <div class="section">
-      <h2>Šta dobijate u aplikaciji</h2>
+      <h2 data-i18n="features-title">Šta dobijate u aplikaciji</h2>
       <div class="feature-grid">
-        <div class="feature-card"><h3><span class="feature-icon">⏱️</span>Pace, vreme, distanca</h3><p>Racuna bilo koju od tri vrednosti na osnovu druge dve.</p></div>
-        <div class="feature-card"><h3><span class="feature-icon">📊</span>Zone i prolazi</h3><p>Zone treninga i prolazna vremena po kilometru.</p></div>
-        <div class="feature-card"><h3><span class="feature-icon">🎯</span>Procene rezultata</h3><p>Ponudjene procene vremena na drugim distancama i fartlek planovi.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat1-title"><span class="feature-icon">⏱️</span>Pace, vreme, distanca</h3><p data-i18n="feat1-body">Računa bilo koju od tri vrednosti na osnovu druge dve.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat2-title"><span class="feature-icon">📊</span>Zone i prolazi</h3><p data-i18n="feat2-body">Zone treninga i prolazna vremena po kilometru.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat3-title"><span class="feature-icon">🎯</span>Procene rezultata</h3><p data-i18n="feat3-body">Ponuđene procene vremena na drugim distancama i fartlek planovi.</p></div>
       </div>
     </div>
 
     <div class="section">
-      <h2>Screenshots</h2>
+      <h2 data-i18n="screens-title">Screenshots</h2>
                                                                                                                                                                                                                                                                                                                                                                                                 <div class="screen-grid">
                                                                                                                                                                                                   <img src="https://play-lh.googleusercontent.com/CE7rIXxsRso_rKAbb7iCwHgsVKUQ3f1jT9zics66rijMulvAmhX5vdUb2PvWeB8YUxgu=w1052-h592" alt="Pacer PRO screenshot 1">
                                                                                                                                                                                                   <img src="https://play-lh.googleusercontent.com/JtSIIlbA4QPGnWnTvKXOjSQttmoRQ4gk70FtQkOTlsYtTicAyEUVsU_xn7jXdiOZBFk=w1052-h592" alt="Pacer PRO screenshot 2">
@@ -153,25 +167,25 @@
     </div>
 
     <div class="section">
-      <h2>Opis aplikacije</h2>
-      <p class="body-text">Pacer PRO je napredni alat za trkače: racuna tempo, dužinu, vreme i daje dodatne metrike za intervale i zone.</p>
-      <p class="body-text strong">KARAKTERISTIKE:</p>
+      <h2 data-i18n="desc-title">Opis aplikacije</h2>
+      <p class="body-text" data-i18n="desc-p1">Pacer PRO je napredni alat za trkače: računa tempo, dužinu, vreme i daje dodatne metrike za intervale i zone.</p>
+      <p class="body-text strong" data-i18n="desc-heading">KARAKTERISTIKE:</p>
       <ul class="body-list">
-        <li>izracunaj dužinu, vreme ili pace na osnovu druge dve informacije</li>
-        <li>fartlek/interval kalkulator i broj ponavljanja</li>
-        <li>procena vremena za druge distance na osnovu rezultata</li>
-        <li>prolazna vremena po kilometru za uneti pace</li>
-        <li>zone treninga i tabela kuper testa</li>
+        <li data-i18n="desc-li1">izračunaj dužinu, vreme ili pace na osnovu druge dve informacije</li>
+        <li data-i18n="desc-li2">fartlek/interval kalkulator i broj ponavljanja</li>
+        <li data-i18n="desc-li3">procena vremena za druge distance na osnovu rezultata</li>
+        <li data-i18n="desc-li4">prolazna vremena po kilometru za uneti pace</li>
+        <li data-i18n="desc-li5">zone treninga i tabela kuper testa</li>
       </ul>
-      <p class="body-text">Aplikacija podržava tamnu i svetlu temu. Na telefonima koji podržavaju teme, aplikacija se automatski prilagođava temi telefona. Na ostalim uređajima moguće je ručno izabrati željenu temu.</p>
-      <p class="body-text tight">NAPOMENA: Podaci nisu dostupni ukoliko uređaj nije priključen na internet.</p>
+      <p class="body-text" data-i18n="desc-p2">Aplikacija podržava tamnu i svetlu temu. Na telefonima koji podržavaju teme, aplikacija se automatski prilagođava temi telefona. Na ostalim uređajima moguće je ručno izabrati željenu temu.</p>
+      <p class="body-text tight" data-i18n="note">NAPOMENA: Podaci nisu dostupni ukoliko uređaj nije priključen na internet.</p>
     </div>
 
   </div>
   <div class="sticky-cta">
     <div class="copy">
       <strong>Pacer PRO</strong>
-      <span>Napredni tempo kalkulator</span>
+      <span data-i18n="sticky-sub">Napredni tempo kalkulator</span>
     </div>
     <div class="badge-row">
       <a class="store-badge" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=dev.mihajlovic.pacerpro&hl=sr&gl=RS">
@@ -195,6 +209,69 @@
         root.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
         setLabel();
+      });
+    })();
+
+    (function() {
+      const toggle = document.getElementById('langToggle');
+      const saved = localStorage.getItem('lang') || 'sr';
+      const elements = document.querySelectorAll('[data-i18n]');
+      const srTexts = {};
+      const icons = {};
+      elements.forEach(el => {
+        const icon = el.querySelector('.feature-icon');
+        let text = el.textContent;
+        if (icon) {
+          const iconText = icon.textContent || '';
+          text = text.replace(iconText, '').trim();
+          icons[el.dataset.i18n] = icon.outerHTML;
+        }
+        srTexts[el.dataset.i18n] = text;
+      });
+      const en = {
+        back: 'Back to home',
+        eyebrow: 'Sports',
+        title: 'Pacer PRO',
+        lede: 'Advanced pace calculator, intervals, and training zones for runners.',
+        'features-title': 'What you get',
+        badge-new: 'New',
+        'feat1-title': 'Pace, time, distance',
+        'feat1-body': 'Calculate any of the three values from the other two.',
+        'feat2-title': 'Zones and splits',
+        'feat2-body': 'Training zones and per-kilometer splits.',
+        'feat3-title': 'Result estimates',
+        'feat3-body': 'Projected times on other distances and fartlek plans.',
+        'screens-title': 'Screenshots',
+        'desc-title': 'App description',
+        'desc-p1': 'Pacer PRO is a pro tool for runners: pace, distance, time plus extra metrics for intervals and zones.',
+        'desc-heading': 'FEATURES:',
+        'desc-li1': 'calculate distance, time or pace from the other two inputs',
+        'desc-li2': 'fartlek/interval calculator and repeat counts',
+        'desc-li3': 'predict times for other distances from your results',
+        'desc-li4': 'per-kilometer splits for a given pace',
+        'desc-li5': 'training zones and Cooper test table',
+        'desc-p2': 'Supports dark and light themes; follows the phone theme or set manually.',
+        note: 'NOTE: Data is unavailable if the device is offline.',
+        'sticky-sub': 'Pro pace calculator'
+      };
+      function apply(lang) {
+        document.documentElement.setAttribute('data-lang', lang);
+        localStorage.setItem('lang', lang);
+        elements.forEach(el => {
+          const key = el.dataset.i18n;
+          const text = lang === 'en' && en[key] ? en[key] : srTexts[key] || el.textContent;
+          if (icons[key]) {
+            el.innerHTML = icons[key] + ' ' + text;
+          } else {
+            el.textContent = text;
+          }
+        });
+        toggle.textContent = lang === 'sr' ? 'EN' : 'SR';
+      }
+      apply(saved);
+      toggle.addEventListener('click', () => {
+        const next = (document.documentElement.getAttribute('data-lang') || 'sr') === 'sr' ? 'en' : 'sr';
+        apply(next);
       });
     })();
   </script>

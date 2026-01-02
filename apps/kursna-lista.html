@@ -65,6 +65,17 @@
     .store-badge img { max-width: 100%; max-height: 100%; width: auto; height: auto; display: block; border-radius: 10px; object-fit: contain; transition: transform 0.15s ease; }
     .store-badge.app-store img { max-width: 88%; }
     .store-badge:hover img { transform: translateY(-1px) scale(1.01); }
+    .lang-toggle {
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+    .lang-toggle:hover { border-color: rgba(255,122,0,0.5); }
     .qr-hero { width: 120px; height: 120px; display: grid; place-items: center; background: none; border-radius: 12px; box-shadow: none; padding: 8px; }
     .qr-hero img { width: 100%; height: 100%; display: block; }
     @media (max-width: 640px) { .qr-hero { display: none; } }
@@ -104,18 +115,21 @@
 <body>
   <div class="wrap">
     <div class="topbar">
-      <a class="back" href="../index.html"><span class="arrow">←</span><span>Nazad na početnu</span></a>
-    <button id="themeToggle" class="theme-toggle" type="button">🌙 Tema</button>
+      <a class="back" href="../index.html"><span class="arrow">←</span><span data-i18n="back">Nazad na početnu</span></a>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <button id="langToggle" class="lang-toggle" type="button">EN</button>
+        <button id="themeToggle" class="theme-toggle" type="button">🌙 Tema</button>
+      </div>
       </div>
 
     <section class="hero">
       <div class="icon-wrap"><img src="https://play-lh.googleusercontent.com/MRx9tWTqxMOUBkNyQJ8RcqT8u2viH4UpbECiIAalH-0WHMgA_B3regBFu4Xs6hRignc" alt="Kursna lista ikonica"></div>
       <div>
-        <p class="eyebrow">Finansije</p>
-        <h1>Kursna lista</h1>
-        <p class="lede">Kurs dinara za naredni i kursna lista Narodne banke Srbije (NBS) za tekući dan</p>
+        <p class="eyebrow" data-i18n="eyebrow">Finansije</p>
+        <h1 data-i18n="title">Kursna lista</h1>
+        <p class="lede" data-i18n="lede">Kurs dinara za naredni i kursna lista Narodne banke Srbije (NBS) za tekući dan</p>
         <div class="badges">
-          <span class="pill">Ocena 4.5/5</span>
+          <span class="pill" data-i18n="rating">Ocena 4.5/5</span>
           <span class="pill">Android</span>
           <span class="pill">iOS</span>
         </div>
@@ -130,17 +144,17 @@
     </section>
 
     <div class="section">
-      <h2>Šta dobijate u aplikaciji</h2>
+      <h2 data-i18n="features-title">Šta dobijate u aplikaciji</h2>
       <div class="feature-grid">
-        <div class="feature-card"><h3><span class="feature-icon">💱</span>Kurs za naredni dan</h3><p>Prati najavljeni kurs dinara za sutra.</p></div>
-        <div class="feature-card"><h3><span class="feature-icon">🏦</span>NBS kursna lista</h3><p>Zvanična lista Narodne banke Srbije za tekući dan.</p></div>
-        <div class="feature-card"><h3><span class="feature-icon">📊</span>Brz pregled</h3><p>Jednostavan pristup kursu bez dodatnog pretraživanja.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat1-title"><span class="feature-icon">💱</span>Kurs za naredni dan</h3><p data-i18n="feat1-body">Prati najavljeni kurs dinara za sutra.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat2-title"><span class="feature-icon">🏦</span>NBS kursna lista</h3><p data-i18n="feat2-body">Zvanična lista Narodne banke Srbije za tekući dan.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat3-title"><span class="feature-icon">📊</span>Brz pregled</h3><p data-i18n="feat3-body">Jednostavan pristup kursu bez dodatnog pretraživanja.</p></div>
       </div>
     </div>
 
     <div class="section">
-      <h2>Screenshots</h2>
-                                                                                                                                                                                                                                                                                                                                                                                                <div class="screen-grid">
+      <h2 data-i18n="screens-title">Screenshots</h2>
+                                                                                                                                                                                                                                                                                                                                                                                                 <div class="screen-grid">
                                                                                                                                                                                                   <img src="https://play-lh.googleusercontent.com/4PnfH76WrHePZwRcY056DEVfpSEjcf0hc4DzkiaevL09NN-LqEE9KI54hhcnisT6D0r_=w1052-h592" alt="Kursna lista screenshot 1">
                                                                                                                                                                                                   <img src="https://play-lh.googleusercontent.com/u5aAEPznpoqa8bafuHLZGoeKZCox5_uhQsrqwwf1I8AYviW3TIMOPUYNa5-X8M4__NU=w1052-h592" alt="Kursna lista screenshot 2">
                                                                                                                                                                                                   <img src="https://play-lh.googleusercontent.com/rOPV6tkhXcx8g2t0gvTDZuwrRL53lELriuX3817K8sOjXwG3lLkxgcifEvKmy6MgBJc=w1052-h592" alt="Kursna lista screenshot 3">
@@ -153,9 +167,9 @@
     </div>
 
     <div class="section">
-      <h2>Opis aplikacije</h2>
-      <p class="body-text">Kursna lista Narodne banke Srbije za tekući dan. Omogućeno je informativno konvertovanje jedne valute u drugu. Prikazuje se kurs dinara prema evru i dolaru za sledeći radni dan. Dostupni su i šifrarnici valuta i zemalja, spisak banaka, dinarska i devizna plaćanja, kao i neradni dani u tekućoj godini.</p>
-      <p class="body-text strong">KARAKTERISTIKE:</p>
+      <h2 data-i18n="desc-title">Opis aplikacije</h2>
+      <p class="body-text" data-i18n="desc-p1">Kursna lista Narodne banke Srbije za tekući dan. Omogućeno je informativno konvertovanje jedne valute u drugu. Prikazuje se kurs dinara prema evru i dolaru za sledeći radni dan. Dostupni su i šifrarnici valuta i zemalja, spisak banaka, dinarska i devizna plaćanja, kao i neradni dani u tekućoj godini.</p>
+      <p class="body-text strong" data-i18n="desc-heading">KARAKTERISTIKE:</p>
       <ul class="body-list">
         <li>kurs dinara
           <ul class="body-list">
@@ -172,15 +186,15 @@
         <li>spisak valuta - spisak valuta svih zemalja sveta</li>
         <li>neradni dani - neradni dani i praznici koji se obeležavaju radno u Republici Srbiji za tekuću godinu</li>
       </ul>
-      <p class="body-text">Aplikacija podržava tamnu i svetlu temu. Na onim telefonima čiji operativni sistem podržava teme, aplikacija se automatski prilagođava temi telefona. Na ostalim uređajima, u delu za podešavanje aplikacije, moguće je ručno izabrati željenu temu.</p>
-      <p class="body-text tight">NAPOMENA: Podaci o kursu dinara, kursnoj listi za strane valute kao i ostali podaci nisu dostupni ukoliko mobilni uređaj nije priključen na internet mrežu.</p>
+      <p class="body-text" data-i18n="desc-p2">Aplikacija podržava tamnu i svetlu temu. Na onim telefonima čiji operativni sistem podržava teme, aplikacija se automatski prilagođava temi telefona. Na ostalim uređajima, u delu za podešavanje aplikacije, moguće je ručno izabrati željenu temu.</p>
+      <p class="body-text tight" data-i18n="note">NAPOMENA: Podaci o kursu dinara, kursnoj listi za strane valute kao i ostali podaci nisu dostupni ukoliko mobilni uređaj nije priključen na internet mrežu.</p>
     </div>
 
   </div>
   <div class="sticky-cta">
     <div class="copy">
       <strong>Kursna lista</strong>
-      <span>NBS kurs i najave</span>
+      <span data-i18n="sticky-sub">NBS kurs i najave</span>
     </div>
     <div class="badge-row">
       <a class="store-badge" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=dev.mihajlovic.kursnalista&hl=sr&gl=RS">
@@ -204,6 +218,64 @@
         root.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
         setLabel();
+      });
+    })();
+
+    (function() {
+      const toggle = document.getElementById('langToggle');
+      const saved = localStorage.getItem('lang') || 'sr';
+      const elements = document.querySelectorAll('[data-i18n]');
+      const srTexts = {};
+      const icons = {};
+      elements.forEach(el => {
+        const icon = el.querySelector('.feature-icon');
+        let text = el.textContent;
+        if (icon) {
+          const iconText = icon.textContent || '';
+          text = text.replace(iconText, '').trim();
+          icons[el.dataset.i18n] = icon.outerHTML;
+        }
+        srTexts[el.dataset.i18n] = text;
+      });
+      const en = {
+        back: 'Back to home',
+        eyebrow: 'Finance',
+        title: 'Kursna lista',
+        lede: 'Tomorrow’s dinar rate and the National Bank of Serbia list for today.',
+        'features-title': 'What you get',
+        rating: 'Rating 4.5/5',
+        'feat1-title': 'Rate for tomorrow',
+        'feat1-body': 'Track the announced dinar rate for tomorrow.',
+        'feat2-title': 'NBS rate list',
+        'feat2-body': 'Official list from the National Bank of Serbia for today.',
+        'feat3-title': 'Quick glance',
+        'feat3-body': 'Instant access without extra searching.',
+        'screens-title': 'Screenshots',
+        'desc-title': 'App description',
+        'desc-p1': 'Exchange rate list from the National Bank of Serbia for the current day. Convert one currency into another, see the dinar rate versus the euro and dollar for the next business day, and browse currency and country codes, bank list, payment codes, and non-working days.',
+        'desc-heading': 'FEATURES:',
+        'desc-p2': 'The app supports dark and light themes and follows the phone theme when available. You can also set the theme manually.',
+        note: 'NOTE: Exchange rate and other data are unavailable without an internet connection.',
+        'sticky-sub': 'NBS rates and forecast'
+      };
+      function apply(lang) {
+        document.documentElement.setAttribute('data-lang', lang);
+        localStorage.setItem('lang', lang);
+        elements.forEach(el => {
+          const key = el.dataset.i18n;
+          const text = lang === 'en' && en[key] ? en[key] : srTexts[key] || el.textContent;
+          if (icons[key]) {
+            el.innerHTML = icons[key] + ' ' + text;
+          } else {
+            el.textContent = text;
+          }
+        });
+        toggle.textContent = lang === 'sr' ? 'EN' : 'SR';
+      }
+      apply(saved);
+      toggle.addEventListener('click', () => {
+        const next = (document.documentElement.getAttribute('data-lang') || 'sr') === 'sr' ? 'en' : 'sr';
+        apply(next);
       });
     })();
   </script>

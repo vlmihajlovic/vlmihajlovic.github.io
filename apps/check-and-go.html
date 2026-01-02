@@ -35,7 +35,7 @@
     .wrap { max-width: 1200px; margin: 0 auto; padding: 38px 20px 90px; }
     .topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--stroke); }
         .back { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; position: relative; padding: 8px 0; border: none; background: none; box-shadow: none; letter-spacing: 0.2px; color: var(--text); }
-        .theme-toggle {
+    .theme-toggle {
       border: 1px solid var(--stroke);
       background: rgba(255,255,255,0.05);
       color: var(--text);
@@ -46,6 +46,17 @@
       transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
     }
     .theme-toggle:hover { border-color: rgba(255,122,0,0.5); }
+    .lang-toggle {
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+    .lang-toggle:hover { border-color: rgba(255,122,0,0.5); }
         .back:hover { transform: translateY(-1px); }
         .back .arrow { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 999px; background: none; border: none; color: var(--orange); font-size: 14px; line-height: 1; box-shadow: none; }
     .hero { position: relative; background: linear-gradient(120deg, rgba(255,122,0,0.09), rgba(255,255,255,0.03)); border: 1px solid var(--stroke); border-radius: 20px; padding: 24px; box-shadow: 0 28px 70px rgba(0,0,0,0.35); display: grid; grid-template-columns: auto 1fr auto; gap: 22px; margin-top: 18px; align-items: start; overflow: hidden; }
@@ -124,18 +135,21 @@
 <body>
   <div class="wrap">
     <div class="topbar">
-      <a class="back" href="../index.html"><span class="arrow">←</span><span>Nazad na početnu</span></a>
-    <button id="themeToggle" class="theme-toggle" type="button">🌙 Tema</button>
+      <a class="back" href="../index.html"><span class="arrow">←</span><span data-i18n="back">Nazad na početnu</span></a>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <button id="langToggle" class="lang-toggle" type="button">EN</button>
+        <button id="themeToggle" class="theme-toggle" type="button">🌙 Tema</button>
       </div>
+    </div>
 
     <section class="hero">
       <div class="icon-wrap"><img src="https://play-lh.googleusercontent.com/RsPhFABbkCUinRh0_z0XvYaa2SbaWqZMcFVnchI1co0DGeeJ19teLA9u2HdY81LT5aPWTpqNFDW_8aHkPUoy7w" alt="Check and Go ikonica"></div>
       <div>
-        <p class="eyebrow">Podsetnik</p>
-        <h1>Check and Go</h1>
-        <p class="lede">Zatvorio si vrata? Iskljucio peglu? Sad mozes da se opustis.</p>
+        <p class="eyebrow" data-i18n="eyebrow">Podsetnik</p>
+        <h1 data-i18n="title">Check and Go</h1>
+        <p class="lede" data-i18n="lede">Zatvorio si vrata? Isključio peglu? Sad možeš da se opustiš.</p>
         <div class="badges">
-          <span class="pill">Nova</span>
+          <span class="pill" data-i18n="badge-new">Nova</span>
           <span class="pill">Android</span>
           <span class="pill">iOS</span>
         </div>
@@ -150,11 +164,11 @@
     </section>
 
     <div class="section">
-      <h2>Šta dobijate u aplikaciji</h2>
+      <h2 data-i18n="features-title">Šta dobijate u aplikaciji</h2>
       <div class="feature-grid">
-        <div class="feature-card"><h3><span class="feature-icon">✅</span>Brza cek lista</h3><p>Jednim dodirom predji kroz sve stavke pre izlaska iz stana.</p></div>
-        <div class="feature-card"><h3><span class="feature-icon">🏠</span>Grupe po prostoriji</h3><p>Organizuj zadatke po sobama da ne preskocis nista.</p></div>
-        <div class="feature-card"><h3><span class="feature-icon">🔕</span>Bez smetnji</h3><p>Minimalan interfejs za brzo potvrdivanje i manje brige.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat1-title"><span class="feature-icon">✅</span>Brza ček lista</h3><p data-i18n="feat1-body">Jednim dodirom pređi kroz sve stavke pre izlaska iz stana.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat2-title"><span class="feature-icon">🏠</span>Grupe po prostoriji</h3><p data-i18n="feat2-body">Organizuj zadatke po sobama da ne preskočiš ništa.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat3-title"><span class="feature-icon">🔕</span>Bez smetnji</h3><p data-i18n="feat3-body">Minimalan interfejs za brzo potvrđivanje i manje brige.</p></div>
       </div>
     </div>
 
@@ -173,24 +187,24 @@
     </div>
 
     <div class="section">
-      <h2>Opis aplikacije</h2>
-      <p class="body-text">Da li si isključio peglu? Zaključao vrata? Ugasio svetlo? Ako ti ovo zvuči poznato – Check and Go je tvoj novi najbolji prijatelj. Ova aplikacija pomaže da proveriš i zabeležiš sve što treba pre nego što izađeš.</p>
-      <p class="body-text">Jednim tapom označiš ✔️ i nema više vraćanja nazad da proveriš po peti put.</p>
-      <p class="body-text strong">ŠTA MOŽEŠ DA URADIŠ:</p>
+      <h2 data-i18n="desc-title">Opis aplikacije</h2>
+      <p class="body-text" data-i18n="desc-p1">Da li si isključio peglu? Zaključao vrata? Ugasio svetlo? Ako ti ovo zvuči poznato – Check and Go je tvoj novi najbolji prijatelj. Ova aplikacija pomaže da proveriš i zabeležiš sve što treba pre nego što izađeš.</p>
+      <p class="body-text" data-i18n="desc-p2">Jednim tapom označiš ✔️ i nema više vraćanja nazad da proveriš po peti put.</p>
+      <p class="body-text strong" data-i18n="desc-heading">ŠTA MOŽEŠ DA URADIŠ:</p>
       <ul class="body-list">
-        <li>Napravi svoju listu</li>
-        <li>Oznaci da si proverio</li>
-        <li>Pregledaj istoriju i smiri um</li>
+        <li data-i18n="desc-li1">Napravi svoju listu</li>
+        <li data-i18n="desc-li2">Označi da si proverio</li>
+        <li data-i18n="desc-li3">Pregledaj istoriju i smiri um</li>
       </ul>
-      <p class="body-text">Check and Go – za sve nas koji volimo da proverimo… jos jednom. 😉</p>
-      <p class="body-text tight">Svi podaci se čuvaju lokalno na telefonu. Aplikacija podržava svetlu i tamnu temu.</p>
+      <p class="body-text" data-i18n="desc-p3">Check and Go – za sve nas koji volimo da proverimo… još jednom. 😉</p>
+      <p class="body-text tight" data-i18n="note">Svi podaci se čuvaju lokalno na telefonu. Aplikacija podržava svetlu i tamnu temu.</p>
     </div>
 
   </div>
   <div class="sticky-cta">
     <div class="copy">
       <strong>Check and Go</strong>
-      <span>Checklist pred polazak</span>
+      <span data-i18n="sticky-sub">Checklist pred polazak</span>
     </div>
     <div class="badge-row">
       <a class="store-badge" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=dev.mihajlovic.checkAndGo&hl=sr&gl=RS">
@@ -214,6 +228,68 @@
         root.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
         setLabel();
+      });
+    })();
+
+    (function() {
+      const toggle = document.getElementById('langToggle');
+      const saved = localStorage.getItem('lang') || 'sr';
+      const elements = document.querySelectorAll('[data-i18n]');
+      const srTexts = {};
+      const icons = {};
+      elements.forEach(el => {
+        const icon = el.querySelector('.feature-icon');
+        let text = el.textContent;
+        if (icon) {
+          const iconText = icon.textContent || '';
+          text = text.replace(iconText, '').trim();
+          icons[el.dataset.i18n] = icon.outerHTML;
+        }
+        srTexts[el.dataset.i18n] = text;
+      });
+      const en = {
+        back: 'Back to home',
+        eyebrow: 'Reminder',
+        title: 'Check and Go',
+        lede: 'Locked the door? Turned off the iron? Now you can relax.',
+        'features-title': 'What you get',
+        'feat1-title': 'Fast checklist',
+        'badge-new': 'New',
+        'feat1-body': 'Tap through all items before leaving the apartment.',
+        'feat2-title': 'Room groups',
+        'feat2-body': 'Organize tasks by room so you miss nothing.',
+        'feat3-title': 'No distractions',
+        'feat3-body': 'Minimal UI for quick confirmations and less worry.',
+        'screens-title': 'Screenshots',
+        'desc-title': 'App description',
+        'desc-p1': 'Did you turn off the iron? Lock the door? Turn off the lights? If this sounds familiar, Check and Go helps you verify and log everything before you leave.',
+        'desc-p2': 'Mark items with one tap—no more going back to check again.',
+        'desc-heading': 'WHAT YOU CAN DO:',
+        'desc-li1': 'Create your own list',
+        'desc-li2': 'Mark items as checked',
+        'desc-li3': 'Review history and stay calm',
+        'desc-p3': 'Check and Go—for all of us who like to check… one more time. 😉',
+        note: 'All data stays on your phone. Light and dark theme supported.',
+        'sticky-sub': 'Checklist before you go'
+      };
+      function apply(lang) {
+        document.documentElement.setAttribute('data-lang', lang);
+        localStorage.setItem('lang', lang);
+        elements.forEach(el => {
+          const key = el.dataset.i18n;
+          const text = lang === 'en' && en[key] ? en[key] : srTexts[key] || el.textContent;
+          if (icons[key]) {
+            el.innerHTML = icons[key] + ' ' + text;
+          } else {
+            el.textContent = text;
+          }
+        });
+        toggle.textContent = lang === 'sr' ? 'EN' : 'SR';
+      }
+      apply(saved);
+      toggle.addEventListener('click', () => {
+        const next = (document.documentElement.getAttribute('data-lang') || 'sr') === 'sr' ? 'en' : 'sr';
+        apply(next);
       });
     })();
   </script>

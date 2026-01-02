@@ -46,6 +46,17 @@
       transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
     }
     .theme-toggle:hover { border-color: rgba(255,122,0,0.5); }
+    .lang-toggle {
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+    .lang-toggle:hover { border-color: rgba(255,122,0,0.5); }
         .back:hover { transform: translateY(-1px); }
         .back .arrow { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 999px; background: none; border: none; color: var(--orange); font-size: 14px; line-height: 1; box-shadow: none; }
     .hero { position: relative; background: linear-gradient(120deg, rgba(255,122,0,0.09), rgba(255,255,255,0.03)); border: 1px solid var(--stroke); border-radius: 20px; padding: 24px; box-shadow: 0 28px 70px rgba(0,0,0,0.35); display: grid; grid-template-columns: auto 1fr auto; gap: 22px; margin-top: 18px; align-items: start; overflow: hidden; }
@@ -102,18 +113,21 @@
 <body>
   <div class="wrap">
     <div class="topbar">
-      <a class="back" href="../index.html"><span class="arrow">←</span><span>Nazad na početnu</span></a>
-    <button id="themeToggle" class="theme-toggle" type="button">🌙 Tema</button>
+      <a class="back" href="../index.html"><span class="arrow">←</span><span data-i18n="back">Nazad na početnu</span></a>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <button id="langToggle" class="lang-toggle" type="button">EN</button>
+        <button id="themeToggle" class="theme-toggle" type="button">🌙 Tema</button>
       </div>
+    </div>
 
     <section class="hero">
       <div class="icon-wrap"><img src="https://play-lh.googleusercontent.com/msln3ylsmsD41WzFHtBV-rFuYc4WazWKa7lTHjkKUwyZvMAxmMG46zQSKNIVnM-sHg" alt="Horoskop ikonica"></div>
       <div>
-        <p class="eyebrow">Lifestyle</p>
-        <h1>Horoskop</h1>
-        <p class="lede">Besplatan dnevni i nedeljni horoskop na srpskom jeziku.</p>
+        <p class="eyebrow" data-i18n="eyebrow">Lifestyle</p>
+        <h1 data-i18n="title">Horoskop</h1>
+        <p class="lede" data-i18n="lede">Besplatan dnevni i nedeljni horoskop na srpskom jeziku.</p>
         <div class="badges">
-          <span class="pill">Ocena 4.5/5</span>
+          <span class="pill" data-i18n="rating">Ocena 4.5/5</span>
           <span class="pill">Android</span>
         </div>
       </div>
@@ -126,16 +140,16 @@
     </section>
 
     <div class="section">
-      <h2>Šta dobijate u aplikaciji</h2>
+      <h2 data-i18n="features-title">Šta dobijate u aplikaciji</h2>
       <div class="feature-grid">
-        <div class="feature-card"><h3><span class="feature-icon">☀️</span>Dnevni fokus</h3><p>Zdravlje, ljubav i posao za danas.</p></div>
-        <div class="feature-card"><h3><span class="feature-icon">🗓️</span>Nedeljni horoskop</h3><p>Pregled za svaki znak za naredne dane.</p></div>
-        <div class="feature-card"><h3><span class="feature-icon">⭐</span>Zapamcen znak</h3><p>Izaberi znak jednom i otvaraj direktno svoj horoskop.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat1-title"><span class="feature-icon">☀️</span>Dnevni fokus</h3><p data-i18n="feat1-body">Zdravlje, ljubav i posao za danas.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat2-title"><span class="feature-icon">🗓️</span>Nedeljni horoskop</h3><p data-i18n="feat2-body">Pregled za svaki znak za naredne dane.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat3-title"><span class="feature-icon">⭐</span>Zapamćen znak</h3><p data-i18n="feat3-body">Izaberi znak jednom i otvaraj direktno svoj horoskop.</p></div>
       </div>
     </div>
 
     <div class="section">
-      <h2>Screenshots</h2>
+      <h2 data-i18n="screens-title">Screenshots</h2>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div class="screen-grid">
                                                                                                                                                                                                                                                                                                                                                                                                   <img src="https://play-lh.googleusercontent.com/msln3ylsmsD41WzFHtBV-rFuYc4WazWKa7lTHjkKUwyZvMAxmMG46zQSKNIVnM-sHg=w1052-h592" alt="Horoskop screenshot 1">
                                                                                                                                                                                                                                                                                                                                                                                                   <img src="https://play-lh.googleusercontent.com/7pJTKwlTXjO6zzGS8doNAP6_9dmWH8UQ8UnxGWfdba9yA1U0ABPU93jqtsjnp7QjiF-j=w1052-h592" alt="Horoskop screenshot 2">
@@ -149,24 +163,24 @@
     </div>
 
     <div class="section">
-      <h2>Opis aplikacije</h2>
-      <p class="body-text">Besplatan dnevni i nedeljni horoskop na srpskom jeziku.</p>
-      <p class="body-text strong">KARAKTERISTIKE:</p>
+      <h2 data-i18n="desc-title">Opis aplikacije</h2>
+      <p class="body-text" data-i18n="desc-p1">Besplatan dnevni i nedeljni horoskop na srpskom jeziku.</p>
+      <p class="body-text strong" data-i18n="desc-heading">KARAKTERISTIKE:</p>
       <ul class="body-list">
-        <li>zdravlje, ljubav, posao za danas</li>
-        <li>nedeljni horoskop</li>
-        <li>biranje znaka za brzi pristup pri sledecem otvaranju</li>
-        <li>svi znaci: Ovan, Bik, Blizanci, Rak, Lav, Devica, Vaga, Skorpija, Strelac, Jarac, Vodolija, Ribe</li>
+        <li data-i18n="desc-li1">zdravlje, ljubav, posao za danas</li>
+        <li data-i18n="desc-li2">nedeljni horoskop</li>
+        <li data-i18n="desc-li3">biranje znaka za brzi pristup pri sledećem otvaranju</li>
+        <li data-i18n="desc-li4">svi znaci: Ovan, Bik, Blizanci, Rak, Lav, Devica, Vaga, Škorpija, Strelac, Jarac, Vodolija, Ribe</li>
       </ul>
-      <p class="body-text">Aplikacija podržava tamnu i svetlu temu. Na onim telefonima čiji operativni sistem podržava teme, aplikacija se automatski prilagođava temi telefona. Na ostalim uređajima, u delu za podešavanje aplikacije, moguće je ručno izabrati željenu temu.</p>
-      <p class="body-text tight">NAPOMENA: Podaci nisu dostupni ukoliko mobilni uređaj nije priključen na internet mrežu.</p>
+      <p class="body-text" data-i18n="desc-p2">Aplikacija podržava tamnu i svetlu temu. Na onim telefonima čiji operativni sistem podržava teme, aplikacija se automatski prilagođava temi telefona. Na ostalim uređajima, u delu za podešavanje aplikacije, moguće je ručno izabrati željenu temu.</p>
+      <p class="body-text tight" data-i18n="note">NAPOMENA: Podaci nisu dostupni ukoliko mobilni uređaj nije priključen na internet mrežu.</p>
     </div>
 
   </div>
   <div class="sticky-cta">
     <div class="copy">
       <strong>Horoskop</strong>
-      <span>Dnevni i nedeljni pregled</span>
+      <span data-i18n="sticky-sub">Dnevni i nedeljni pregled</span>
     </div>
     <div class="badge-row">
       <a class="store-badge" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=dev.mihajlovic.horoskop&hl=sr&gl=RS">
@@ -187,6 +201,68 @@
         root.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
         setLabel();
+      });
+    })();
+
+    (function() {
+      const toggle = document.getElementById('langToggle');
+      const saved = localStorage.getItem('lang') || 'sr';
+      const elements = document.querySelectorAll('[data-i18n]');
+      const srTexts = {};
+      const icons = {};
+      elements.forEach(el => {
+        const icon = el.querySelector('.feature-icon');
+        let text = el.textContent;
+        if (icon) {
+          const iconText = icon.textContent || '';
+          text = text.replace(iconText, '').trim();
+          icons[el.dataset.i18n] = icon.outerHTML;
+        }
+        srTexts[el.dataset.i18n] = text;
+      });
+      const en = {
+        back: 'Back to home',
+        eyebrow: 'Lifestyle',
+        title: 'Horoskop',
+        lede: 'Free daily and weekly horoscope in Serbian.',
+        'features-title': 'What you get',
+        rating: 'Rating 4.5/5',
+        'feat1-title': 'Daily focus',
+        'feat1-body': 'Health, love, and work for today.',
+        'feat2-title': 'Weekly horoscope',
+        'feat2-body': 'Overview for each sign for the coming days.',
+        'feat3-title': 'Saved sign',
+        'feat3-body': 'Pick once, open your horoscope directly next time.',
+        'screens-title': 'Screenshots',
+        'desc-title': 'App description',
+        'desc-p1': 'Free daily and weekly horoscope in Serbian.',
+        'desc-heading': 'FEATURES:',
+        'desc-li1': 'health, love, work for today',
+        'desc-li2': 'weekly horoscope',
+        'desc-li3': 'choose your sign for quick access next time',
+        'desc-li4': 'all signs: Aries, Taurus, Gemini, Cancer, Leo, Virgo, Libra, Scorpio, Sagittarius, Capricorn, Aquarius, Pisces',
+        'desc-p2': 'Supports dark and light themes; follows the phone theme or choose manually.',
+        note: 'NOTE: Data is not available without an internet connection.',
+        'sticky-sub': 'Daily and weekly overview'
+      };
+      function apply(lang) {
+        document.documentElement.setAttribute('data-lang', lang);
+        localStorage.setItem('lang', lang);
+        elements.forEach(el => {
+          const key = el.dataset.i18n;
+          const text = lang === 'en' && en[key] ? en[key] : srTexts[key] || el.textContent;
+          if (icons[key]) {
+            el.innerHTML = icons[key] + ' ' + text;
+          } else {
+            el.textContent = text;
+          }
+        });
+        toggle.textContent = lang === 'sr' ? 'EN' : 'SR';
+      }
+      apply(saved);
+      toggle.addEventListener('click', () => {
+        const next = (document.documentElement.getAttribute('data-lang') || 'sr') === 'sr' ? 'en' : 'sr';
+        apply(next);
       });
     })();
   </script>

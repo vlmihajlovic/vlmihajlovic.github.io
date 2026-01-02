@@ -46,6 +46,17 @@
       transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
     }
     .theme-toggle:hover { border-color: rgba(255,122,0,0.5); }
+    .lang-toggle {
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+    .lang-toggle:hover { border-color: rgba(255,122,0,0.5); }
         .back:hover { transform: translateY(-1px); }
         .back .arrow { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 999px; background: none; border: none; color: var(--orange); font-size: 14px; line-height: 1; box-shadow: none; }
     .hero { position: relative; background: linear-gradient(120deg, rgba(255,122,0,0.09), rgba(255,255,255,0.03)); border: 1px solid var(--stroke); border-radius: 20px; padding: 24px; box-shadow: 0 28px 70px rgba(0,0,0,0.35); display: grid; grid-template-columns: auto 1fr auto; gap: 22px; margin-top: 18px; align-items: start; overflow: hidden; }
@@ -122,18 +133,21 @@
 <body>
   <div class="wrap">
     <div class="topbar">
-      <a class="back" href="../index.html"><span class="arrow">←</span><span>Nazad na početnu</span></a>
-    <button id="themeToggle" class="theme-toggle" type="button">🌙 Tema</button>
+      <a class="back" href="../index.html"><span class="arrow">←</span><span data-i18n="back">Nazad na početnu</span></a>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <button id="langToggle" class="lang-toggle" type="button">EN</button>
+        <button id="themeToggle" class="theme-toggle" type="button">🌙 Tema</button>
       </div>
+    </div>
 
     <section class="hero">
       <div class="icon-wrap"><img src="https://play-lh.googleusercontent.com/Vx4sAZnEVPVqgZjoPOC_ue_PG6mGVbS1pzVs61q_B-NctsxAOEU31qccrt7V81bgzlK9dnAAgjOqARwadAgRlD4" alt="Edge Runner - Endless Reflex ikonica"></div>
       <div>
-        <p class="eyebrow">Arcade</p>
-        <h1>Edge Runner - Endless Reflex</h1>
-        <p class="lede">Izbegavajte zelene kvadrate. Sakupljajte crvene bonuse. Nadmasite svoj rekord.</p>
+        <p class="eyebrow" data-i18n="eyebrow">Arcade</p>
+        <h1 data-i18n="title">Edge Runner - Endless Reflex</h1>
+        <p class="lede" data-i18n="lede">Izbegavajte zelene kvadrate. Sakupljajte crvene bonuse. Nadmašite svoj rekord.</p>
         <div class="badges">
-          <span class="pill">Nova</span>
+          <span class="pill" data-i18n="badge-new">Nova</span>
           <span class="pill">Android</span>
         </div>
       </div>
@@ -146,16 +160,16 @@
     </section>
 
     <div class="section">
-      <h2>Šta dobijate u aplikaciji</h2>
+      <h2 data-i18n="features-title">Šta dobijate u aplikaciji</h2>
       <div class="feature-grid">
-        <div class="feature-card"><h3><span class="feature-icon">⚡</span>Refleksi bez kraja</h3><p>Tempo raste dok izbegavas prepreke, pa svaki pokret mora da bude tacan.</p></div>
-        <div class="feature-card"><h3><span class="feature-icon">🎯</span>Lov na bonuse</h3><p>Crveni bonusi podizu skor i teraju te da rizikujes kroz gustu stazu.</p></div>
-        <div class="feature-card"><h3><span class="feature-icon">🎮</span>Minimalisticki izgled</h3><p>Cist dizajn bez smetnji da se fokusiras na reakciju i ritam.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat1-title"><span class="feature-icon">⚡</span>Refleksi bez kraja</h3><p data-i18n="feat1-body">Tempo raste dok izbegavaš prepreke, pa svaki pokret mora da bude tačan.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat2-title"><span class="feature-icon">🎯</span>Lov na bonuse</h3><p data-i18n="feat2-body">Crveni bonusi podižu skor i teraju te da rizikuješ kroz gustu stazu.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat3-title"><span class="feature-icon">🎮</span>Minimalistički izgled</h3><p data-i18n="feat3-body">Čist dizajn bez smetnji da se fokusiraš na reakciju i ritam.</p></div>
       </div>
     </div>
 
     <div class="section">
-      <h2>Screenshots</h2>
+      <h2 data-i18n="screens-title">Screenshots</h2>
                                                                                                                                                                                                 <div class="screen-grid">
                                                                                                   <img src="https://play-lh.googleusercontent.com/Vx4sAZnEVPVqgZjoPOC_ue_PG6mGVbS1pzVs61q_B-NctsxAOEU31qccrt7V81bgzlK9dnAAgjOqARwadAgRlD4=w1052-h592" alt="Edge Runner - Endless Reflex screenshot 1">
                                                                                                   <img src="https://play-lh.googleusercontent.com/7AyXaBhmWPFHUaATpe80adkxt_VJVJSrR-bOMdgQgcpTlzRF4-uFkoDOpIqe18-F211iEy0476pwdUx-dg7n8g=w1052-h592" alt="Edge Runner - Endless Reflex screenshot 2">
@@ -169,30 +183,30 @@
     </div>
 
     <div class="section">
-      <h2>Opis aplikacije</h2>
-      <p class="body-text">Edge Runner je arkadna igra zasnovana na vestinama koja testira vase reflekse, fokus i donosenje odluka.</p>
-      <p class="body-text">Vas cilj je jednostavan: izbegavajte zelene kvadrate, sakupljajte crvene bonus kvadrate i postignite sto veci rezultat.</p>
-      <p class="body-text">Svaki pokusaj pocinjete sa tri zivota. Svaki sudar sa zelenim kvadratom kosta jedan zivot — izgubite sva tri i igra se zavrsava.</p>
-      <p class="body-text">Crveni bonus kvadrati nagrađuju preciznost i pametno kretanje dajući vam dodatne poene i pomazuci da jos vise povecate svoj rezultat.</p>
-      <p class="body-text">Igra se ne ubrzava tokom vremena. Umesto toga, vi birate svoj izazov: Lako, Normalno ili Tesko, svaki sa sopštvenom tabelom 10 najboljih.</p>
-      <p class="body-text strong">КАРАКТЕРИСТИКЕ:</p>
+      <h2 data-i18n="desc-title">Opis aplikacije</h2>
+      <p class="body-text" data-i18n="desc-p1">Edge Runner je arkadna igra zasnovana na veštinama koja testira vaše reflekse, fokus i donošenje odluka.</p>
+      <p class="body-text" data-i18n="desc-p2">Vaš cilj je jednostavan: izbegavajte zelene kvadrate, sakupljajte crvene bonus kvadrate i postignite što veći rezultat.</p>
+      <p class="body-text" data-i18n="desc-p3">Svaki pokušaj počinjete sa tri života. Svaki sudar sa zelenim kvadratom košta jedan život — izgubite sva tri i igra se završava.</p>
+      <p class="body-text" data-i18n="desc-p4">Crveni bonus kvadrati nagrađuju preciznost i pametno kretanje dajući vam dodatne poene i pomažući da još više povećate skor.</p>
+      <p class="body-text" data-i18n="desc-p5">Igra se ne ubrzava tokom vremena. Umesto toga, vi birate svoj izazov: Lako, Normalno ili Teško, svaki sa sopstvenom tabelom 10 najboljih.</p>
+      <p class="body-text strong" data-i18n="desc-heading">KARAKTERISTIKE:</p>
       <ul class="body-list">
-        <li>Tri zivota po trčanju</li>
-        <li>Tri nivoa tezine: Lako, Normalno, Tesko</li>
-        <li>Odvojena tabela 10 najboljih za svaku tezinu</li>
-        <li>Arkadna igra zasnovana na vestini</li>
-        <li>Izbegavajte zelene kvadrate, sakupljajte crvene bonus kvadrate</li>
-        <li>Jednostavne i precizne kontrole</li>
-        <li>Minimalisticki i cist dizajn</li>
+        <li data-i18n="desc-li1">Tri života po trčanju</li>
+        <li data-i18n="desc-li2">Tri nivoa težine: Lako, Normalno, Teško</li>
+        <li data-i18n="desc-li3">Odvojena tabela 10 najboljih za svaku težinu</li>
+        <li data-i18n="desc-li4">Arkadna igra zasnovana na veštini</li>
+        <li data-i18n="desc-li5">Izbegavajte zelene kvadrate, sakupljajte crvene bonus kvadrate</li>
+        <li data-i18n="desc-li6">Jednostavne i precizne kontrole</li>
+        <li data-i18n="desc-li7">Minimalistički i čist dizajn</li>
       </ul>
-      <p class="body-text tight">Tri zivota. Jedan cilj. Koliko visoko mozete da se popnete?</p>
+      <p class="body-text tight" data-i18n="note">Tri života. Jedan cilj. Koliko visoko možete da se popnete?</p>
     </div>
 
   </div>
   <div class="sticky-cta">
     <div class="copy">
       <strong>Edge Runner</strong>
-      <span>Endless reflex arkada</span>
+      <span data-i18n="sticky-sub">Endless reflex arkada</span>
     </div>
     <div class="badge-row">
       <a class="store-badge" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=dev.mihajlovic.edgerunner&hl=sr&gl=RS">
@@ -213,6 +227,74 @@
         root.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
         setLabel();
+      });
+    })();
+
+    (function() {
+      const toggle = document.getElementById('langToggle');
+      const saved = localStorage.getItem('lang') || 'sr';
+      const elements = document.querySelectorAll('[data-i18n]');
+      const srTexts = {};
+      const icons = {};
+      elements.forEach(el => {
+        const icon = el.querySelector('.feature-icon');
+        let text = el.textContent;
+        if (icon) {
+          const iconText = icon.textContent || '';
+          text = text.replace(iconText, '').trim();
+          icons[el.dataset.i18n] = icon.outerHTML;
+        }
+        srTexts[el.dataset.i18n] = text;
+      });
+      const en = {
+        back: 'Back to home',
+        eyebrow: 'Arcade',
+        title: 'Edge Runner - Endless Reflex',
+        lede: 'Dodge green squares. Collect red bonuses. Beat your high score.',
+        'features-title': 'What you get',
+        'badge-new': 'New',
+        'feat1-title': 'Endless reflexes',
+        'feat1-body': 'Speed ramps up as you dodge, so every move must be precise.',
+        'feat2-title': 'Bonus hunt',
+        'feat2-body': 'Red bonuses boost your score and push you to take risks.',
+        'feat3-title': 'Minimal look',
+        'feat3-body': 'Clean design so you focus on reaction and rhythm.',
+        'screens-title': 'Screenshots',
+        'desc-title': 'App description',
+        'desc-p1': 'An arcade skill game testing your reflexes, focus, and decisions.',
+        'desc-p2': 'Simple goal: avoid green squares, collect red bonus squares, and score high.',
+        'desc-p3': 'You start with three lives; each hit costs one life—lose all three and the run ends.',
+        'desc-p4': 'Red bonus squares reward precision and smart movement with extra points.',
+        'desc-p5': 'No auto-acceleration; pick Easy, Normal, or Hard, each with its own top-10 leaderboard.',
+        'desc-heading': 'FEATURES:',
+        'desc-li1': 'Three lives per run',
+        'desc-li2': 'Three difficulties: Easy, Normal, Hard',
+        'desc-li3': 'Separate top-10 leaderboard per difficulty',
+        'desc-li4': 'Skill-based arcade gameplay',
+        'desc-li5': 'Avoid green squares, grab red bonuses',
+        'desc-li6': 'Simple, precise controls',
+        'desc-li7': 'Minimalist, clean design',
+        note: 'Three lives. One goal. How high can you climb?',
+        'sticky-sub': 'Endless reflex arcade'
+      };
+      function apply(lang) {
+        document.documentElement.setAttribute('data-lang', lang);
+        localStorage.setItem('lang', lang);
+        elements.forEach(el => {
+          const key = el.dataset.i18n;
+          const text = lang === 'en' && en[key] ? en[key] : srTexts[key] || el.textContent;
+          if (icons[key]) {
+            el.innerHTML = icons[key] + ' ' + text;
+          } else {
+            el.textContent = text;
+          }
+        });
+        toggle.textContent = lang === 'sr' ? 'EN' : 'SR';
+      }
+      apply(saved);
+      toggle.addEventListener('click', () => {
+        const next = (document.documentElement.getAttribute('data-lang') || 'sr') === 'sr' ? 'en' : 'sr';
+        apply(next);
       });
     })();
   </script>
