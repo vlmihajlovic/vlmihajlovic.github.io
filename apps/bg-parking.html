@@ -219,9 +219,14 @@
       const srTexts = {};
       const icons = {};
       elements.forEach(el => {
-        srTexts[el.dataset.i18n] = el.textContent;
         const icon = el.querySelector('.feature-icon');
-        if (icon) icons[el.dataset.i18n] = icon.outerHTML;
+        let text = el.textContent;
+        if (icon) {
+          const iconText = icon.textContent || '';
+          text = text.replace(iconText, '').trim();
+          icons[el.dataset.i18n] = icon.outerHTML;
+        }
+        srTexts[el.dataset.i18n] = text;
       });
       const en = {
         back: 'Back to home',
