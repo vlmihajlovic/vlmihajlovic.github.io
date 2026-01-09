@@ -166,6 +166,57 @@
       transition: border-color 0.15s ease;
     }
     .ghost:hover { border-color: rgba(255,122,0,0.5); }
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 28px;
+      padding: 0;
+    }
+    .filter-block {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-right: 18px;
+      border-right: 1px solid var(--stroke);
+    }
+    .filter-block + .filter-block { padding-left: 18px; }
+    .filter-block:last-child { border-right: 0; padding-right: 0; }
+    .filter-label {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .filter-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      transition: border-color 0.2s ease, transform 0.15s ease, background 0.2s ease;
+    }
+    .filter-btn:hover { border-color: rgba(255,122,0,0.5); transform: translateY(-1px); }
+    .filter-btn.is-active {
+      background: rgba(255,122,0,0.18);
+      border-color: rgba(255,122,0,0.5);
+      color: #ffd6b1;
+    }
+    @media (max-width: 760px) {
+      .filter-bar { gap: 12px; }
+      .filter-block { border-right: 0; padding: 0; width: 100%; }
+      .filter-label { min-width: auto; }
+    }
     .app-list {
       margin-top: 34px;
       display: grid;
@@ -266,12 +317,13 @@
       :root[data-theme="light"] .hero,
     :root[data-theme="light"] .section { box-shadow: none; }
       img { background: none; box-shadow: none; }
-      :root[data-theme="light"] .pill,
+    :root[data-theme="light"] .pill,
     :root[data-theme="light"] .tag {
       background: rgba(0,0,0,0.08);
       border: 1px solid rgba(0,0,0,0.14);
       color: #0f172a;
     }
+    :root[data-theme="light"] .filter-btn.is-active { color: #0f172a; }
   </style>
 </head>
 <body>
@@ -312,8 +364,27 @@
       </div>
     </div>
 
+    <div class="filter-bar" aria-label="Filteri aplikacija">
+      <div class="filter-block platform" role="group" aria-label="Platforma">
+        <span class="filter-label" data-i18n="filter-platform">Platforma</span>
+        <div class="filter-group">
+          <button class="filter-btn is-active" data-filter-group="platform" data-filter="all" type="button" data-i18n="filter-all">Sve</button>
+          <button class="filter-btn" data-filter-group="platform" data-filter="android" type="button" data-i18n="filter-android">Android</button>
+          <button class="filter-btn" data-filter-group="platform" data-filter="ios" type="button" data-i18n="filter-ios">iOS</button>
+        </div>
+      </div>
+      <div class="filter-block type" role="group" aria-label="Tip">
+        <span class="filter-label" data-i18n="filter-type">Tip</span>
+        <div class="filter-group">
+          <button class="filter-btn is-active" data-filter-group="category" data-filter="all" type="button" data-i18n="filter-all">Sve</button>
+          <button class="filter-btn" data-filter-group="category" data-filter="game" type="button" data-i18n="filter-games">Igre</button>
+          <button class="filter-btn" data-filter-group="category" data-filter="tool" type="button" data-i18n="filter-tools">Alatke</button>
+        </div>
+      </div>
+    </div>
+
     <section class="app-list" id="apps">
-      <article class="app-card">
+      <article class="app-card" data-platform="android ios" data-category="tool">
         <div class="thumb"><img src="https://play-lh.googleusercontent.com/e6pHYtaMVYoSKRhje9UVtfx13nHTiTT4vwGj-dECrFJ_Dx5TBpiIgu-Z-n9mdEG1dg" alt="Vodostaj u Srbiji ikonica"></div>
         <div>
           <div class="card-top">
@@ -327,7 +398,7 @@
         <p class="app-desc" data-i18n="app-vodostaj-desc">Prognoza vodostaja za reke i hidrološka situacija za male i srednje vodotokove.</p>
       </article>
 
-      <article class="app-card">
+      <article class="app-card" data-platform="android ios" data-category="game">
         <div class="thumb"><img src="https://play-lh.googleusercontent.com/njouVgrNW4NaoUNyzdAmcdLSBQQfIALqz5QxU8Nfh_8x8ZzXQ6aHCaaLwVuqZye0FGB0" alt="Pogodi reč ikonica"></div>
         <div>
           <div class="card-top">
@@ -341,7 +412,7 @@
         <p class="app-desc" data-i18n="app-vordli-desc">Igra pogađanja reči (wordle na srpskom).</p>
       </article>
 
-      <article class="app-card">
+      <article class="app-card" data-platform="android ios" data-category="tool">
         <div class="thumb"><img src="https://play-lh.googleusercontent.com/KsIip37s1zQ8HGHWIs4RKMNT_VOvhMZOZc45l-69tnqrP_APfxk9NzwInyqqAgXVFUla" alt="TV program ikonica"></div>
         <div>
           <div class="card-top">
@@ -355,7 +426,7 @@
         <p class="app-desc" data-i18n="app-tv-desc">TV program domaćih i inostranih kanala, podsetnici i omiljeni.</p>
       </article>
 
-      <article class="app-card">
+      <article class="app-card" data-platform="android ios" data-category="tool">
         <div class="thumb"><img src="https://play-lh.googleusercontent.com/SnWiTtz5dBNPTZaS0RM9E-05koIegkkXClBkldVTitoK7ohyQ-oyGiM3gyGZ7mAP5Fw" alt="Vreme u Srbiji ikonica"></div>
         <div>
           <div class="card-top">
@@ -369,7 +440,7 @@
         <p class="app-desc" data-i18n="app-vreme-desc">RHMZ podaci o vremenu, prognoze i mape padavina.</p>
       </article>
 
-      <article class="app-card">
+      <article class="app-card" data-platform="android ios" data-category="tool">
         <div class="thumb"><img src="https://play-lh.googleusercontent.com/sr2GlcwxG7l6fvs_0fVdtpPYjIAHUvytXdt0nIqdVxWVL6CL6uOnVV2d2TYtOTC4IygurVRgYeBORZy3aQrPue0" alt="Kvalitet vazduha ikonica"></div>
         <div>
           <div class="card-top">
@@ -383,7 +454,7 @@
         <p class="app-desc" data-i18n="app-kvalitet-desc">Rezultati automatskog monitoringa zagadjenosti vazduha u Republici Srbiji.</p>
       </article>
 
-      <article class="app-card">
+      <article class="app-card" data-platform="android ios" data-category="tool">
         <div class="thumb"><img src="https://play-lh.googleusercontent.com/MRx9tWTqxMOUBkNyQJ8RcqT8u2viH4UpbECiIAalH-0WHMgA_B3regBFu4Xs6hRignc" alt="Kursna lista ikonica"></div>
         <div>
           <div class="card-top">
@@ -397,7 +468,7 @@
         <p class="app-desc" data-i18n="app-kurs-desc">Kurs dinara za naredni dan i zvanična lista NBS za tekući dan.</p>
       </article>
 
-      <article class="app-card">
+      <article class="app-card" data-platform="android ios" data-category="game">
         <div class="thumb"><img src="https://play-lh.googleusercontent.com/Vx4sAZnEVPVqgZjoPOC_ue_PG6mGVbS1pzVs61q_B-NctsxAOEU31qccrt7V81bgzlK9dnAAgjOqARwadAgRlD4" alt="Edge Runner ikonica"></div>
         <div>
           <div class="card-top">
@@ -411,7 +482,7 @@
         <p class="app-desc" data-i18n="app-edge-desc">Refleks endless igra: izbegavaj prepreke, skupljaj bonuse.</p>
       </article>
 
-      <article class="app-card">
+      <article class="app-card" data-platform="android ios" data-category="tool">
         <div class="thumb"><img src="https://play-lh.googleusercontent.com/_UswpJqVC8_1dWdTMeE3-krmDQi7wFl_KRQ8M8VY7iBJDlwtDI5e2GqE8MbgWGLwyg" alt="BG prevoz ikonica"></div>
         <div>
           <div class="card-top">
@@ -425,7 +496,7 @@
         <p class="app-desc" data-i18n="app-bgprevoz-desc">Lista linija i redova vožnje javnog prevoza za Beograd.</p>
       </article>
 
-      <article class="app-card">
+      <article class="app-card" data-platform="android ios" data-category="tool">
         <div class="thumb"><img src="https://play-lh.googleusercontent.com/RsPhFABbkCUinRh0_z0XvYaa2SbaWqZMcFVnchI1co0DGeeJ19teLA9u2HdY81LT5aPWTpqNFDW_8aHkPUoy7w" alt="Check and Go ikonica"></div>
         <div>
           <div class="card-top">
@@ -439,7 +510,7 @@
         <p class="app-desc" data-i18n="app-check-desc">Brza checklista za proveru stvari pre izlaska iz kuće.</p>
       </article>
 
-      <article class="app-card">
+      <article class="app-card" data-platform="android ios" data-category="tool">
         <div class="thumb"><img src="https://play-lh.googleusercontent.com/8y1mtH8s-rB2iPKzfVH4onkip1xFP65ZKLx5S-CH10Nxnsvv7pR1G0CojYHe1Odb8Q" alt="Na današnji dan ikonica"></div>
         <div>
           <div class="card-top">
@@ -453,7 +524,7 @@
         <p class="app-desc" data-i18n="app-nadan-desc">Istorijski događaji za današnji datum.</p>
       </article>
 
-      <article class="app-card">
+      <article class="app-card" data-platform="android" data-category="tool">
         <div class="thumb"><img src="https://play-lh.googleusercontent.com/msln3ylsmsD41WzFHtBV-rFuYc4WazWKa7lTHjkKUwyZvMAxmMG46zQSKNIVnM-sHg" alt="Horoskop ikonica"></div>
         <div>
           <div class="card-top">
@@ -467,7 +538,7 @@
         <p class="app-desc" data-i18n="app-horoskop-desc">Dnevni i nedeljni horoskop na srpskom.</p>
       </article>
 
-      <article class="app-card">
+      <article class="app-card" data-platform="android ios" data-category="tool">
         <div class="thumb"><img src="https://play-lh.googleusercontent.com/j2xnLIJ-t-shnpykt6cx1n4mBolEr8w6kvULlp5nnZrvBBDCS5bTYNf3oqC3sch-WA" alt="Trkač ikonica"></div>
         <div>
           <div class="card-top">
@@ -481,7 +552,7 @@
         <p class="app-desc" data-i18n="app-trkac-desc">Tempo, dužina i vreme kalkulator za trkače.</p>
       </article>
 
-      <article class="app-card">
+      <article class="app-card" data-platform="android ios" data-category="tool">
         <div class="thumb"><img src="https://play-lh.googleusercontent.com/IcekyLUkPuxeZ35VCskW5k4ztVIsjavGTCYvP3J-O1vxpLhTNDo-SOXdUczQsnRDC5E" alt="Pacer PRO ikonica"></div>
         <div>
           <div class="card-top">
@@ -495,7 +566,7 @@
         <p class="app-desc" data-i18n="app-pacerpro-desc">Napredni pace kalkulator, zone i intervali.</p>
       </article>
 
-      <article class="app-card">
+      <article class="app-card" data-platform="android ios" data-category="tool">
         <div class="thumb"><img src="https://play-lh.googleusercontent.com/KFsUkGyhEso9-Y2QYx1kRlfPdQJLMI6w5aGV3avHrUXFD30umV1MCXRKlNduBr625A" alt="Status paketa ikonica"></div>
         <div>
           <div class="card-top">
@@ -509,7 +580,7 @@
         <p class="app-desc" data-i18n="app-status-desc">Provera pošiljki i kurirskih službi na jednom mestu.</p>
       </article>
 
-      <article class="app-card">
+      <article class="app-card" data-platform="android ios" data-category="tool">
         <div class="thumb"><img src="https://play-lh.googleusercontent.com/N3ga1u-UM-cfBYZJnFZqBTjj7-5Q5uNlkSFrwQKtLOqw82JKrcPQP7D-x2umN7rHkg" alt="BG parking ikonica"></div>
         <div>
           <div class="card-top">
@@ -555,6 +626,13 @@
         subtitle: 'Pregled svih dostupnih aplikacija na store-ovima, sa kratkim opisom, ocenom i linkovima ka detaljima i preuzimanju.',
         'cta-all': 'Pogledaj sve aplikacije',
         'cta-contact': 'Kontakt',
+        'filter-platform': 'Platforma',
+        'filter-type': 'Tip',
+        'filter-all': 'Sve',
+        'filter-android': 'Android',
+        'filter-ios': 'iOS',
+        'filter-games': 'Igre',
+        'filter-tools': 'Alatke',
         'app-vodostaj-name': 'Vodostaj u Srbiji',
         'app-vodostaj-desc': 'Prognoza vodostaja za reke i hidrološka situacija za male i srednje vodotokove.',
         'app-vodostaj-rating': 'Ocena 4.2/5',
@@ -607,6 +685,13 @@
         subtitle: 'Browse all published apps with short descriptions, ratings, and links to details and downloads.',
         'cta-all': 'View all apps',
         'cta-contact': 'Contact',
+        'filter-platform': 'Platform',
+        'filter-type': 'Type',
+        'filter-all': 'All',
+        'filter-android': 'Android',
+        'filter-ios': 'iOS',
+        'filter-games': 'Games',
+        'filter-tools': 'Utilities',
         'app-vodostaj-name': 'Vodostaj u Srbiji',
         'app-vodostaj-desc': 'River level forecasts and hydrology for major and local waterways.',
         'app-vodostaj-rating': 'Rating 4.2/5',
@@ -671,6 +756,37 @@
       const next = (document.documentElement.getAttribute('data-lang') || 'sr') === 'sr' ? 'en' : 'sr';
       applyLang(next);
     });
+  })();
+
+  (function() {
+    const buttons = Array.from(document.querySelectorAll('.filter-btn'));
+    const cards = Array.from(document.querySelectorAll('.app-card'));
+    const state = { platform: 'all', category: 'all' };
+
+    function applyFilters() {
+      cards.forEach(card => {
+        const platform = (card.dataset.platform || '').split(' ').filter(Boolean);
+        const category = card.dataset.category || '';
+        const platformOk = state.platform === 'all' || platform.includes(state.platform);
+        const categoryOk = state.category === 'all' || category === state.category;
+        card.style.display = platformOk && categoryOk ? '' : 'none';
+      });
+    }
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const group = button.dataset.filterGroup;
+        const value = button.dataset.filter;
+        if (!group || !value) return;
+        state[group] = value;
+        document.querySelectorAll(`.filter-btn[data-filter-group=\"${group}\"]`).forEach(btn => {
+          btn.classList.toggle('is-active', btn === button);
+        });
+        applyFilters();
+      });
+    });
+
+    applyFilters();
   })();
 </script>
 </html>
