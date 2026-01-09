@@ -5,11 +5,11 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Edge Runner - Endless Reflex: izbegni zelene kvadrate, pokupi crvene bonuse i nadmasi rekord.">
+  <meta name="description" content="Kvalitet vazduha - rezultati automatskog monitoringa zagadjenosti vazduha u Srbiji.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <title>Edge Runner - Endless Reflex - detalji</title>
+  <title>Kvalitet vazduha - detalji</title>
   <style>
     :root {
       --bg: #050a19;
@@ -34,8 +34,8 @@
     a { color: inherit; text-decoration: none; }
     .wrap { max-width: 1200px; margin: 0 auto; padding: 38px 20px 90px; }
     .topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--stroke); }
-        .back { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; position: relative; padding: 8px 0; border: none; background: none; box-shadow: none; letter-spacing: 0.2px; color: var(--text); }
-        .theme-toggle {
+    .back { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; position: relative; padding: 8px 0; border: none; background: none; box-shadow: none; letter-spacing: 0.2px; color: var(--text); }
+    .theme-toggle {
       border: 1px solid var(--stroke);
       background: rgba(255,255,255,0.05);
       color: var(--text);
@@ -57,15 +57,15 @@
       transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
     }
     .lang-toggle:hover { border-color: rgba(255,122,0,0.5); }
-        .back:hover { transform: translateY(-1px); }
-        .back .arrow { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 999px; background: none; border: none; color: var(--orange); font-size: 14px; line-height: 1; box-shadow: none; }
+    .back:hover { transform: translateY(-1px); }
+    .back .arrow { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 999px; background: none; border: none; color: var(--orange); font-size: 14px; line-height: 1; box-shadow: none; }
     .hero { position: relative; background: linear-gradient(120deg, rgba(255,122,0,0.09), rgba(255,255,255,0.03)); border: 1px solid var(--stroke); border-radius: 20px; padding: 24px; box-shadow: 0 28px 70px rgba(0,0,0,0.35); display: grid; grid-template-columns: auto 1fr auto; gap: 22px; margin-top: 18px; align-items: start; overflow: hidden; }
     .hero::before { content: ""; position: absolute; inset: -30% 55% 50% -10%; background: radial-gradient(circle, rgba(255,122,0,0.25), transparent 45%); filter: blur(10px); opacity: 0.8; pointer-events: none; }
     .hero::after { content: ""; position: absolute; inset: 40% -20% -40% 55%; background: radial-gradient(circle, rgba(255,255,255,0.13), transparent 45%); filter: blur(10px); opacity: 0.7; pointer-events: none; }
-    .hero > * { position: relative; z-index: 1; }
+    .hero>* { position: relative; z-index: 1; }
     .icon-wrap { width: 110px; height: 110px; border-radius: 26px; overflow: hidden; border: 1px solid var(--stroke); background: none; box-shadow: none; }
     .icon-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    h1 { margin: 0 0 10px; font-size: clamp(32px, 5vw, 46px); line-height: 1.1; }
+    h1 { margin: 0 0 10px; font-size: clamp(32px,5vw,46px); line-height: 1.1; }
     .eyebrow { margin: 0 0 6px; letter-spacing: 0.4px; text-transform: uppercase; font-size: 12px; color: rgba(255,255,255,0.7); font-weight: 700; }
     .lede { margin: 0 0 12px; color: var(--muted); }
     .badges { display: flex; gap: 10px; flex-wrap: wrap; margin: 6px 0 8px; }
@@ -87,7 +87,7 @@
     .feature-card h3 .feature-icon { font-size: 16px; color: #ffd6b1; }
     .feature-card p { margin: 0; color: var(--muted); }
     .screen-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 10px; }
-        .screen-grid img { width: 100%; height: auto; display: block; border-radius: 12px; object-fit: cover; background: none; box-shadow: none; }
+    .screen-grid img { width: 100%; height: auto; display: block; border-radius: 12px; object-fit: cover; background: none; box-shadow: none; }
     .body-text { margin: 0 0 10px; color: var(--muted); }
     .body-text.strong { font-weight: 700; }
     .body-text.tight { margin-bottom: 0; }
@@ -99,37 +99,17 @@
     .sticky-cta .badge-row { display: flex; gap: 8px; flex-wrap: wrap; }
     .sticky-cta .store-badge { margin-top: 0; width: 170px; height: 50px; }
     .sticky-cta .store-badge.app-store img { max-width: 85%; }
-    @media (max-width: 640px) {
-      .hero { grid-template-columns: 1fr; gap: 14px; padding: 18px; }
-      .cta-col { justify-content: flex-start; }
-      .store-badge { width: 170px; height: 50px; }
-      .sticky-cta {
-        display: flex;
-        position: fixed;
-        left: 12px;
-        right: 12px;
-        bottom: 12px;
-        padding: 10px 12px;
-        background: rgba(5,10,25,0.92);
-        border: 1px solid var(--stroke);
-        border-radius: 14px;
-        box-shadow: 0 18px 38px rgba(0,0,0,0.55);
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        backdrop-filter: blur(8px);
-      }
-    }
-      :root[data-theme="light"] .hero,
+    @media (max-width: 640px) { .hero { grid-template-columns: 1fr; gap: 14px; padding: 18px; } .cta-col { justify-content: flex-start; } .store-badge { width: 170px; height: 50px; } .sticky-cta { display:flex; position:fixed; left:12px; right:12px; bottom:12px; padding:10px 12px; background:rgba(5,10,25,0.92); border:1px solid var(--stroke); border-radius:14px; box-shadow:0 18px 38px rgba(0,0,0,0.55); align-items:center; justify-content:space-between; gap:12px; backdrop-filter:blur(8px); } }
+    :root[data-theme="light"] .hero,
     :root[data-theme="light"] .section { box-shadow: none; }
-      img { background: none; box-shadow: none; }
-      :root[data-theme="light"] .pill,
+    img { background: none; box-shadow: none; }
+    :root[data-theme="light"] .pill,
     :root[data-theme="light"] .tag {
       background: rgba(0,0,0,0.08);
       border: 1px solid rgba(0,0,0,0.14);
       color: #0f172a;
     }
-      :root[data-theme="light"] .eyebrow { color: #52606d; }
+    :root[data-theme="light"] .eyebrow { color: #52606d; }
   </style>
 </head>
 <body>
@@ -143,21 +123,21 @@
     </div>
 
     <section class="hero">
-      <div class="icon-wrap"><img src="https://play-lh.googleusercontent.com/Vx4sAZnEVPVqgZjoPOC_ue_PG6mGVbS1pzVs61q_B-NctsxAOEU31qccrt7V81bgzlK9dnAAgjOqARwadAgRlD4" alt="Edge Runner - Endless Reflex ikonica"></div>
+      <div class="icon-wrap"><img src="https://play-lh.googleusercontent.com/sr2GlcwxG7l6fvs_0fVdtpPYjIAHUvytXdt0nIqdVxWVL6CL6uOnVV2d2TYtOTC4IygurVRgYeBORZy3aQrPue0" alt="Kvalitet vazduha ikonica"></div>
       <div>
-        <p class="eyebrow" data-i18n="eyebrow">Arcade</p>
-        <h1 data-i18n="title">Edge Runner - Endless Reflex</h1>
-        <p class="lede" data-i18n="lede">Izbegavajte zelene kvadrate. Sakupljajte crvene bonuse. Nadmašite svoj rekord.</p>
+        <p class="eyebrow" data-i18n="eyebrow">Zagadjenost vazduha</p>
+        <h1 data-i18n="title">Kvalitet vazduha</h1>
+        <p class="lede" data-i18n="lede">Rezultati automatskog monitoringa zagadjenosti vazduha u Republici Srbiji.</p>
         <div class="badges">
-          <span class="pill" data-i18n="badge-new">Nova</span>
+          <span class="pill" data-i18n="rating">Ocena 4.5/5</span>
           <span class="pill">Android</span><span class="pill">iOS</span>
         </div>
       </div>
       <div class="cta-col">
-        <div class="qr-hero"><img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https%3A//vlmihajlovic.github.io/apps/store-redirect.html%3Fandroid%3Dhttps%253A%252F%252Fplay.google.com%252Fstore%252Fapps%252Fdetails%253Fid%253Ddev.mihajlovic.edgerunner%2526hl%253Dsr%2526gl%253DRS%26ios%3Dhttps%253A%252F%252Fapps.apple.com%252Frs%252Fapp%252Fedge-runner-endless-reflex%252Fid6756896261" alt="QR kod Edge Runner - Endless Reflex"></div>
+        <div class="qr-hero"><img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https%3A//vlmihajlovic.github.io/apps/store-redirect.html%3Fandroid%3Dhttps%253A%252F%252Fplay.google.com%252Fstore%252Fapps%252Fdetails%253Fid%253Ddev.mihajlovic.kvalitetvazduha%2526hl%253Dsr%2526gl%253DRS%26ios%3Dhttps%253A%252F%252Fapps.apple.com%252Frs%252Fapp%252Fkvalitet-vazduha%252Fid1549393687" alt="QR kod Kvalitet vazduha"></div>
         <div class="store-stack">
-          <a class="store-badge" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=dev.mihajlovic.edgerunner&hl=sr&gl=RS"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a>
-          <a class="store-badge app-store" target="_blank" rel="noopener" href="https://apps.apple.com/rs/app/edge-runner-endless-reflex/id6756896261"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store"></a>
+          <a class="store-badge" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=dev.mihajlovic.kvalitetvazduha&hl=sr&gl=RS"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a>
+          <a class="store-badge app-store" target="_blank" rel="noopener" href="https://apps.apple.com/rs/app/kvalitet-vazduha/id1549393687"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store"></a>
         </div>
       </div>
     </section>
@@ -165,61 +145,56 @@
     <div class="section">
       <h2 data-i18n="features-title">Šta dobijate u aplikaciji</h2>
       <div class="feature-grid">
-        <div class="feature-card"><h3 data-i18n="feat1-title"><span class="feature-icon">⚡</span>Refleksi bez kraja</h3><p data-i18n="feat1-body">Tempo raste dok izbegavaš prepreke, pa svaki pokret mora da bude tačan.</p></div>
-        <div class="feature-card"><h3 data-i18n="feat2-title"><span class="feature-icon">🎯</span>Lov na bonuse</h3><p data-i18n="feat2-body">Crveni bonusi podižu skor i teraju te da rizikuješ kroz gustu stazu.</p></div>
-        <div class="feature-card"><h3 data-i18n="feat3-title"><span class="feature-icon">🎮</span>Minimalistički izgled</h3><p data-i18n="feat3-body">Čist dizajn bez smetnji da se fokusiraš na reakciju i ritam.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat1-title"><span class="feature-icon">📍</span>Lokacije i omiljeni</h3><p data-i18n="feat1-body">Lista mernih lokacija i izbor omiljenih.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat2-title"><span class="feature-icon">📊</span>Detaljni prikaz</h3><p data-i18n="feat2-body">Zagadjenost vazduha sa grafičkim prikazom po lokaciji.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat3-title"><span class="feature-icon">🗓️</span>Istorija podataka</h3><p data-i18n="feat3-body">Danas, prethodnih 7 i prethodnih 30 dana.</p></div>
       </div>
     </div>
 
     <div class="section">
       <h2 data-i18n="screens-title">Screenshots</h2>
       <div class="screen-grid">
-        <img src="https://play-lh.googleusercontent.com/7AyXaBhmWPFHUaATpe80adkxt_VJVJSrR-bOMdgQgcpTlzRF4-uFkoDOpIqe18-F211iEy0476pwdUx-dg7n8g=w1052-h592" alt="Edge Runner - Endless Reflex screenshot 1">
-        <img src="https://play-lh.googleusercontent.com/EREc2hM60LetHiJaKzahq_wmAdF9gW62IEuOh8UELWxVD18eTUMyXjxh6J9QDvgXn4C5NHCKjKc6idGtyt_yGI0=w1052-h592" alt="Edge Runner - Endless Reflex screenshot 2">
-        <img src="https://play-lh.googleusercontent.com/JtOyfiX5UeI4_isKb1gitf-gvLnrsQvONnDZIo1ccOK7xPkzqUmz5QMlfW7LQwICIH6ZHTuC6rS9FAHwrSwyBQ=w1052-h592" alt="Edge Runner - Endless Reflex screenshot 3">
-        <img src="https://play-lh.googleusercontent.com/BjX61-061cO4NCLU3ovGgdKfuAe-zDAhCryOyzkjKAlvAa88fU7VkFKGaN9BVqYj5Q7K4nQ_ZdSOl4N8fR-V=w1052-h592" alt="Edge Runner - Endless Reflex screenshot 4">
-        <img src="https://play-lh.googleusercontent.com/IyI_EsZUhbGaQmQetDLkR--O6iX0QqERpRpOMefdbGmp2Z_TDlklaEUhL1XZfIhQ3Rvf-ZHTt3TLOyIJr7E6=w1052-h592" alt="Edge Runner - Endless Reflex screenshot 5">
-        <img src="https://play-lh.googleusercontent.com/3XhEMIjqQzOfZm87j9jaLwDuVPoLGOLPfZYcVp3NXx2rZqniaHbYQUUdyLB2kXKc-W1E8BHtJ48hSTOXJUEsdQ=w1052-h592" alt="Edge Runner - Endless Reflex screenshot 6">
-        <img src="https://play-lh.googleusercontent.com/mm2J9YyFNH0T43yT3UGX6AI7G7m3qZc-WylMCoN-NsGrXrtyVxMOxs0Dk3MwgFa0Aa3ehsj6Dg_aMuTjx56oHQ=w1052-h592" alt="Edge Runner - Endless Reflex screenshot 7">
+        <img src="https://play-lh.googleusercontent.com/d1j1T__6xMNU0CqmtpY96gYNHePxmDbbOoG3j3eT9JDmDxuLuIWxPBDGTBYScZfZlxPBJeRGK5Mt_9VMwFvbsg=w1052-h592" alt="Kvalitet vazduha screenshot 1">
+        <img src="https://play-lh.googleusercontent.com/wc4Vva8QdsTxTXrwzqiNyx_5yIdjHdQIBWcUcvsgf6o0SszldtA-kBsG75yS_U5E_JBOe2C-V35iPepG0GjG=w1052-h592" alt="Kvalitet vazduha screenshot 2">
+        <img src="https://play-lh.googleusercontent.com/Z6uFKAVcXe9aCyDO9f9dwkAw_FigdLlOppDWGrBtBPLS6LvNsaFUyYJ_nJBUKvp3YmcoNXvcoI7Y7U3dmWEOmg=w1052-h592" alt="Kvalitet vazduha screenshot 3">
+        <img src="https://play-lh.googleusercontent.com/bU49j1_1s5jJ8kFy0OSuJkfZgPl9Fq04S4Z769xJxeLDZn9vE1uRcOnShcTLjoOUERFIu6NLFTcS1Z4tWpW1JQ=w1052-h592" alt="Kvalitet vazduha screenshot 4">
+        <img src="https://play-lh.googleusercontent.com/-iu5jPkCCrw76ROz6vVy6JNnzJp8IbNK6LOQHmQPfX1DlzWsqEoE-TR9pwpAXVlfg5rErq7NfV5IIkwUgjCV-g=w1052-h592" alt="Kvalitet vazduha screenshot 5">
+        <img src="https://play-lh.googleusercontent.com/5lf14uHFKH_O2xnJoh4SMkybtWv2JK8n3ptFhOaBR_yW1YyhDxv8aSJiqrw5-Bp0-gmiq43nfWF7fw90LK2gVw=w1052-h592" alt="Kvalitet vazduha screenshot 6">
+        <img src="https://play-lh.googleusercontent.com/RuUKe3ZjCgnwQOGTe_lHXaznECn4V37e8Rs2RbYw5gM7IGl5la9PD50YSDmgBYdS89M_plbBnBfrLhm-o3YUAA=w1052-h592" alt="Kvalitet vazduha screenshot 7">
       </div>
     </div>
 
     <div class="section">
       <h2 data-i18n="desc-title">Opis aplikacije</h2>
-      <p class="body-text" data-i18n="desc-p1">Edge Runner je arkadna igra zasnovana na veštinama koja testira vaše reflekse, fokus i donošenje odluka.</p>
-      <p class="body-text" data-i18n="desc-p2">Vaš cilj je jednostavan: izbegavajte zelene kvadrate, sakupljajte crvene bonus kvadrate i postignite što veći rezultat.</p>
-      <p class="body-text" data-i18n="desc-p3">Svaki pokušaj počinjete sa tri života. Svaki sudar sa zelenim kvadratom košta jedan život — izgubite sva tri i igra se završava.</p>
-      <p class="body-text" data-i18n="desc-p4">Crveni bonus kvadrati nagrađuju preciznost i pametno kretanje dajući vam dodatne poene i pomažući da još više povećate skor.</p>
-      <p class="body-text" data-i18n="desc-p5">Igra se ne ubrzava tokom vremena. Umesto toga, vi birate svoj izazov: Lako, Normalno ili Teško, svaki sa sopstvenom tabelom 10 najboljih.</p>
+      <p class="body-text" data-i18n="desc-p1">Aplikacija prikazuje rezultate automatskog monitoringa kvaliteta vazduha, u realnom vremenu.</p>
       <p class="body-text strong" data-i18n="desc-heading">KARAKTERISTIKE:</p>
       <ul class="body-list">
-        <li data-i18n="desc-li1">Tri života po trčanju</li>
-        <li data-i18n="desc-li2">Tri nivoa težine: Lako, Normalno, Teško</li>
-        <li data-i18n="desc-li3">Odvojena tabela 10 najboljih za svaku težinu</li>
-        <li data-i18n="desc-li4">Arkadna igra zasnovana na veštini</li>
-        <li data-i18n="desc-li5">Izbegavajte zelene kvadrate, sakupljajte crvene bonus kvadrate</li>
-        <li data-i18n="desc-li6">Jednostavne i precizne kontrole</li>
-        <li data-i18n="desc-li7">Minimalistički i čist dizajn</li>
+        <li>lista lokacija na kojima se meri kvalitet vazduha, tj. zagadjenost vazduha</li>
+        <li>biranje jedne ili više omiljenih lokacija</li>
+        <li>prikaz detaljnih informacija za zagadjenje vazduha na odabranoj lokaciji</li>
+        <li>u zavisnosti od lokacije, prikazuju se grafici izmerenih podataka</li>
+        <li>dostupna je istorija podataka kvaliteta vazduha za tekući dan, prethodnih 7 i prethodnih 30 dana</li>
       </ul>
-      <p class="body-text tight" data-i18n="note">Tri života. Jedan cilj. Koliko visoko možete da se popnete?</p>
+      <p class="body-text" data-i18n="desc-p2">Aplikacija podržava tamnu i svetlu temu. Na onim telefonima čiji operativni sistem podržava teme, aplikacija se automatski prilagođava temi telefona. Na ostalim uređajima, u delu za podešavanje aplikacije, moguće je ručno izabrati željenu temu.</p>
+      <p class="body-text tight" data-i18n="note">NAPOMENA: Podaci o zagadjenju vazduha nisu dostupni ukoliko mobilni uređaj nije priključen na internet mrežu.</p>
     </div>
 
   </div>
   <div class="sticky-cta">
     <div class="copy">
-      <strong>Edge Runner</strong>
-      <span data-i18n="sticky-sub">Endless reflex arkada</span>
+      <strong>Kvalitet vazduha</strong>
+      <span data-i18n="sticky-sub">Monitoring vazduha</span>
     </div>
     <div class="badge-row">
-      <a class="store-badge" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=dev.mihajlovic.edgerunner&hl=sr&gl=RS">
+      <a class="store-badge" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=dev.mihajlovic.kvalitetvazduha&hl=sr&gl=RS">
         <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
       </a>
-      <a class="store-badge app-store" target="_blank" rel="noopener" href="https://apps.apple.com/rs/app/edge-runner-endless-reflex/id6756896261">
+      <a class="store-badge app-store" target="_blank" rel="noopener" href="https://apps.apple.com/rs/app/kvalitet-vazduha/id1549393687">
         <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
       </a>
     </div>
   </div>
-    <script>
+  <script>
     (function() {
       const root = document.documentElement;
       const toggle = document.getElementById('themeToggle');
@@ -253,34 +228,24 @@
       });
       const en = {
         back: 'Back to home',
-        eyebrow: 'Arcade',
-        title: 'Edge Runner - Endless Reflex',
-        lede: 'Dodge green squares. Collect red bonuses. Beat your high score.',
+        eyebrow: 'Air quality',
+        title: 'Kvalitet vazduha',
+        lede: 'Automatic air quality monitoring results in Serbia.',
         'features-title': 'What you get',
-        'badge-new': 'New',
-        'feat1-title': 'Endless reflexes',
-        'feat1-body': 'Speed ramps up as you dodge, so every move must be precise.',
-        'feat2-title': 'Bonus hunt',
-        'feat2-body': 'Red bonuses boost your score and push you to take risks.',
-        'feat3-title': 'Minimal look',
-        'feat3-body': 'Clean design so you focus on reaction and rhythm.',
+        rating: 'Rating 4.5/5',
+        'feat1-title': 'Locations and favorites',
+        'feat1-body': 'List of measurement locations and favorite selection.',
+        'feat2-title': 'Detailed view',
+        'feat2-body': 'Air pollution details with charts by location.',
+        'feat3-title': 'Data history',
+        'feat3-body': 'Today, previous 7 and 30 days.',
         'screens-title': 'Screenshots',
         'desc-title': 'App description',
-        'desc-p1': 'An arcade skill game testing your reflexes, focus, and decisions.',
-        'desc-p2': 'Simple goal: avoid green squares, collect red bonus squares, and score high.',
-        'desc-p3': 'You start with three lives; each hit costs one life—lose all three and the run ends.',
-        'desc-p4': 'Red bonus squares reward precision and smart movement with extra points.',
-        'desc-p5': 'No auto-acceleration; pick Easy, Normal, or Hard, each with its own top-10 leaderboard.',
+        'desc-p1': 'The app shows automatic air quality monitoring results in real time.',
         'desc-heading': 'FEATURES:',
-        'desc-li1': 'Three lives per run',
-        'desc-li2': 'Three difficulties: Easy, Normal, Hard',
-        'desc-li3': 'Separate top-10 leaderboard per difficulty',
-        'desc-li4': 'Skill-based arcade gameplay',
-        'desc-li5': 'Avoid green squares, grab red bonuses',
-        'desc-li6': 'Simple, precise controls',
-        'desc-li7': 'Minimalist, clean design',
-        note: 'Three lives. One goal. How high can you climb?',
-        'sticky-sub': 'Endless reflex arcade'
+        'desc-p2': 'Supports dark and light themes, following system theme when available; otherwise you can choose it manually in settings.',
+        note: 'NOTE: Air quality data is unavailable without an internet connection.',
+        'sticky-sub': 'Air quality monitoring'
       };
       function apply(lang) {
         document.documentElement.setAttribute('data-lang', lang);

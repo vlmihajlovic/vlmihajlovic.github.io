@@ -141,6 +141,7 @@
     .store-badge img { max-width: 100%; max-height: 100%; width: auto; height: auto; display: block; border-radius: 10px; object-fit: contain; transition: transform 0.15s ease; }
     .store-badge:hover img { transform: translateY(-1px) scale(1.01); }
     .store-badge.app-store img { max-width: 88%; }
+    .store-badge.play-store img { max-width: 90%; }
     .qr-hero { width: 170px; height: 170px; display: grid; place-items: center; padding: 0; }
     .qr-hero img { width: 100%; height: 100%; display: block; }
     @media (max-width: 640px) { .qr-hero { display: none; } }
@@ -299,7 +300,7 @@
               <img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https%3A//vlmihajlovic.github.io/index.html%23apps" alt="QR za listu aplikacija">
             </div>
             <div class="store-stack" style="justify-items:end;">
-              <a class="store-badge" href="https://play.google.com/store/apps/dev?id=Vladimir+Mihajlovic" target="_blank" rel="noopener">
+              <a class="store-badge play-store" href="https://play.google.com/store/apps/dev?id=Vladimir+Mihajlovic" target="_blank" rel="noopener">
                 <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
               </a>
               <a class="store-badge app-store" href="https://apps.apple.com/us/developer/vladimir-mihajlovic/id1533255105" target="_blank" rel="noopener">
@@ -369,6 +370,20 @@
       </article>
 
       <article class="app-card">
+        <div class="thumb"><img src="https://play-lh.googleusercontent.com/sr2GlcwxG7l6fvs_0fVdtpPYjIAHUvytXdt0nIqdVxWVL6CL6uOnVV2d2TYtOTC4IygurVRgYeBORZy3aQrPue0" alt="Kvalitet vazduha ikonica"></div>
+        <div>
+          <div class="card-top">
+            <div class="title-row">
+              <h3 data-i18n="app-kvalitet-name">Kvalitet vazduha</h3>
+              <div class="tag-row"><span class="tag" data-i18n="app-kvalitet-rating">Ocena 4.5/5</span><span class="tag">Android</span><span class="tag">iOS</span></div>
+            </div>
+            <a class="btn compact" href="apps/kvalitet-vazduha.html">Detalji</a>
+          </div>
+        </div>
+        <p class="app-desc" data-i18n="app-kvalitet-desc">Rezultati automatskog monitoringa zagadjenosti vazduha u Republici Srbiji.</p>
+      </article>
+
+      <article class="app-card">
         <div class="thumb"><img src="https://play-lh.googleusercontent.com/MRx9tWTqxMOUBkNyQJ8RcqT8u2viH4UpbECiIAalH-0WHMgA_B3regBFu4Xs6hRignc" alt="Kursna lista ikonica"></div>
         <div>
           <div class="card-top">
@@ -388,7 +403,7 @@
           <div class="card-top">
             <div class="title-row">
               <h3 data-i18n="app-edge-name">Edge Runner</h3>
-              <div class="tag-row"><span class="tag" data-i18n="app-edge-new">Nova</span><span class="tag">Android</span></div>
+              <div class="tag-row"><span class="tag" data-i18n="app-edge-new">Nova</span><span class="tag">Android</span><span class="tag">iOS</span></div>
             </div>
             <a class="btn compact" href="apps/edgerunner.html">Detalji</a>
           </div>
@@ -552,6 +567,9 @@
         'app-vreme-name': 'Vreme u Srbiji',
         'app-vreme-desc': 'RHMZ podaci o vremenu, prognoze i mape padavina.',
         'app-vreme-rating': 'Ocena 4.2/5',
+        'app-kvalitet-name': 'Kvalitet vazduha',
+        'app-kvalitet-desc': 'Rezultati automatskog monitoringa zagadjenosti vazduha u Republici Srbiji.',
+        'app-kvalitet-rating': 'Ocena 4.5/5',
         'app-kurs-name': 'Kursna lista',
         'app-kurs-desc': 'Kurs dinara za naredni dan i zvanična lista NBS za tekući dan.',
         'app-kurs-rating': 'Ocena 4.5/5',
@@ -601,6 +619,9 @@
         'app-vreme-name': 'Vreme u Srbiji',
         'app-vreme-desc': 'RHMZ weather data, forecasts, and precipitation maps.',
         'app-vreme-rating': 'Rating 4.2/5',
+        'app-kvalitet-name': 'Kvalitet vazduha',
+        'app-kvalitet-desc': 'Automatic air quality monitoring results in Serbia.',
+        'app-kvalitet-rating': 'Rating 4.5/5',
         'app-kurs-name': 'Kursna lista',
         'app-kurs-desc': 'Dinar rates for tomorrow and official NBS list for today.',
         'app-kurs-rating': 'Rating 4.5/5',
