@@ -5,11 +5,11 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Pacer PRO - napredni kalkulator tempa, intervala i zona treninga.">
+  <meta name="description" content="Kamere uživo: uživo kamere sa puteva, gradova i granica Srbije.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <title>Pacer PRO - detalji</title>
+  <title>Kamere uživo - detalji</title>
   <style>
     :root {
       --bg: #050a19;
@@ -34,8 +34,8 @@
     a { color: inherit; text-decoration: none; }
     .wrap { max-width: 1200px; margin: 0 auto; padding: 38px 20px 90px; }
     .topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--stroke); }
-        .back { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; position: relative; padding: 8px 0; border: none; background: none; box-shadow: none; letter-spacing: 0.2px; color: var(--text); }
-        .theme-toggle {
+    .back { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; position: relative; padding: 8px 0; border: none; background: none; box-shadow: none; letter-spacing: 0.2px; color: var(--text); }
+    .theme-toggle {
       border: 1px solid var(--stroke);
       background: rgba(255,255,255,0.05);
       color: var(--text);
@@ -57,15 +57,15 @@
       transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
     }
     .lang-toggle:hover { border-color: rgba(255,122,0,0.5); }
-        .back:hover { transform: translateY(-1px); }
-        .back .arrow { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 999px; background: none; border: none; color: var(--orange); font-size: 14px; line-height: 1; box-shadow: none; }
+    .back:hover { transform: translateY(-1px); }
+    .back .arrow { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 999px; background: none; border: none; color: var(--orange); font-size: 14px; line-height: 1; box-shadow: none; }
     .hero { position: relative; background: linear-gradient(120deg, rgba(255,122,0,0.09), rgba(255,255,255,0.03)); border: 1px solid var(--stroke); border-radius: 20px; padding: 24px; box-shadow: 0 28px 70px rgba(0,0,0,0.35); display: grid; grid-template-columns: auto 1fr auto; gap: 22px; margin-top: 18px; align-items: start; overflow: hidden; }
     .hero::before { content: ""; position: absolute; inset: -30% 55% 50% -10%; background: radial-gradient(circle, rgba(255,122,0,0.25), transparent 45%); filter: blur(10px); opacity: 0.8; pointer-events: none; }
     .hero::after { content: ""; position: absolute; inset: 40% -20% -40% 55%; background: radial-gradient(circle, rgba(255,255,255,0.13), transparent 45%); filter: blur(10px); opacity: 0.7; pointer-events: none; }
-    .hero>* { position: relative; z-index: 1; }
+    .hero > * { position: relative; z-index: 1; }
     .icon-wrap { width: 110px; height: 110px; border-radius: 26px; overflow: hidden; border: 1px solid var(--stroke); background: none; box-shadow: none; }
     .icon-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    h1 { margin: 0 0 10px; font-size: clamp(32px,5vw,46px); line-height: 1.1; }
+    h1 { margin: 0 0 10px; font-size: clamp(32px, 5vw, 46px); line-height: 1.1; }
     .eyebrow { margin: 0 0 6px; letter-spacing: 0.4px; text-transform: uppercase; font-size: 12px; color: rgba(255,255,255,0.7); font-weight: 700; }
     .lede { margin: 0 0 12px; color: var(--muted); }
     .badges { display: flex; gap: 10px; flex-wrap: wrap; margin: 6px 0 8px; }
@@ -87,7 +87,7 @@
     .feature-card h3 .feature-icon { font-size: 16px; color: #ffd6b1; }
     .feature-card p { margin: 0; color: var(--muted); }
     .screen-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 10px; }
-        .screen-grid img { width: 100%; height: auto; display: block; border-radius: 12px; object-fit: cover; background: none; box-shadow: none; }
+    .screen-grid img { width: 100%; height: auto; display: block; border-radius: 12px; object-fit: cover; background: none; box-shadow: none; }
     .body-text { margin: 0 0 10px; color: var(--muted); }
     .body-text.strong { font-weight: 700; }
     .body-text.tight { margin-bottom: 0; }
@@ -100,16 +100,16 @@
     .sticky-cta .store-badge { margin-top: 0; width: 170px; height: 50px; }
     .sticky-cta .store-badge.app-store img { max-width: 85%; }
     @media (max-width: 640px) { .hero { grid-template-columns: 1fr; gap: 14px; padding: 18px; } .cta-col { justify-content: flex-start; } .store-badge { width: 170px; height: 50px; } .sticky-cta { display:flex; position:fixed; left:12px; right:12px; bottom:12px; padding:10px 12px; background:rgba(5,10,25,0.92); border:1px solid var(--stroke); border-radius:14px; box-shadow:0 18px 38px rgba(0,0,0,0.55); align-items:center; justify-content:space-between; gap:12px; backdrop-filter:blur(8px); } }
-      :root[data-theme="light"] .hero,
+    :root[data-theme="light"] .hero,
     :root[data-theme="light"] .section { box-shadow: none; }
-      img { background: none; box-shadow: none; }
-      :root[data-theme="light"] .pill,
+    img { background: none; box-shadow: none; }
+    :root[data-theme="light"] .pill,
     :root[data-theme="light"] .tag {
       background: rgba(0,0,0,0.08);
       border: 1px solid rgba(0,0,0,0.14);
       color: #0f172a;
     }
-      :root[data-theme="light"] .eyebrow { color: #52606d; }
+    :root[data-theme="light"] .eyebrow { color: #52606d; }
   </style>
 </head>
 <body>
@@ -123,22 +123,21 @@
     </div>
 
     <section class="hero">
-      <div class="icon-wrap"><img src="https://play-lh.googleusercontent.com/IcekyLUkPuxeZ35VCskW5k4ztVIsjavGTCYvP3J-O1vxpLhTNDo-SOXdUczQsnRDC5E" alt="Pacer PRO ikonica"></div>
+      <div class="icon-wrap"><img src="https://play-lh.googleusercontent.com/tOzaLVizNsrK3_uan2uvVoYePgwujDGoGlz_gmAQiD5SV-w-BrzcCDYeN-OVHG9ediRJF6ScUUfhJhtZMH0w" alt="Kamere uživo ikonica"></div>
       <div>
-        <p class="eyebrow" data-i18n="eyebrow">Sport</p>
-        <h1 data-i18n="title">Pacer PRO</h1>
-        <p class="lede" data-i18n="lede">Napredni pace kalkulator, intervali i zone treninga za trkače.</p>
+        <p class="eyebrow" data-i18n="eyebrow">Saobraćaj i granice</p>
+        <h1 data-i18n="title">Kamere uživo</h1>
+        <p class="lede" data-i18n="lede">Uživo kamere sa puteva, gradova i granica Srbije.</p>
         <div class="badges">
           <span class="pill" data-i18n="badge-new">Nova</span>
-          <span class="pill">Android</span>
-          <span class="pill">iOS</span>
+          <span class="pill">Android</span><span class="pill">iOS</span>
         </div>
       </div>
       <div class="cta-col">
-        <div class="qr-hero"><img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https%3A//vlmihajlovic.github.io/apps/store-redirect.html%3Fandroid%3Dhttps%253A//play.google.com/store/apps/details%253Fid%253Ddev.mihajlovic.pacerpro%2526hl%253Dsr%2526gl%253DRS%26ios%3Dhttps%253A//apps.apple.com/us/app/pacer-pro/id1595147816" alt="QR kod Pacer PRO"></div>
+        <div class="qr-hero"><img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https%3A%2F%2Fvlmihajlovic.github.io%2Fapps%2Fstore-redirect.html%3Fandroid%3Dhttps%253A%252F%252Fplay.google.com%252Fstore%252Fapps%252Fdetails%253Fid%253Ddev.mihajlovic.kamereuzivo%2526hl%253Dsr%2526gl%253DRS%26ios%3Dhttps%253A%252F%252Fapps.apple.com%252Fus%252Fapp%252Fkamere-u%2525C5%2525BEivo%252Fid6757539178" alt="QR kod Kamere uživo"></div>
         <div class="store-stack">
-          <a class="store-badge" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=dev.mihajlovic.pacerpro&hl=sr&gl=RS"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a>
-          <a class="store-badge app-store" target="_blank" rel="noopener" href="https://apps.apple.com/us/app/pacer-pro/id1595147816"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store"></a>
+          <a class="store-badge" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=dev.mihajlovic.kamereuzivo&hl=sr&gl=RS"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a>
+          <a class="store-badge app-store" target="_blank" rel="noopener" href="https://apps.apple.com/us/app/kamere-u%C5%BEivo/id6757539178"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store"></a>
         </div>
       </div>
     </section>
@@ -146,57 +145,57 @@
     <div class="section">
       <h2 data-i18n="features-title">Šta dobijate u aplikaciji</h2>
       <div class="feature-grid">
-        <div class="feature-card"><h3 data-i18n="feat1-title"><span class="feature-icon">⏱️</span>Pace, vreme, distanca</h3><p data-i18n="feat1-body">Računa bilo koju od tri vrednosti na osnovu druge dve.</p></div>
-        <div class="feature-card"><h3 data-i18n="feat2-title"><span class="feature-icon">📊</span>Zone i prolazi</h3><p data-i18n="feat2-body">Zone treninga i prolazna vremena po kilometru.</p></div>
-        <div class="feature-card"><h3 data-i18n="feat3-title"><span class="feature-icon">🎯</span>Procene rezultata</h3><p data-i18n="feat3-body">Ponuđene procene vremena na drugim distancama i fartlek planovi.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat1-title"><span class="feature-icon">📡</span>Javne kamere Srbije</h3><p data-i18n="feat1-body">Saobraćaj, granični prelazi i popularna odredišta u jednom mestu.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat2-title"><span class="feature-icon">🔍</span>Filteri i pretraga</h3><p data-i18n="feat2-body">Filtriraj po lokaciji ili tipu i pronađi kameru u sekundi.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat3-title"><span class="feature-icon">⭐</span>Omiljeni i status puta</h3><p data-i18n="feat3-body">Dodaj omiljene i prati stanje puta u realnom vremenu.</p></div>
       </div>
     </div>
 
     <div class="section">
       <h2 data-i18n="screens-title">Screenshots</h2>
-                                                                                                                                                                                                                                                                                                                                                                                                <div class="screen-grid">
-                                                                                                                                                                                                  <img src="https://play-lh.googleusercontent.com/CE7rIXxsRso_rKAbb7iCwHgsVKUQ3f1jT9zics66rijMulvAmhX5vdUb2PvWeB8YUxgu=w1052-h592" alt="Pacer PRO screenshot 1">
-                                                                                                                                                                                                  <img src="https://play-lh.googleusercontent.com/JtSIIlbA4QPGnWnTvKXOjSQttmoRQ4gk70FtQkOTlsYtTicAyEUVsU_xn7jXdiOZBFk=w1052-h592" alt="Pacer PRO screenshot 2">
-                                                                                                                                                                                                  <img src="https://play-lh.googleusercontent.com/T2xPT83es6JklCxIkI5BS2LEXqF5aputlWvJOe6kIaq6NCk8tnpGocI0ByLeorgfOHZb=w1052-h592" alt="Pacer PRO screenshot 3">
-                                                                                                                                                                                                  <img src="https://play-lh.googleusercontent.com/qAqThTP_Ujk2A_qxmpBW6NZW-gTdQ2D7SpVJVeHmeQ0liui9E9JcQ8aY9J-hQm29tg=w1052-h592" alt="Pacer PRO screenshot 4">
-                                                                                                                                                                                                  <img src="https://play-lh.googleusercontent.com/cBXiL7LbSEtJErHOKPU1IhZGefEQy-ABnRG8nWSPZHIsPMYbGG1IiW0TkX0bNuXnIoM=w1052-h592" alt="Pacer PRO screenshot 5">
-                                                                                                                                                                                                  <img src="https://play-lh.googleusercontent.com/xylpQYbpJxtWWsvRy8f_QMuY_wPpnsocjf_j2Lfm5yX8nivsonvVRchcCJFq_se9mlUl=w1052-h592" alt="Pacer PRO screenshot 6">
-                                                                                                                                                                                                  <img src="https://play-lh.googleusercontent.com/ROynweYhukzIpMeZvpY-AsrhT2b3a403AWDi6G7_RW4Bj6bQONSYHCYgGc3P0fEywGk=w1052-h592" alt="Pacer PRO screenshot 7">
-                                                                                                                                                                                                  <img src="https://play-lh.googleusercontent.com/eaUucLmPpBEBY1x2Q_hvbwiy48pZkAm3jgdrHSHh42MgpcL3tZ5tAlg1z-uJgKXLNXMX=w1052-h592" alt="Pacer PRO screenshot 8">
-                                                                                                                                                                                                </div>
+      <div class="screen-grid">
+        <img src="https://play-lh.googleusercontent.com/eixbfc0YrlVFfhVu990byCLjrDCaMUSOea5WlU_7x-3DyY1ZbK7RUD_v-UhqufXSBeML5dUlNIE2hi5Gj_dZbw=w1052-h592" alt="Kamere uživo screenshot 1">
+        <img src="https://play-lh.googleusercontent.com/AwbhgpVz7z3yk5nFcHgrbq0E77ySJZZlJLyTo-XoJ_5sd2UC3oh-ICSNBDymrSufnhQUdvZ8dDPYBKVcoEgIGg=w1052-h592" alt="Kamere uživo screenshot 2">
+        <img src="https://play-lh.googleusercontent.com/yhmaBoVjHETCniJ62OsjpFKbrSUiWVgIHo41sHPAehBIhFA1zUZVTimk_Z2gTevvb0CNQx8MYUq_hMianctGfw=w1052-h592" alt="Kamere uživo screenshot 3">
+        <img src="https://play-lh.googleusercontent.com/S0_RlgC7yJf9d-zN1thYBYm-mrijsYBgN22115PtTDboR_Z9FeAfdZeSErDl8bslz0hV6to7Q0CUH8x75aQ3=w1052-h592" alt="Kamere uživo screenshot 4">
+        <img src="https://play-lh.googleusercontent.com/NY72lPM4jfqWfjEfnZqG3ZKL989z5xrUkICahlFRjDN6wp7gisshzfzokfvNsC5zhirlAVA9TCVeeJBYQAsNmg=w1052-h592" alt="Kamere uživo screenshot 5">
+        <img src="https://play-lh.googleusercontent.com/aHvwbFvTv97Vww2ilulo8v0_zjLyDSICUMzdILZ8cCA6fUwCCAXvENB7HdbVQ35yHFqMYnswbyfvvspOBgHFgA=w1052-h592" alt="Kamere uživo screenshot 6">
+        <img src="https://play-lh.googleusercontent.com/Zm9WFyXyjsf9UP7fxmTfPXbv2oyJUKdZBbhLUBQUmdzemrgF_IsJLdBPj0PFFGQFLgqPFJ9BC5XKNYp5KDKKzL4=w1052-h592" alt="Kamere uživo screenshot 7">
+      </div>
     </div>
 
     <div class="section">
       <h2 data-i18n="desc-title">Opis aplikacije</h2>
-      <p class="body-text" data-i18n="desc-p1">Pacer PRO je napredni alat za trkače: računa tempo, dužinu, vreme i daje dodatne metrike za intervale i zone.</p>
+      <p class="body-text" data-i18n="desc-p1">Kamere Uživo donosi javno dostupne kamere iz Srbije – saobraćaj, granični prelazi i popularna odredišta (Beograd, Novi Sad, Kopaonik, Zlatibor, Stara planina…).</p>
+      <p class="body-text" data-i18n="desc-p2">Gledaj streamove uživo, filtriraj po lokaciji ili tipu, brzo pretraži, dodaj omiljene i prati status puta u realnom vremenu.</p>
+      <p class="body-text" data-i18n="desc-p3">Podržani su i statični feedovi skijališta kada video nije dostupan.</p>
       <p class="body-text strong" data-i18n="desc-heading">KARAKTERISTIKE:</p>
       <ul class="body-list">
-        <li data-i18n="desc-li1">izračunaj dužinu, vreme ili pace na osnovu druge dve informacije</li>
-        <li data-i18n="desc-li2">fartlek/interval kalkulator i broj ponavljanja</li>
-        <li data-i18n="desc-li3">procena vremena za druge distance na osnovu rezultata</li>
-        <li data-i18n="desc-li4">prolazna vremena po kilometru za uneti pace</li>
-        <li data-i18n="desc-li5">zone treninga i tabela kuper testa</li>
+        <li data-i18n="desc-li1">Javne kamere saobraćaja, granica i destinacija</li>
+        <li data-i18n="desc-li2">Uživo streamovi i brza pretraga</li>
+        <li data-i18n="desc-li3">Filteri po lokaciji ili tipu</li>
+        <li data-i18n="desc-li4">Omiljene lokacije i status puta</li>
+        <li data-i18n="desc-li5">Statični feedovi skijališta kada video nije dostupan</li>
       </ul>
-      <p class="body-text" data-i18n="desc-p2">Aplikacija podržava tamnu i svetlu temu. Na telefonima koji podržavaju teme, aplikacija se automatski prilagođava temi telefona. Na ostalim uređajima moguće je ručno izabrati željenu temu.</p>
-      <p class="body-text tight" data-i18n="note">NAPOMENA: Podaci nisu dostupni ukoliko uređaj nije priključen na internet.</p>
+      <p class="body-text tight" data-i18n="note">Javne kamere iz Srbije na jednom mestu.</p>
     </div>
 
   </div>
   <div class="sticky-cta">
     <div class="copy">
-      <strong>Pacer PRO</strong>
-      <span data-i18n="sticky-sub">Napredni tempo kalkulator</span>
+      <strong>Kamere uživo</strong>
+      <span data-i18n="sticky-sub">Kamere Srbije uživo</span>
     </div>
     <div class="badge-row">
-      <a class="store-badge" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=dev.mihajlovic.pacerpro&hl=sr&gl=RS">
+      <a class="store-badge" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=dev.mihajlovic.kamereuzivo&hl=sr&gl=RS">
         <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
       </a>
-      <a class="store-badge app-store" target="_blank" rel="noopener" href="https://apps.apple.com/us/app/pacer-pro/id1595147816">
+      <a class="store-badge app-store" target="_blank" rel="noopener" href="https://apps.apple.com/us/app/kamere-u%C5%BEivo/id6757539178">
         <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
       </a>
     </div>
   </div>
-    <script>
+  <script>
     (function() {
       const root = document.documentElement;
       const toggle = document.getElementById('themeToggle');
@@ -230,29 +229,30 @@
       });
       const en = {
         back: 'Back to home',
-        eyebrow: 'Sports',
-        title: 'Pacer PRO',
-        lede: 'Advanced pace calculator, intervals, and training zones for runners.',
+        eyebrow: 'Traffic and borders',
+        title: 'Kamere uživo',
+        lede: 'Live cameras from roads, cities, and Serbian borders.',
         'features-title': 'What you get',
         'badge-new': 'New',
-        'feat1-title': 'Pace, time, distance',
-        'feat1-body': 'Calculate any of the three values from the other two.',
-        'feat2-title': 'Zones and splits',
-        'feat2-body': 'Training zones and per-kilometer splits.',
-        'feat3-title': 'Result estimates',
-        'feat3-body': 'Projected times on other distances and fartlek plans.',
+        'feat1-title': 'Public cameras in Serbia',
+        'feat1-body': 'Traffic, border crossings, and popular destinations in one place.',
+        'feat2-title': 'Filters and search',
+        'feat2-body': 'Filter by location or type and find a camera in seconds.',
+        'feat3-title': 'Favorites and road status',
+        'feat3-body': 'Save favorites and track road conditions in real time.',
         'screens-title': 'Screenshots',
         'desc-title': 'App description',
-        'desc-p1': 'Pacer PRO is a pro tool for runners: pace, distance, time plus extra metrics for intervals and zones.',
+        'desc-p1': 'Kamere Uživo brings publicly available cameras from Serbia — traffic, border crossings, and popular destinations (Belgrade, Novi Sad, Kopaonik, Zlatibor, Stara planina…).',
+        'desc-p2': 'Watch live streams, filter by location or type, search quickly, add favorites, and track road status in real time.',
+        'desc-p3': 'Static ski resort feeds are supported when video is unavailable.',
         'desc-heading': 'FEATURES:',
-        'desc-li1': 'calculate distance, time or pace from the other two inputs',
-        'desc-li2': 'fartlek/interval calculator and repeat counts',
-        'desc-li3': 'predict times for other distances from your results',
-        'desc-li4': 'per-kilometer splits for a given pace',
-        'desc-li5': 'training zones and Cooper test table',
-        'desc-p2': 'Supports dark and light themes; follows the phone theme or set manually.',
-        note: 'NOTE: Data is unavailable if the device is offline.',
-        'sticky-sub': 'Pro pace calculator'
+        'desc-li1': 'Public cameras for traffic, borders, and destinations',
+        'desc-li2': 'Live streams and quick search',
+        'desc-li3': 'Filters by location or type',
+        'desc-li4': 'Favorite locations and road status',
+        'desc-li5': 'Static ski resort feeds when video is unavailable',
+        note: 'Public cameras from Serbia in one place.',
+        'sticky-sub': 'Live cameras in Serbia'
       };
       function apply(lang) {
         document.documentElement.setAttribute('data-lang', lang);

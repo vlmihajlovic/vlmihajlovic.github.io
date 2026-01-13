@@ -138,10 +138,10 @@
     .visual-note { margin: 0; color: var(--muted); font-size: 13px; }
     .store-stack { display: grid; gap: 6px; align-content: start; justify-items: start; }
     .store-badge { display: inline-flex; align-items: center; justify-content: center; margin-top: 2px; width: 230px; height: 68px; }
-    .store-badge img { max-width: 100%; max-height: 100%; width: auto; height: auto; display: block; border-radius: 10px; object-fit: contain; transition: transform 0.15s ease; }
+    .store-badge img { max-width: 100%; max-height: 100%; width: auto; height: auto; display: block; border-radius: 8px; object-fit: contain; transition: transform 0.15s ease; }
     .store-badge:hover img { transform: translateY(-1px) scale(1.01); }
     .store-badge.app-store img { max-width: 88%; }
-    .store-badge.play-store img { max-width: 90%; }
+    .store-badge.play-store img { max-width: 60%; }
     .qr-hero { width: 170px; height: 170px; display: grid; place-items: center; padding: 0; }
     .qr-hero img { width: 100%; height: 100%; display: block; }
     @media (max-width: 640px) { .qr-hero { display: none; } }
@@ -441,6 +441,20 @@
       </article>
 
       <article class="app-card" data-platform="android ios" data-category="tool">
+        <div class="thumb"><img src="https://play-lh.googleusercontent.com/tOzaLVizNsrK3_uan2uvVoYePgwujDGoGlz_gmAQiD5SV-w-BrzcCDYeN-OVHG9ediRJF6ScUUfhJhtZMH0w" alt="Kamere uživo ikonica"></div>
+        <div>
+          <div class="card-top">
+            <div class="title-row">
+              <h3 data-i18n="app-kamere-name">Kamere uživo</h3>
+              <div class="tag-row"><span class="tag" data-i18n="app-kamere-new">Nova</span><span class="tag">Android</span><span class="tag">iOS</span></div>
+            </div>
+            <a class="btn compact" href="apps/kamere-uzivo.html">Detalji</a>
+          </div>
+        </div>
+        <p class="app-desc" data-i18n="app-kamere-desc">Uživo kamere sa puteva, gradova i granica Srbije.</p>
+      </article>
+
+      <article class="app-card" data-platform="android ios" data-category="tool">
         <div class="thumb"><img src="https://play-lh.googleusercontent.com/sr2GlcwxG7l6fvs_0fVdtpPYjIAHUvytXdt0nIqdVxWVL6CL6uOnVV2d2TYtOTC4IygurVRgYeBORZy3aQrPue0" alt="Kvalitet vazduha ikonica"></div>
         <div>
           <div class="card-top">
@@ -645,6 +659,9 @@
         'app-vreme-name': 'Vreme u Srbiji',
         'app-vreme-desc': 'RHMZ podaci o vremenu, prognoze i mape padavina.',
         'app-vreme-rating': 'Ocena 4.2/5',
+        'app-kamere-name': 'Kamere uživo',
+        'app-kamere-desc': 'Uživo kamere sa puteva, gradova i granica Srbije.',
+        'app-kamere-new': 'Nova',
         'app-kvalitet-name': 'Kvalitet vazduha',
         'app-kvalitet-desc': 'Rezultati automatskog monitoringa zagadjenosti vazduha u Republici Srbiji.',
         'app-kvalitet-rating': 'Ocena 4.5/5',
@@ -704,6 +721,9 @@
         'app-vreme-name': 'Vreme u Srbiji',
         'app-vreme-desc': 'RHMZ weather data, forecasts, and precipitation maps.',
         'app-vreme-rating': 'Rating 4.2/5',
+        'app-kamere-name': 'Kamere uživo',
+        'app-kamere-desc': 'Live cameras from roads, cities, and Serbian borders.',
+        'app-kamere-new': 'New',
         'app-kvalitet-name': 'Kvalitet vazduha',
         'app-kvalitet-desc': 'Automatic air quality monitoring results in Serbia.',
         'app-kvalitet-rating': 'Rating 4.5/5',
