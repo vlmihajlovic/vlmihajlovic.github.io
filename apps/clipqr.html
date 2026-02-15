@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="sr">
+<head>
+  <script>(function(){const t=localStorage.getItem("theme"); if(t) document.documentElement.setAttribute("data-theme", t);})();</script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ClipQR - brz i jednostavan alat za generisanje i skeniranje QR kodova.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>ClipQR - detalji</title>
+  <link rel="stylesheet" href="detail.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="back" href="../index.html"><span class="arrow">←</span><span data-i18n="back">Nazad na početnu</span></a>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <button id="langToggle" class="lang-toggle" type="button">EN</button>
+        <button id="themeToggle" class="theme-toggle" type="button">🌙 Tema</button>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="icon-wrap">
+        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='110' height='110' viewBox='0 0 110 110'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23ff7a00'/><stop offset='1' stop-color='%23f25f00'/></linearGradient></defs><rect width='110' height='110' rx='22' fill='url(%23g)'/><text x='50%25' y='54%25' font-family='Space%20Grotesk, Arial' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'>ClipQR</text></svg>" alt="ClipQR ikonica">
+      </div>
+      <div>
+        <p class="eyebrow" data-i18n="eyebrow">Novi alat</p>
+        <h1 data-i18n="title">ClipQR</h1>
+        <p class="lede" data-i18n="lede">Brz i jednostavan alat za generisanje i skeniranje QR kodova.</p>
+        <div class="badges">
+          <span class="pill" data-i18n="badge-soon">Uskoro</span>
+        </div>
+      </div>
+      <div class="cta-col">
+        <div class="qr-hero"><img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=ClipQR" alt="QR kod ClipQR"></div>
+        <div class="store-stack">
+          <span class="pill" data-i18n="cta-soon">Uskoro na store-ovima</span>
+          <span class="pill" data-i18n="cta-note">Detalji u pripremi</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="section">
+      <h2 data-i18n="features-title">Šta dobijate u aplikaciji</h2>
+      <div class="feature-grid">
+        <div class="feature-card"><h3 data-i18n="feat1-title"><span class="feature-icon">🧩</span>Više tipova QR kodova</h3><p data-i18n="feat1-body">Kreiraj QR iz teksta, linka, telefona, emaila, SMS-a, Wi-Fi podataka ili kontakta.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat2-title"><span class="feature-icon">⚡</span>Brzo skeniranje</h3><p data-i18n="feat2-body">Skeniraj kamerom i odmah vidi rezultat.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat3-title"><span class="feature-icon">⭐</span>Omiljeni i istorija</h3><p data-i18n="feat3-body">Sačuvaj važne kodove i ponovi akcije jednim dodirom.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat4-title"><span class="feature-icon">📤</span>Kopiraj i podeli</h3><p data-i18n="feat4-body">Kopiraj sadržaj ili ga podeli direktno.</p></div>
+        <div class="feature-card"><h3 data-i18n="feat5-title"><span class="feature-icon">✨</span>Čist interfejs</h3><p data-i18n="feat5-body">Moderna tema i jednostavna navigacija.</p></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="screens-title">Screenshots</h2>
+      <p class="body-text" data-i18n="screens-body">Snimci ekrana stižu uskoro.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="desc-title">Opis aplikacije</h2>
+      <p class="body-text" data-i18n="desc-p1">ClipQR je brz i jednostavan alat za generisanje i skeniranje QR kodova. Kreiraj QR iz teksta, linkova, telefona, emaila, SMS-a, Wi-Fi podataka ili kontakata, sačuvaj omiljene kodove i brzo ponovi akcije iz istorije.</p>
+      <p class="body-text" data-i18n="desc-p2">Skeniraj kodove kamerom, kopiraj sadržaj, pozovi, pošalji poruku ili email - sve iz jednog mesta.</p>
+      <p class="body-text strong" data-i18n="desc-heading">Glavne mogućnosti:</p>
+      <ul class="body-list">
+        <li data-i18n="desc-li1">Generisanje QR kodova za više tipova sadržaja</li>
+        <li data-i18n="desc-li2">Brzo skeniranje i pregled rezultata</li>
+        <li data-i18n="desc-li3">Omiljeni kodovi i istorija skeniranja</li>
+        <li data-i18n="desc-li4">Jednostavno kopiranje i deljenje</li>
+        <li data-i18n="desc-li5">Moderna tema i čist interfejs</li>
+      </ul>
+    </div>
+
+  </div>
+  <div class="sticky-cta">
+    <div class="copy">
+      <strong>ClipQR</strong>
+      <span data-i18n="sticky-sub">QR generator i skener</span>
+    </div>
+    <div class="badge-row">
+      <span class="pill" data-i18n="cta-soon">Uskoro na store-ovima</span>
+    </div>
+  </div>
+  <script>
+    (function() {
+      const root = document.documentElement;
+      const toggle = document.getElementById('themeToggle');
+      const saved = localStorage.getItem('theme') || 'dark';
+      root.setAttribute('data-theme', saved);
+      const setLabel = () => { toggle.textContent = root.getAttribute('data-theme') === 'light' ? '🌙 Tamna' : '☀️ Svetla'; };
+      setLabel();
+      toggle.addEventListener('click', () => {
+        const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        setLabel();
+      });
+    })();
+
+    (function() {
+      const toggle = document.getElementById('langToggle');
+      const saved = localStorage.getItem('lang') || 'sr';
+      const elements = document.querySelectorAll('[data-i18n]');
+      const srTexts = {};
+      const icons = {};
+      elements.forEach(el => {
+        const icon = el.querySelector('.feature-icon');
+        let text = el.textContent;
+        if (icon) {
+          const iconText = icon.textContent || '';
+          text = text.replace(iconText, '').trim();
+          icons[el.dataset.i18n] = icon.outerHTML;
+        }
+        srTexts[el.dataset.i18n] = text;
+      });
+      const en = {
+        back: 'Back to home',
+        eyebrow: 'New utility',
+        title: 'ClipQR',
+        lede: 'A fast, simple tool for generating and scanning QR codes.',
+        'badge-soon': 'Coming soon',
+        'features-title': 'What you get',
+        'feat1-title': 'Multiple QR types',
+        'feat1-body': 'Create QR from text, links, phone numbers, emails, SMS, Wi-Fi details, or contacts.',
+        'feat2-title': 'Fast scanning',
+        'feat2-body': 'Scan with the camera and see results instantly.',
+        'feat3-title': 'Favorites and history',
+        'feat3-body': 'Save important codes and repeat actions with one tap.',
+        'feat4-title': 'Copy and share',
+        'feat4-body': 'Copy content or share it directly.',
+        'feat5-title': 'Clean interface',
+        'feat5-body': 'Modern look with simple navigation.',
+        'screens-title': 'Screenshots',
+        'screens-body': 'Screenshots are coming soon.',
+        'desc-title': 'App description',
+        'desc-p1': 'ClipQR is a fast, simple tool for generating and scanning QR codes. Create QR codes from text, links, phone numbers, emails, SMS, Wi-Fi details, or contacts, save favorites, and quickly reuse items from history.',
+        'desc-p2': 'Scan with the camera, copy content, call, text, or email - everything in one place.',
+        'desc-heading': 'Key features:',
+        'desc-li1': 'Generate QR codes for multiple content types',
+        'desc-li2': 'Fast scanning and clear results',
+        'desc-li3': 'Favorites and scan history',
+        'desc-li4': 'Easy copy and share',
+        'desc-li5': 'Modern look with a clean UI',
+        'sticky-sub': 'QR generator and scanner',
+        'cta-soon': 'Coming to stores soon',
+        'cta-note': 'Details in progress'
+      };
+      function apply(lang) {
+        document.documentElement.setAttribute('data-lang', lang);
+        localStorage.setItem('lang', lang);
+        elements.forEach(el => {
+          const key = el.dataset.i18n;
+          const text = lang === 'en' && en[key] ? en[key] : srTexts[key] || el.textContent;
+          if (icons[key]) {
+            el.innerHTML = icons[key] + ' ' + text;
+          } else {
+            el.textContent = text;
+          }
+        });
+        toggle.textContent = lang === 'sr' ? 'EN' : 'SR';
+      }
+      apply(saved);
+      toggle.addEventListener('click', () => {
+        const next = (document.documentElement.getAttribute('data-lang') || 'sr') === 'sr' ? 'en' : 'sr';
+        apply(next);
+      });
+    })();
+  </script>
+
+</body>
+</html>
