@@ -144,7 +144,25 @@
     .store-badge.play-store img { max-width: 60%; }
     .qr-hero { width: 170px; height: 170px; display: grid; place-items: center; padding: 0; }
     .qr-hero img { width: 100%; height: 100%; display: block; }
-    @media (max-width: 640px) { .qr-hero { display: none; } }
+    @media (max-width: 640px) {
+      .qr-hero { display: none; }
+      .hero-cta-box > div {
+        grid-template-columns: 1fr !important;
+        justify-items: center !important;
+      }
+      .store-stack {
+        display: flex;
+        gap: 8px;
+        flex-wrap: nowrap;
+        width: auto;
+        justify-content: center;
+      }
+      .store-stack .store-badge {
+        width: 170px;
+        flex: 0 0 170px;
+      }
+      .store-stack .store-badge.play-store img { max-width: 100%; }
+    }
     .btn {
       background: linear-gradient(135deg, var(--orange), var(--orange-2));
       color: #050a19;
@@ -300,6 +318,19 @@
       margin-bottom: 4px;
     }
     .btn.compact { padding: 10px 12px; border-radius: 10px; }
+    .bottom-store-wrap {
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
+    }
+    .bottom-store-stack {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      max-width: 520px;
+    }
     footer {
       margin-top: 46px;
       color: var(--muted);
@@ -313,6 +344,17 @@
     }
     @media (max-width: 640px) {
       .app-card { grid-template-columns: 1fr; }
+      .bottom-store-wrap { margin-top: 18px; }
+      .bottom-store-stack {
+        flex-wrap: nowrap;
+        max-width: none;
+      }
+      .bottom-store-stack .store-badge {
+        width: auto;
+        flex: 1 1 0;
+        min-width: 0;
+      }
+      .bottom-store-stack .store-badge.play-store img { max-width: 100%; }
     }
       :root[data-theme="light"] .hero,
     :root[data-theme="light"] .section { box-shadow: none; }
@@ -636,6 +678,17 @@
         <p class="app-desc" data-i18n="app-parking-desc">SMS plaćanje parkiranja i mapa zona u Beogradu.</p>
       </article>
     </section>
+
+    <div class="bottom-store-wrap">
+      <div class="bottom-store-stack">
+        <a class="store-badge play-store" href="https://play.google.com/store/apps/dev?id=Vladimir+Mihajlovic" target="_blank" rel="noopener">
+          <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
+        </a>
+        <a class="store-badge app-store" href="https://apps.apple.com/us/developer/vladimir-mihajlovic/id1533255105" target="_blank" rel="noopener">
+          <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
+        </a>
+      </div>
+    </div>
 
     <footer>
       <div><a class="ghost" href="mailto:dev.mihajlovic@gmail.com" data-i18n="cta-contact">Kontakt</a></div>
