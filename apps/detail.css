@@ -83,7 +83,7 @@
     .feature-card h3 { margin: 0 0 6px; font-size: 16px; display: inline-flex; align-items: center; gap: 8px; }
     .feature-card h3 .feature-icon { font-size: 16px; color: #ffd6b1; }
     .feature-card p { margin: 0; color: var(--muted); }
-    .screen-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 10px; }
+    .screen-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 10px; }
         .screen-grid img { width: 100%; height: auto; display: block; border-radius: 12px; object-fit: cover; background: none; box-shadow: none; }
     .body-text { margin: 0 0 10px; color: var(--muted); }
     .body-text.strong { font-weight: 700; }
